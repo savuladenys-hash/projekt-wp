@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktivní ochranné systémy | Vojenský blog</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+      
+        .article-full {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #c0392b;
+        }
+        
+        .article-header {
+            position: relative;
+        }
+        
+        .article-full .article-image {
+            height: 500px;
+            background-color: #2c3e50;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ecf0f1"><rect x="30" y="40" width="40" height="30" fill="%23344e5c"/><circle cx="50" cy="55" r="8"/><path d="M20 55 L35 55 M65 55 L80 55" stroke="%23c0392b" stroke-width="3"/><circle cx="50" cy="55" r="3" fill="%23c0392b"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 150px;
+        }
+        
+        .article-full .article-content {
+            padding: 2rem;
+        }
+        
+        .article-full h1 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-full .article-meta {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin: 1rem 0 1.5rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .article-full .article-meta span {
+            margin-right: 2rem;
+        }
+        
+        .article-full p {
+            margin: 1.2rem 0;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        
+        .article-full h2 {
+            color: #2c3e50;
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem 0;
+            border-left: 4px solid #c0392b;
+            padding-left: 1rem;
+        }
+        
+        .image-caption {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        .aps-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #c0392b;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+        
+        .aps-box ul {
+            margin: 0.5rem 0 0 1.5rem;
+        }
+        
+        .aps-box li {
+            margin: 0.3rem 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .comparison-table th {
+            background-color:  rgb(20, 52, 20);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            border-bottom: 1px solid #ddd;
+            padding: 0.8rem;
+        }
+        
+     
+        .comments-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #c0392b;
+        }
+        
+        .comments-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 0.5rem;
+        }
+        
+        .comment {
+            border-bottom: 1px solid #ecf0f1;
+            padding: 1.2rem 0;
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .comment-date {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+        
+        .comment-content {
+            color: #333;
+            line-height: 1.5;
+            margin-left: 0.5rem;
+        }
+        
+        .comment-form {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .comment-form h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .comment-form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .comment-form button {
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .comment-form button:hover {
+            background-color: #a93226;
+        }
+        
+        @media (max-width: 768px) {
+            .article-full h1 {
+                font-size: 1.8rem;
+            }
+            
+            .article-full .article-image {
+                height: 200px;
+            }
+            
+            .comparison-table {
+                font-size: 0.75rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Vojenský blog</h1>
+            
+            <nav>
+                <ul class="nav-menu">
+                          
+                   <li class="nav-item">
+                        <input type="checkbox" id="nav-domu" class="nav-toggle">
+                        <label for="nav-domu" class="nav-btn">Domů</label>
+                        <ul class="submenu">
+                            <li><a href="index.html">Úvodní stránka</a></li>
+                            <li><a href="nejcastejsi.html">Nejčtenější</a></li>
+                        </ul>
+                    </li>
+                    
+                   
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-clanky" class="nav-toggle">
+                        <label for="nav-clanky" class="nav-btn">Články</label>
+                        <ul class="submenu">
+                            <li><a href="index1.html">Všechny články</a></li>
+                            <li><a href="nejnovejsi.html">Nejnovější</a></li>
+                            <li><a href="doporucene.html">Doporučené</a></li>
+                        </ul>
+                    </li>
+                    
+                  
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-kontakt" class="nav-toggle">
+                        <label for="nav-kontakt" class="nav-btn">Kontakt</label>
+                        <ul class="submenu">
+        
+                            <li><a href="o.autorovi.html" style="background-color: #c0392b; color: white;">O autorovi</a></li>
+                           
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="articles">
+            <article class="article-full">
+                <div class="article-header">
+                   <img src="aktivni.ochrana.jpg" alt=""style="width: 100%; height: 400px; object-fit: cover;">
+                    <div class="image-caption">Aktivní ochranný systém Trophy v akci - zachycení protitankové střely (ilustrační foto)</div>
+                </div>
+                
+                <div class="article-content">
+                    <h1>Aktivní ochranné systémy - revoluce v přežití</h1>
+                    
+                    <div class="article-meta">
+                        <span>📅 23. března 2026</span>
+                        <span>👤 Autor: Petr Svoboda</span>
+                        <span>📁 Kategorie: Technika</span>
+                    </div>
+                    
+                    <p>Doba, kdy pancíř rozhodoval o tom, zda tank přežije zásah, je nenávratně pryč. Moderní protitankové zbraně dokážou prorazit i ten nejkvalitnější pasivní pancíř. Řešením jsou aktivní ochranné systémy (APS – Active Protection Systems), které ničí přilétající střely dříve, než vůbec zasáhnou vozidlo. Tato technologie představuje největší revoluci v ochraně obrněné techniky od druhé světové války.</p>
+                    
+                    <p>Princip je jednoduchý: radarové nebo optické senzory detekují blížící se hrozbu (protitankovou střelu, RPG, raketu). Počítač vypočítá trajektorii a v milisekundách aktivuje obranný mechanismus – buď vystřelí malou střelu, která hrozbu zničí, nebo odpálí výbušninu, která vytvoří clonu šrapnelů. Celý proces trvá zlomek sekundy, dřív než by se posádka stačila nadechnout.</p>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Systém</th>
+                                <th>Země</th>
+                                <th>Typ</th>
+                                <th>Účinnost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Trophy</td>
+                                <td>Izrael</td>
+                                <td>Kinetický (střela)</td>
+                                <td>90 %+</td>
+                            </tr>
+                            <tr>
+                                <td>Iron Fist</td>
+                                <td>Izrael</td>
+                                <td>Kinetický</td>
+                                <td>85 %+</td>
+                            </tr>
+                            <tr>
+                                <td>Quick Kill</td>
+                                <td>USA</td>
+                                <td>Kinetický</td>
+                                <td>90 %+</td>
+                            </tr>
+                            <tr>
+                                <td>Arena</td>
+                                <td>Rusko</td>
+                                <td>Explozivní</td>
+                                <td>70-80 %</td>
+                            </tr>
+                            <tr>
+                                <td>LEDS-150</td>
+                                <td>JAR</td>
+                                <td>Kombinovaný</td>
+                                <td>85 %+</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>Nejúspěšnějším a nejprověřenějším systémem je izraelský Trophy. Během operace Ochranné ostří v Gaze (2014) zaznamenal desítky zásahů se stoprocentní úspěšností. Dnes jej používají izraelské tanky Merkava, americké M1 Abrams a německé Leopardy. Systém dokáže zachytit rakety z jakéhokoli směru, včetně útoků shora, které jsou pro tanky nejnebezpečnější.</p>
+                    
+                    <p>Výhody jsou zřejmé: dramaticky se zvyšuje šance posádky na přežití. Tank může pokračovat v boji i po opakovaných útocích. Nevýhodou je hmotnost (několik set kilogramů), cena (stovky tisíc dolarů za systém) a riziko pro pěchotu v blízkosti vozidla. Exploze může zranit vlastní vojáky, kteří jdou za tankem v těsné blízkosti.</p>
+                    
+                    <div class="aps-box">
+                        <strong>🛡️ Výhody APS oproti pasivnímu pancíři:</strong>
+                        <ul>
+                            <li><strong>Nepřítel neví, zda zasáhl:</strong> Ničení střel daleko od vozidla</li>
+                            <li><strong>Nižší hmotnost:</strong> Méně než tuny oproti tunám pancíře</li>
+                            <li><strong>360° ochrana:</strong> Kryje boky, záď a strop, kde je pancíř slabý</li>
+                            <li><strong>Ochrana proti dronům:</strong> Zachycuje i FPV drony s náloží</li>
+                            <li><strong>Možnost nasazení na starší vozidla:</strong> Modernizace za zlomek ceny</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Válka na Ukrajině ukázala klíčový význam APS. Ruské tanky, které systém Arena nemají, hynou po stovkách na FPV drony a protitankové střely. Ukrajinská vozidla, která dostala západní systémy Trophy nebo Iron Fist, mají mnohem vyšší míru přežití. Rozdíl je propastný – tank bez APS je dnes na bojišti snadným terčem.</p>
+                    
+                    <p>Budoucnost patří ještě sofistikovanějším systémům. Vyvíjejí se systémy, které nejen ničí hrozbu, ale také ji klasifikují – rozpoznají, zda jde o dron, raketu nebo dělostřelecký granát. Aktivní ochrana se stává standardem pro moderní armády. Česká armáda při nákupu nových BVP a modernizaci tanků počítá s instalací APS. Bez nich by nová technika neměla na bojišti šanci.</p>
+                    
+                    <p>Náklady na pořízení APS se pohybují mezi 300 000 až 500 000 dolary za systém. To je zanedbatelná částka ve srovnání s cenou tanku (3-10 milionů dolarů) nebo ještě důležitější – cenou životů posádky. Aktivní ochranné systémy nejsou luxus, ale nutnost. Revoluce v přežití je tady a žádná moderní armáda si nemůže dovolit zaostávat.</p>
+                    
+                    <p><em>Autor je vojenský analytik a specialista na obrněnou techniku. Dlouhodobě sleduje vývoj aktivních ochranných systémů a jejich nasazení v moderních konfliktech.</em></p>
+                </div>
+            </article>
+            
+            <div class="comments-section">
+                <h2>Komentáře (5)</h2>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Jiří Horák</span>
+                        <span class="comment-date">23.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        Super článek! Sleduju ten vývoj od prvních Trophy systémů. Je neuvěřitelné, jak ta technologie funguje – radar zachytí střelu a během zlomku vteřiny ji zničí. Jako z vědeckofantastického filmu.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Petr Svoboda (autor)</span>
+                        <span class="comment-date">23.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        @Jiří Horák: Díky. Přesně tak – ta rychlost je fascinující. Posádka ani neví, že byla napadena, než je hrozba zničena. Systém pracuje naprosto autonomně.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Martin Černý</span>
+                        <span class="comment-date">24.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        Co si myslíte o ruském systému Arena? Četl jsem, že má problémy s účinností a hlavně s detekcí FPV dronů. Na Ukrajině se moc neosvědčil.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Petr Svoboda (autor)</span>
+                        <span class="comment-date">24.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        @Martin Černý: Arena je starší generace, vyvinutá v 90. letech. Její radar má problémy s malými cíli jako FPV drony. Navíc je explozivní, takže ohrožuje vlastní pěchotu. Rusové jí mají málo a na frontě ji skoro nevidíme.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Tomáš Beneš</span>
+                        <span class="comment-date">25.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        Kdy bude mít česká armáda tanky s APS? Slyšel jsem, že se modernizují Leopardy. Je to pravda?
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Petr Svoboda (autor)</span>
+                        <span class="comment-date">25.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        @Tomáš Beneš: Ano, ČR nakupuje Leopardy 2A4 z Německa a plánuje jejich modernizaci. Součástí balíčku by měly být i APS systémy, pravděpodobně Trophy nebo Iron Fist. Je to otázka příštích let.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Jana Procházková</span>
+                        <span class="comment-date">26.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        Ty systémy jsou drahé, ale ta účinnost mluví za vše. Kolik tanků by dnes žilo, kdyby je měly... Skvělý článek.
+                    </div>
+                </div>
+                
+          
+        </main>
+        
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>O autorovi</h3>
+                <p><strong>Petr Svoboda</strong> je vojenský analytik a specialista na obrněnou techniku. Pravidelně publikuje v odborných časopisech a přednáší na Univerzitě obrany. Sleduje vývoj aktivních ochranných systémů od jejich počátků.</p>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3>Související články</h3>
+                <ul>
+                    <li><a href="clanek1.html">Nová generace BVP</a></li>
+                    <li><a href="clanek6.html">Drony na bojišti</a></li>
+                  <li><a href="clanek4.html">Modernizace letectva: Nové stíhačky na obzoru</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3>Klíčová fakta</h3>
+                <ul>
+                    <li><strong>Cena APS:</strong> 300-500 tis. USD</li>
+                    <li><strong>Účinnost Trophy:</strong> 90 %+</li>
+                    <li><strong>Reakční čas:</strong> < 0,5 sekundy</li>
+                    <li><strong>Hmotnost:</strong> 400-800 kg</li>
+                </ul>
+            </div>
+              <div class="sidebar-widget">
+                <h3>Kategorie</h3>
+                <div class="categories">
+                     <a href="technika.html" class="category-tag">Technika</a>
+                    <a href="historie.html" class="category-tag">Historie</a>
+                    <a href="vycvik.html" class="category-tag">Výcvik</a>
+                    <a href="letectvo.html" class="category-tag">Letectvo</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+   <footer>
+        <p>© 2026 Vojenský blog | Všechna práva vyhrazena</p>
+    </footer>
+</body>
+</html>

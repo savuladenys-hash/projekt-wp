@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MilitaryForce – letectvo: stíhačky, bombardéry a transportní letouny s detailními specifikacemi." />
+  <title>Letectvo – MilitaryForce</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .ac-card .card__img { height: 180px; }
+    .ac-detail-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 4px; border: 1px solid var(--clr-border); }
+    .role-icon { font-size: 1.4rem; margin-bottom: .25rem; }
+
+    .ac-card-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      transition: transform 0.25s ease;
+    }
+    .ac-card-link:hover {
+      color: inherit;
+      transform: translateY(-5px);
+    }
+    
+    [id] {
+      scroll-margin-top: 80px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="Hlavní navigace">
+  <div class="navbar__inner">
+    <a href="index(z).html" class="navbar__logo">⬡ Military<span>Force</span></a>
+    <ul class="navbar__nav" id="mainNav" role="list">
+                <li><a href="index(z).html">Domů</a></li>
+                <li><a href="pechota.html">Pěchota</a></li>
+                <li><a href="BVP.html">BVP</a></li>
+                <li><a href="tanky.html">Tanky</a></li>
+                <li><a href="letectvo.html" class="active">Letectvo</a></li>
+                <li><a href="namornictvo.html">Námořnictvo</a></li>
+                <li><a href="kontakt.html">O mně</a></li>
+            </ul>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Otevřít menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="page-header" style="background-image: linear-gradient(to bottom,rgba(10,12,14,.7) 0%,var(--clr-bg) 100%), url('https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=1400&q=70') center/cover no-repeat;">
+  <div class="container">
+    <span class="eyebrow">Vzdušné síly</span>
+    <h1>Letectvo</h1>
+    <p>Přehled moderních bojových letounů — stíhačky, bombardéry, útočné a průzkumné letouny.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="filter-tabs" role="group" aria-label="Filtrovat podle kategorie">
+      <button class="filter-tab active" data-filter="all">Vše</button>
+      <button class="filter-tab" data-filter="stihacka">Stíhačky</button>
+      <button class="filter-tab" data-filter="bombarder">Bombardéry</button>
+      <button class="filter-tab" data-filter="utocny">Útočné</button>
+      <button class="filter-tab" data-filter="transport">Transport</button>
+    </div>
+
+    <div class="grid-3" id="aircraftGrid">
+      
+      <a href="#f35" class="ac-card-link">
+        <article class="card ac-card reveal" data-cat="stihacka">
+          <img class="card__img" src="fotky/f-35_1.webp" alt="F-35 Lightning II" loading="lazy" />
+          <div class="card__body">
+            <div class="card__category">Stíhačka 5. generace</div>
+            <h3 class="card__title">F-35 Lightning II</h3>
+            <p class="card__text">Multirole stealth stíhačka Lockheed Martin. Tři varianty: CTOL, STOVL a palubní. Operuje u 18 zemí NATO.</p>
+            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+              <li>- Stealth technologie (RCS &lt; 0,001 m²)</li>
+              <li>- 1 960 km/h (Mach 1,6)</li>
+              <li>- AN/APG-81 AESA radar</li>
+            </ul>
+            <div class="card__meta">
+              <span class="badge badge--gold">USA</span>
+              <span class="mono">od 1998</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <a href="#su57" class="ac-card-link">
+        <article class="card ac-card reveal" data-cat="stihacka" style="transition-delay:.05s">
+          <img class="card__img" src="fotky/su-57.jpg" alt="Su-57 Felon" loading="lazy" />
+          <div class="card__body">
+            <div class="card__category">Stíhačka 5. generace</div>
+            <h3 class="card__title">Su-57 Felon</h3>
+            <p class="card__text">Ruský stealth multirole fighter Suchoj. Pokročilá letová manévrovatelnost díky 3D vektorování tahu.</p>
+            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+              <li>- Nízká odrazivost radaru</li>
+              <li>- 2 600 km/h (Mach 2,1)</li>
+              <li>- N036 Bélka radar</li>
+            </ul>
+            <div class="card__meta">
+              <span class="badge badge--red">Rusko</span>
+              <span class="mono">od 2013</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <a href="#rafale" class="ac-card-link">
+        <article class="card ac-card reveal" data-cat="stihacka" style="transition-delay:.1s">
+          <img class="card__img" src="fotky/rafale.jpg" alt="Rafale F4" loading="lazy" />
+          <div class="card__body">
+            <div class="card__category">Stíhačka 4+ generace</div>
+            <h3 class="card__title">Dassault Rafale F4</h3>
+            <p class="card__text">Francouzský omnirole fighter s delta křídlem. Schopen nést jaderné zbraně ASMP-A. Export do Egypta, Indie a dalších.</p>
+            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+              <li>- Výrazný RCS management</li>
+              <li>- 1 912 km/h (Mach 1,8)</li>
+              <li>- RBE2-AA AESA radar</li>
+            </ul>
+            <div class="card__meta">
+              <span class="badge badge--blue">Francie</span>
+              <span class="mono">od 2001</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <a href="#eurofighter" class="ac-card-link">
+        <article class="card ac-card reveal" data-cat="stihacka" style="transition-delay:.15s">
+          <img class="card__img" src="fotky/Eurofighter Typhoon.webp" alt="Eurofighter Typhoon" loading="lazy" />
+          <div class="card__body">
+            <div class="card__category">Stíhačka 4+ generace</div>
+            <h3 class="card__title">Eurofighter Typhoon</h3>
+            <p class="card__text">Víceúčelový dvoumotorový letoun s delta křídlem a kachními plochami. Páteř evropských vzdušných sil NATO.</p>
+            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+              <li>- Schopnost supercruise bez přídavného spalování</li>
+              <li>- 2 495 km/h (Mach 2,0)</li>
+              <li>- Radar Captor-E AESA</li>
+            </ul>
+            <div class="card__meta">
+              <span class="badge badge--blue">EU</span>
+              <span class="mono">od 2003</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <a href="#b21" class="ac-card-link">
+        <article class="card ac-card reveal" data-cat="bombarder" style="transition-delay:.05s">
+          <img class="card__img" src="fotky/b-21.jpg" alt="B-21 Raider" loading="lazy" />
+          <div class="card__body">
+            <div class="card__category">Strategický bombardér</div>
+            <h3 class="card__title">B-21 Raider</h3>
+            <p class="card__text">Nejmodernější bombardér USA. Létající křídlo 6. generace, navržen pro jaderný i konvenční úder. Nahradí B-1B a B-2.</p>
+            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+              <li>- Ultra-low observable design</li>
+              <li>- Interní nálož do 13 600 kg</li>
+              <li>- Mezikontinentální dosah</li>
+            </ul>
+            <div class="card__meta">
+              <span class="badge badge--gold">USA</span>
+              <span class="mono">od 2023</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <a href="#tu160" class="ac-card-link">
+        <article class="card ac-card reveal" data-cat="bombarder" style="transition-delay:.1s">
+          <img class="card__img" src="fotky/Tupolev Tu-160 Blackjack.jpg" alt="Tu-160 Blackjack" loading="lazy" />
+          <div class="card__body">
+            <div class="card__category">Strategický bombardér</div>
+            <h3 class="card__title">Tupolev Tu-160 M</h3>
+            <p class="card__text">Nadzvukový strategický bombardér s měnitelnou geometrií křídel. Největší a nejtěžší bojový letoun na světě.</p>
+            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+              <li>- Variabilní geometrie křídel</li>
+              <li>- 2 220 km/h (Mach 2,05)</li>
+              <li>- Kapacita až 40 000 kg zbraní</li>
+            </ul>
+            <div class="card__meta">
+              <span class="badge badge--red">Rusko</span>
+              <span class="mono">od 1987</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <a href="#a10" class="ac-card-link">
+        <article class="card ac-card reveal" data-cat="utocny" style="transition-delay:.1s">
+          <img class="card__img" src="fotky/thunderbolt.jpg" alt="A-10 Thunderbolt II" loading="lazy" />
+          <div class="card__body">
+            <div class="card__category">Útočný letoun</div>
+            <h3 class="card__title">A-10C Thunderbolt II</h3>
+            <p class="card__text">Legendární „Warthog" pro přímou vzdušnou podporu. Extrémní odolnost, 30mm kanón GAU-8 Avenger.</p>
+            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+              <li>- GAU-8 Avenger (30mm, 3 900 ran/min)</li>
+              <li>- Titanová „vana" pilota</li>
+              <li>- 706 km/h</li>
+            </ul>
+            <div class="card__meta">
+              <span class="badge badge--gold">USA</span>
+              <span class="mono">od 1977</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <a href="#su25" class="ac-card-link">
+        <article class="card ac-card reveal" data-cat="utocny" style="transition-delay:.15s">
+          <img class="card__img" src="fotky/suchoj Su-25 Frogfoot.jpg" alt="Su-25 Frogfoot" loading="lazy" />
+          <div class="card__body">
+            <div class="card__category">Útočný letoun</div>
+            <h3 class="card__title">Suchoj Su-25 Frogfoot</h3>
+            <p class="card__text">Pancéřovaný podzvukový letoun pro přímou podporu pozemních sil (CAS). Vysoce odolný drak uzpůsobený pro drsné podmínky.</p>
+            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+              <li>- Dvouhlavňový 30mm kanón GŠ-30-2</li>
+              <li>- 11 závěsných bodů pro 4 400 kg výzbroje</li>
+              <li>- 975 km/h</li>
+            </ul>
+            <div class="card__meta">
+              <span class="badge badge--red">Rusko</span>
+              <span class="mono">od 1981</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <a href="#c17" class="ac-card-link">
+        <article class="card ac-card reveal" data-cat="transport" style="transition-delay:.15s">
+          <img class="card__img" src="fotky/globemaster_3.jpg" alt="C-17 Globemaster" loading="lazy" />
+          <div class="card__body">
+            <div class="card__category">Strategický transport</div>
+            <h3 class="card__title">C-17 Globemaster III</h3>
+            <p class="card__text">Těžký strategický transportní letoun Boeing. Schopen přistát na krátkých nezpevněných drahách i s 77 t nákladu.</p>
+            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+              <li>- Náklad: 77 519 kg</li>
+              <li>- Dosah: 4 630 km (plný náklad)</li>
+              <li>- 4× turbofan F117-PW-100</li>
+            </ul>
+            <div class="card__meta">
+              <span class="badge badge--gold">USA</span>
+              <span class="mono">od 1993</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <a href="#c130" class="ac-card-link">
+        <article class="card ac-card reveal" data-cat="transport" style="transition-delay:.2s">
+          <img class="card__img" src="fotky/C-130J Super Hercules.jpg" alt="C-130J Super Hercules" loading="lazy" />
+          <div class="card__body">
+            <div class="card__category">Taktický transport</div>
+            <h3 class="card__title">C-130J Super Hercules</h3>
+            <p class="card__text">Komplexní modernizace legendárního turbovrtulového transportního letounu. Globální standard pro taktickou přepravu a výsadky.</p>
+            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+              <li>- 4× turbovrtulové motory Rolls-Royce AE 2100D3</li>
+              <li>- Náklad: 19 958 kg nebo 92 vojáků</li>
+              <li>- Schopnost provozu na extrémně nezpevněných plochách</li>
+            </ul>
+            <div class="card__meta">
+              <span class="badge badge--gold">USA</span>
+              <span class="mono">od 1999</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="f35" class="section section--dark">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="eyebrow">Detailní pohled</span>
+      <h2>F-35 Lightning II</h2>
+    </div>
+    <div class="detail-layout reveal">
+      <div>
+        <img class="ac-detail-img" src="fotky/f-35_2.webp" alt="F-35 Lightning II v letu" loading="lazy" />
+        <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+        <p>Program F-35 Joint Strike Fighter byl zahájen v roce 1996, kdy byl Lockheed Martin vybrán jako hlavní dodavatel. Letoun byl navržen jako levnější doplněk F-22 Raptor s důrazem na sdílení komponent mezi třemi variantami.</p>
+        <p>Varianta <strong>F-35A</strong> je určena pro konvenční vzlety a přistání (USAF), <strong>F-35B</strong> umí zkrácený vzlet a svislé přistání (USMC, RAF), <strong>F-35C</strong> je palubní verze s větším křídlem (US Navy).</p>
+
+        <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+        <div class="accordion">
+          <div class="accordion__item">
+            <button class="accordion__trigger">Stealth technologie <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">F-35 využívá tvar draku, absorbující nátěry a interní uložení zbraní ke snížení radarové odrazivosti (RCS) pod 0,001 m² – srovnatelné s malým ptákem. Vnější zavěšení zbraní je možné, ale výrazně zvyšuje RCS.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger">Senzorová fúze <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Systém fúze MADL, DAS, EOTS a radaru AESA poskytuje pilotovi 360° situační přehled. Přilba s displejem DAS umožňuje pilotovi „vidět skrz" trup letadla v infračervené oblasti.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger">Výzbroj a závěsníky <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Interní: 2× AIM-120 AMRAAM + 2× GBU-31 JDAM. Vnější: až 8 200 kg na 6 křídlových a 2 podtrupových závěsnících. Kanón GAU-22/A 25mm (F-35A interní, B/C externí pod).</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-sidebar">
+        <div class="spec-card">
+          <div class="spec-card__title">Specifikace F-35A</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">1 pilot</span></li>
+            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">15,67 m</span></li>
+            <li><span class="spec-list__key">Rozpětí</span><span class="spec-list__val">10,67 m</span></li>
+            <li><span class="spec-list__key">Max. vzl. hmotnost</span><span class="spec-list__val">31 751 kg</span></li>
+            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">1 960 km/h</span></li>
+            <li><span class="spec-list__key">Bojový dosah</span><span class="spec-list__val">1 093 km</span></li>
+            <li><span class="spec-list__key">Dostup</span><span class="spec-list__val">15 240 m</span></li>
+            <li><span class="spec-list__key">Motor</span><span class="spec-list__val">F135-PW-100</span></li>
+            <li><span class="spec-list__key">Tah (afterburner)</span><span class="spec-list__val">191 kN</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Země operátorů</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">700+ ks</span></li>
+            <li><span class="spec-list__key">🇬🇧 Velká Británie</span><span class="spec-list__val">48 ks</span></li>
+            <li><span class="spec-list__key">🇦🇺 Austrálie</span><span class="spec-list__val">72 ks</span></li>
+            <li><span class="spec-list__key">🇮🇱 Izrael</span><span class="spec-list__val">50 ks</span></li>
+            <li><span class="spec-list__key">🇳🇱 Nizozemsko</span><span class="spec-list__val">52 ks</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Bojové výkony</div>
+          <div class="progress-item">
+            <div class="progress-header"><span>Stealth</span><span>95%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>Manévrovatelnost</span><span>72%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:72%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>Výzbroj</span><span>88%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:88%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>Elektronika</span><span>97%</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:97%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="su57" class="section section--dark">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="eyebrow">Detailní pohled</span>
+      <h2>Su-57 Felon</h2>
+    </div>
+    <div class="detail-layout reveal">
+      <div>
+        <img class="ac-detail-img" src="fotky/su-57_2.jpg" alt="Su-57 Felon" loading="lazy" />
+        <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+        <p>Suchoj Su-57 (v kódu NATO „Felon“) je první ruský sériově vyráběný stíhací letoun využívající stealth technologii. Vývoj začal na počátku 21. století v rámci programu PAK FA, přičemž první prototyp vzlétl v roce 2010.</p>
+        <p>Letoun byl zkonstruován jako přímá odpověď na americké stíhačky F-22 Raptor a F-35. Hlavní prioritou konstruktérů však nebyl absolutní stealth, nýbrž extrémní obratnost v manévrovém vzdušném souboji (supermanévrovatelnost).</p>
+
+        <h3 style="margin-top: 2rem;">Bojové schopnosti</h3>
+        <div style="margin-top: 1rem;" class="accordion" role="presentation">
+          <div class="accordion__item">
+            <button class="accordion__trigger">Vektorování tahu a manévrovatelnost <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Díky motorům s plně nezávisle vektorovatelnými tryskami (3D thrust vectoring) dokáže Su-57 provádět unikátní manévry s vysokým úhlem náběhu, které jsou pro běžná letadla aerodynamicky nemožné.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger">Unikátní L-band radary <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Kromě hlavního čelního radaru obsahuje systém N036 Byelka také přídavné radary pracující v pásmu L umístěné v náběžných hranách křídel. Tyto senzory jsou navrženy speciálně pro efektivnější detekci západních stealth letadel.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger">Vnitřní zbraňové šachty <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Disponuje dvěma hlavními tandemovými šachtami mezi motory pro těžké střely dlouhého doletu a dvěma menšími křídelními šachtami pro rakety krátkého doletu typu vzduch-vzduch.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="spec-card">
+          <div class="spec-card__title">Specifikace Su-57</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">1 pilot</span></li>
+            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">20,10 m</span></li>
+            <li><span class="spec-list__key">Rozpětí</span><span class="spec-list__val">14,10 m</span></li>
+            <li><span class="spec-list__key">Max. vzletová hmotnost</span><span class="spec-list__val">35 000 kg</span></li>
+            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">2 600 km/h (Mach 2,1)</span></li>
+            <li><span class="spec-list__key">Bojový dosah</span><span class="spec-list__val">1 200 km</span></li>
+            <li><span class="spec-list__key">Dostup</span><span class="spec-list__val">20 000 m</span></li>
+            <li><span class="spec-list__key">Motor</span><span class="spec-list__val">2× AL-41F1 (Izd. 117)</span></li>
+            <li><span class="spec-list__key">Tah (s příd. spalováním)</span><span class="spec-list__val">2× 147 kN</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Země operátorů</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Rusko (VKS)</span><span class="spec-list__val">cca 22 sériových ks</span></li>
+            <li><span class="spec-list__key">Alžírsko</span><span class="spec-list__val">Objednáno (14 ks)</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Bojové výkony</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Stealth</span><span>75%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:75%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Manévrovatelnost</span><span>98%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:98%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Výzbroj</span><span>90%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:90%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Elektronika</span><span>82%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:82%; height:100%; border-radius:3px;"></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="rafale" class="section section--dark">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="eyebrow">Detailní pohled</span>
+      <h2>Dassault Rafale F4</h2>
+    </div>
+    <div class="detail-layout reveal">
+      <div>
+        <img class="ac-detail-img" src="fotky/rafale_2.jpg" alt="Rafale F4 v letu" loading="lazy" />
+        <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+        <p>Rafale je vlajkovou lodí francouzského letectva, vyvinutou společností Dassault Aviation poté, co Francie opustila společný evropský projekt Eurofighter kvůli požadavkům na schopnost operovat z letadlových lodí.</p>
+        <p>Francouzi jej klasifikují jako „omnirole“ letoun — stroj schopný během jediné mise provádět vzdušný souboj, útoky na pozemní i námořní cíle, elektronický boj i strategické nukleární odstrašení pomocí střely ASMP-A.</p>
+
+        <h3 style="margin-top: 2rem;">Bojové schopnosti</h3>
+        <div style="margin-top: 1rem;" class="accordion" role="presentation">
+          <div class="accordion__item">
+            <button class="accordion__trigger">Obranný systém SPECTRA <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Extrémně pokročilý integrovaný komplex elektronického boje. Dokáže detekovat hrozby s obrovskou přesností, rušit nepřátelské radary a dokonce využívat technologii aktivního potlačení signálu (aktivní stealth).</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger">Kachní plochy a aerodynamika <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Kombinace delta křídla a blízkých kachních ploch (canards) dává Rafale výjimečnou ovladatelnost při nízkých rychlostech, což je klíčové pro náročná přistání na francouzské letadlové lodi Charles de Gaulle.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="spec-card">
+          <div class="spec-card__title">Specifikace Rafale C</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">1 nebo 2 piloti</span></li>
+            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">15,27 m</span></li>
+            <li><span class="spec-list__key">Rozpětí</span><span class="spec-list__val">10,90 m</span></li>
+            <li><span class="spec-list__key">Max. vzletová hmotnost</span><span class="spec-list__val">24 500 kg</span></li>
+            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">1 912 km/h (Mach 1,8)</span></li>
+            <li><span class="spec-list__key">Bojový dosah</span><span class="spec-list__val">1 850 km</span></li>
+            <li><span class="spec-list__key">Dostup</span><span class="spec-list__val">15 850 m</span></li>
+            <li><span class="spec-list__key">Motor</span><span class="spec-list__val">2× Snecma M88-4e</span></li>
+            <li><span class="spec-list__key">Tah (s příd. spalováním)</span><span class="spec-list__val">2× 75 kN</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Země operátorů</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Francie (AAE & Marine)</span><span class="spec-list__val">150+ ks</span></li>
+            <li><span class="spec-list__key">Egypt</span><span class="spec-list__val">54 ks</span></li>
+            <li><span class="spec-list__key">Indie</span><span class="spec-list__val">36 ks</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Bojové výkony</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Stealth</span><span>55%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:55%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Manévrovatelnost</span><span>92%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:92%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Výzbroj</span><span>85%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:85%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Elektronika</span><span>90%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:90%; height:100%; border-radius:3px;"></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="eurofighter" class="section section--dark">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="eyebrow">Detailní pohled</span>
+      <h2>Eurofighter Typhoon</h2>
+    </div>
+    <div class="detail-layout reveal">
+      <div>
+        <img class="ac-detail-img" src="fotky/Eurofighter Typhoon_2.jpeg" alt="Eurofighter Typhoon v letu" loading="lazy" />
+        <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+        <p>Eurofighter Typhoon je výsledkem společného evropského vývoje zemí Velké Británie, Německa, Itálie a Španělska. Projekt byl zahájen s cílem vytvořit agilní letoun pro vybojování vzdušné nadvlády, který by dokázal čelit sovětským hrozbám na konci studené války.</p>
+        <p>Postupem času byl letoun modernizován na plnohodnotný víceúčelový standard (Swing-Role), schopný s extrémní efektivitou útočit na vzdušné i pozemní cíle během jediné bojové mise.</p>
+
+        <h3 style="margin-top: 2rem;">Bojové schopnosti</h3>
+        <div style="margin-top: 1rem;" class="accordion" role="presentation">
+          <div class="accordion__item">
+            <button class="accordion__trigger">Supercruise a pohon <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Dva výkonné motory Eurojet EJ200 umožňují Typhoonu let nadzvukovou rychlostí (až Mach 1,5) bez nutnosti zapínat přídavné spalování. To šetří palivo a výrazně snižuje infračervenou stopu letounu.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger">AESA Radar a Výzbroj <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Nejnovější verze jsou vybaveny radarem Captor-E s elektronickým skenováním. Hlavní vzdušnou zbraní je střela dalekého dosahu Meteor (BVR), doplněná o střely ASRAAM či IRIS-T pro boj zblízka.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="spec-card">
+          <div class="spec-card__title">Specifikace Typhoon</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">1 pilot (nebo 2)</span></li>
+            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">15,96 m</span></li>
+            <li><span class="spec-list__key">Rozpětí</span><span class="spec-list__val">10,95 m</span></li>
+            <li><span class="spec-list__key">Max. vzletová hmotnost</span><span class="spec-list__val">23 500 kg</span></li>
+            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">2 495 km/h (Mach 2,0)</span></li>
+            <li><span class="spec-list__key">Bojový dosah</span><span class="spec-list__val">1 390 km</span></li>
+            <li><span class="spec-list__key">Dostup</span><span class="spec-list__val">19 812 m</span></li>
+            <li><span class="spec-list__key">Motor</span><span class="spec-list__val">2× Eurojet EJ200</span></li>
+            <li><span class="spec-list__key">Tah (s příd. spalováním)</span><span class="spec-list__val">2× 90 kN</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Země operátorů</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">🇬🇧 Velká Británie</span><span class="spec-list__val">140+ ks</span></li>
+            <li><span class="spec-list__key">🇩🇪 Německo</span><span class="spec-list__val">130+ ks</span></li>
+            <li><span class="spec-list__key">🇮🇹 Itálie</span><span class="spec-list__val">90+ ks</span></li>
+            <li><span class="spec-list__key">🇪🇸 Španělsko</span><span class="spec-list__val">70+ ks</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Bojové výkony</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Stealth</span><span>60%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:60%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Manévrovatelnost</span><span>95%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:95%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Výzbroj</span><span>88%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:88%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Elektronika</span><span>91%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:91%; height:100%; border-radius:3px;"></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="tu160" class="section section--dark">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="eyebrow">Detailní pohled</span>
+      <h2>Tupolev Tu-160 Blackjack</h2>
+    </div>
+    <div class="detail-layout reveal">
+      <div>
+        <img class="ac-detail-img" src="fotky/Tupolev Tu-160 Blackjack_2.jpg" alt="Tu-160 v letu" loading="lazy" />
+        <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+        <p>Tupolev Tu-160 (v kódu NATO „Blackjack“) je sovětský, resp. ruský nadzvukový strategický bombardér s měnitelnou geometrií křídel vyvinutý v 70. a 80. letech. Kvůli své ladné konstrukci a zářivě bílému nátěru chránícímu posádku před tepelným zářením z nukleárního výbuchu získal přezdívku „Bílá labuť“.</p>
+        <p>V současnosti prochází flotila hlubokou modernizací na standard Tu-160M, který disponuje kompletně novou avionikou a vylepšenými pohonnými jednotkami.</p>
+
+        <h3 style="margin-top: 2rem;">Bojové schopnosti</h3>
+        <div style="margin-top: 1rem;" class="accordion" role="presentation">
+          <div class="accordion__item">
+            <button class="accordion__trigger">Raketová výzbroj dalekého dosahu <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Tu-160 nenosí zbraně na vnějších závěsnících kvůli aerodynamickému odporu. Všechnu výzbroj ukrývá ve dvou vnitřních šachtách, které obsahují rotační odpalovací zařízení pro střely s plochou dráhou letu Ch-101/102 nebo jaderné Ch-55SM.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger">Křídla s měnitelným šípem <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Měnitelná geometrie křídel (od 20° do 65°) umožňuje letounu efektivní podzvukový let na dlouhé vzdálenosti s roztaženými křídly a naopak bleskový nadzvukový průnik k cíli ve vysokých rychlostech nad Mach 2 se staženým křídlem.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="spec-card">
+          <div class="spec-card__title">Specifikace Tu-160 M</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">4 (2 piloti, 2 navigátoři)</span></li>
+            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">54,10 m</span></li>
+            <li><span class="spec-list__key">Rozpětí (max)</span><span class="spec-list__val">55,70 m</span></li>
+            <li><span class="spec-list__key">Max. vzletová hmotnost</span><span class="spec-list__val">275 000 kg</span></li>
+            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">2 220 km/h (Mach 2,05)</span></li>
+            <li><span class="spec-list__key">Bojový dosah</span><span class="spec-list__val">7 300 km</span></li>
+            <li><span class="spec-list__key">Dostup</span><span class="spec-list__val">16 000 m</span></li>
+            <li><span class="spec-list__key">Motor</span><span class="spec-list__val">4× Samara NK-32</span></li>
+            <li><span class="spec-list__key">Tah (s příd. spalováním)</span><span class="spec-list__val">4× 245 kN</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Země operátorů</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Rusko (VKS)</span><span class="spec-list__val">cca 16-18 ks</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Bojové výkony</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Stealth</span><span>20%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:20%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Manévrovatelnost</span><span>45%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:45%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Výzbroj</span><span>98%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:98%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Elektronika</span><span>80%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:80%; height:100%; border-radius:3px;"></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="b21" class="section section--dark">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="eyebrow">Detailní pohled</span>
+      <h2>B-21 Raider</h2>
+    </div>
+    <div class="detail-layout reveal">
+      <div>
+        <img class="ac-detail-img" src="fotky/b-21_2.jpg" alt="B-21 Raider" loading="lazy" />
+        <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+        <p>Northrop Grumman B-21 Raider je nejnovější americký strategický bombardér s technologií stealth, poprvé představený veřejnosti na konci roku 2022. Představuje první letoun takzvané 6. generace na světě.</p>
+        <p>Byl vyvinut v rámci programu LRS-B (Long Range Strike Bomber) jako menší, technologicky pokročilejší a výrazně levnější verze staršího bombardéru B-2 Spirit. Jeho hlavním úkolem je pronikat hluboko do nejmodernějších nepřátelských systémů protivzdušné ochrany A2/AD.</p>
+
+        <h3 style="margin-top: 2rem;">Bojové schopnosti</h3>
+        <div style="margin-top: 1rem;" class="accordion" role="presentation">
+          <div class="accordion__item">
+            <button class="accordion__trigger">UWO (Ultra-Wideband Observable) Stealth <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">B-21 využívá novou generaci povrchových RAM materiálů a radikálně vyhlazený tvar samokřídla bez jakýchkoliv vertikálních ploch. To mu umožňuje zůstat neodhalitelným nejen pro běžné střelecké radary, ale i pro nízkofrekvenční vyhledávací radary.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger">Cloudová architektura a softwarové upgrady <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Letoun je od základu navržen jako softwarově definovaná platforma s otevřenou architekturou. Nové typy zbraní, algoritmy umělé inteligence nebo moduly elektronického boje lze implementovat pouhou aktualizací softwaru bez nutnosti mechanických úprav trupu.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="spec-card">
+          <div class="spec-card__title">Specifikace B-21</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">2 piloti (příprava pro autonomní let)</span></li>
+            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">cca 16,0 m</span></li>
+            <li><span class="spec-list__key">Rozpětí</span><span class="spec-list__val">cca 40,0 m</span></li>
+            <li><span class="spec-list__key">Max. vzletová hmotnost</span><span class="spec-list__val">Utajeno (cca 80 000 kg)</span></li>
+            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">Podzvuková (cca 950 km/h)</span></li>
+            <li><span class="spec-list__key">Užitečné zatížení</span><span class="spec-list__val">13 600 kg (konvenční i jaderná)</span></li>
+            <li><span class="spec-list__key">Dolet</span><span class="spec-list__val">Mezikontinentální (přes 9 000 km)</span></li>
+            <li><span class="spec-list__key">Motor</span><span class="spec-list__val">2× Pratt &amp; Whitney (bez příd. sp.)</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Země operátorů</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">USA (USAF)</span><span class="spec-list__val">Plánováno minimálně 100 ks</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Bojové výkony</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Stealth</span><span>99%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:99%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Manévrovatelnost</span><span>40%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:40%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Výzbroj</span><span>94%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:94%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Elektronika</span><span>99%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:99%; height:100%; border-radius:3px;"></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="a10" class="section section--dark">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="eyebrow">Detailní pohled</span>
+      <h2>A-10C Thunderbolt II</h2>
+    </div>
+    <div class="detail-layout reveal">
+      <div>
+        <img class="ac-detail-img" src="fotky/thunderbolt_2.jpg" alt="A-10 Thunderbolt II v letu" loading="lazy" />
+        <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+        <p>A-10 Thunderbolt II (často přezdívaný „Warthog“ neboli prase bradavičnaté) byl vyvinut společností Fairchild Republic v 70. letech minulého století s jediným úkolem: ničit sovětské tankové kolony a poskytovat přímou palebnou podporu (CAS) pozemním jednotkám.</p>
+        <p>Letoun byl doslova postaven kolem masivního 30mm rotačního kanonu GAU-8 Avenger. Verze A-10C představuje modernizovanou variantu s digitálním kokpitem a podporou pro přesně naváděnou munici (JDAM, střely Maverick).</p>
+
+        <h3 style="margin-top: 2rem;">Bojové schopnosti</h3>
+        <div style="margin-top: 1rem;" class="accordion" role="presentation">
+          <div class="accordion__item">
+            <button class="accordion__trigger">Kanon GAU-8 Avenger <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Sedmihlavňový rotační kanon střílí náboje z ochuzeného uranu rychlostí 3 900 ran za minutu. Zpětný ráz kanonu je tak silný, že odpovídá přibližně polovině tahu jednoho z motorů letadla.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger">Extrémní konstrukční odolnost <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Pilot sedí v titanové „vaně“ silné až 3,8 cm, která odolá zásahům z kanonů ráže do 23 mm. Letoun je navržen tak, aby dokázal bezpečně letět s jedním ustřeleným motorem, polovinou ocasních ploch a jedním křídlem.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="spec-card">
+          <div class="spec-card__title">Specifikace A-10C</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">1 pilot</span></li>
+            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">16,26 m</span></li>
+            <li><span class="spec-list__key">Rozpětí</span><span class="spec-list__val">17,53 m</span></li>
+            <li><span class="spec-list__key">Max. vzletová hmotnost</span><span class="spec-list__val">23 000 kg</span></li>
+            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">706 km/h</span></li>
+            <li><span class="spec-list__key">Bojový dosah</span><span class="spec-list__val">400 km (při CAS úkolech)</span></li>
+            <li><span class="spec-list__key">Dostup</span><span class="spec-list__val">13 700 m</span></li>
+            <li><span class="spec-list__key">Motor</span><span class="spec-list__val">2× General Electric TF34-GE-100</span></li>
+            <li><span class="spec-list__key">Tah motorů</span><span class="spec-list__val">2× 40,3 kN</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Země operátorů</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">USA (USAF, Air National Guard)</span><span class="spec-list__val">cca 280 ks</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Bojové výkony</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Stealth</span><span>10%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:10%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Manévrovatelnost</span><span>65%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:65%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Výzbroj</span><span>98%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:98%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Elektronika</span><span>70%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:70%; height:100%; border-radius:3px;"></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<section id="su25" class="section section--dark">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="eyebrow">Detailní pohled</span>
+      <h2>Suchoj Su-25 Frogfoot</h2>
+    </div>
+    <div class="detail-layout reveal">
+      <div>
+        <img class="ac-detail-img" src="fotky/suchoj Su-25 Frogfoot_2.jpg" alt="Su-25 Frogfoot na ranveji" loading="lazy" />
+        <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+        <p>Suchoj Su-25 (v kódu NATO „Frogfoot“) je silně pancéřovaný podzvukový bitevní letoun určený k přímé podpoře pozemních sil a ničení tankových formací. Vznikl v Sovětském svazu jako přímá paralela k americkému letounu A-10 Thunderbolt II.</p>
+        <p>Do výzbroje byl zařazen na počátku 80. let a prošel si křtem ohněm v Afghánistánu, kde si získal pověst nesmírně houževnatého stroje schopného bezpečně se vrátit na základnu i s fatálním poškozením draku a motorů.</p>
+
+        <h3 style="margin-top: 2rem;">Bojové schopnosti</h3>
+        <div style="margin-top: 1rem;" class="accordion" role="presentation">
+          <div class="accordion__item">
+            <button class="accordion__trigger">Ochrana a přežití na bojišti <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Pilot sedí v celosvařované titanové vaně o tloušťce až 24 mm, která odolá zásahům projektilů ráže až 20 mm. Řídicí táhla jsou zdvojená a kritické systémy jsou chráněny stíněním z méně důležitých komponent.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger">Arsenál a zbraňové systémy <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Kromě integrovaného 30mm kanónu GŠ-30-2 dokáže na 10 podkřídelních závěsnících odpalovat neřízené i řízené rakety (např. S-25, Ch-25), konvenční i protitankové bomby a kazetovou munici.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="spec-card">
+          <div class="spec-card__title">Specifikace Su-25</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">1 pilot</span></li>
+            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">15,53 m</span></li>
+            <li><span class="spec-list__key">Rozpětí</span><span class="spec-list__val">14,36 m</span></li>
+            <li><span class="spec-list__key">Max. vzletová hmotnost</span><span class="spec-list__val">17 600 kg</span></li>
+            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">975 km/h</span></li>
+            <li><span class="spec-list__key">Bojový dosah</span><span class="spec-list__val">750 km</span></li>
+            <li><span class="spec-list__key">Dostup</span><span class="spec-list__val">7 000 m</span></li>
+            <li><span class="spec-list__key">Motor</span><span class="spec-list__val">2× Tumanskij R-195</span></li>
+            <li><span class="spec-list__key">Tah motorů</span><span class="spec-list__val">2× 44,18 kN</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Země operátorů</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Rusko</span><span class="spec-list__val">190+ ks</span></li>
+            <li><span class="spec-list__key">Ukrajina</span><span class="spec-list__val">30+ ks</span></li>
+            <li><span class="spec-list__key">Bělorusko</span><span class="spec-list__val">20+ ks</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Bojové výkony</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Stealth</span><span>10%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:10%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Manévrovatelnost</span><span>70%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:70%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Výzbroj</span><span>85%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:85%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Elektronika</span><span>55%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:55%; height:100%; border-radius:3px;"></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="c17" class="section section--dark">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="eyebrow">Detailní pohled</span>
+      <h2>C-17 Globemaster III</h2>
+    </div>
+    <div class="detail-layout reveal">
+      <div>
+        <img class="ac-detail-img" src="fotky/globemaster_2.jpg" alt="C-17 Globemaster III v letu" loading="lazy" />
+        <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+       <p>McDonnell Douglas (nyní Boeing) C-17 Globemaster III je čtyřmotorový těžký strategický transportní letoun, vyvinutý pro americké letectvo v 80. a 90. letech. Měl za úkol zkombinovat obří kapacitu letounu C-5 Galaxy s flexibilitou menšího taktického stroje C-130 Hercules.</p>
+        <p>C-17 je schopen přepravovat nadrozměrné náklady přímo z kontinentálních základen USA na malé polní, nezpevněné drahé kdekoli na světě v blízkosti frontové linie.</p>
+
+        <h3 style="margin-top: 2rem;">Bojové schopnosti</h3>
+        <div style="margin-top: 1rem;" class="accordion" role="presentation">
+          <div class="accordion__item">
+            <button class="accordion__trigger">Nákladová kapacita a rampa <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Obří nákladový prostor pojme těžký tank M1 Abrams, tři obrněná vozidla Stryker nebo až 102 plně vyzbrojených výsadkářů. Hydraulická zadní rampa umožňuje shazování nákladu na padácích přímo za letu (airdrop).</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger">Vlastnosti STOL (krátký vzlet a přistání) <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Díky systém usměrňování toku plynů z motorů na klapky křídel (externally blown flaps) a masivnímu obraceči tahu dokáže plně naložený C-17 přistát na neupravené drahové ploše dlouhé pouhých 1 064 metrů a bez problémů se na ní otočit.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="spec-card">
+          <div class="spec-card__title">Specifikace C-17</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 (2 piloti, 1 loadmaster)</span></li>
+            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">53,00 m</span></li>
+            <li><span class="spec-list__key">Rozpětí</span><span class="spec-list__val">51,75 m</span></li>
+            <li><span class="spec-list__key">Max. vzletová hmotnost</span><span class="spec-list__val">265 350 kg</span></li>
+            <li><span class="spec-list__key">Max. užitečné zatížení</span><span class="spec-list__val">77 519 kg</span></li>
+            <li><span class="spec-list__key">Cestovní rychlost</span><span class="spec-list__val">830 km/h (Mach 0,74)</span></li>
+            <li><span class="spec-list__key">Dolet (s plným nákladem)</span><span class="spec-list__val">4 450 km</span></li>
+            <li><span class="spec-list__key">Motor</span><span class="spec-list__val">4× Pratt &amp; Whitney F117-PW-100</span></li>
+            <li><span class="spec-list__key">Tah motorů</span><span class="spec-list__val">4× 180 kN</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Země operátorů</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">USA (USAF)</span><span class="spec-list__val">222 ks</span></li>
+            <li><span class="spec-list__key">Velká Británie (RAF)</span><span class="spec-list__val">8 ks</span></li>
+            <li><span class="spec-list__key">Austrálie (RAAF)</span><span class="spec-list__val">8 ks</span></li>
+            <li><span class="spec-list__key">Indie (IAF)</span><span class="spec-list__val">11 ks</span></li>
+            <li><span class="spec-list__key">Katar / SAE</span><span class="spec-list__val">8 ks / 8 ks</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Bojové výkony</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Stealth</span><span>5%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:5%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Manévrovatelnost</span><span>35%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:35%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Výzbroj</span><span>15%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:15%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Elektronika</span><span>88%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:88%; height:100%; border-radius:3px;"></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="c130" class="section section--dark">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="eyebrow">Detailní pohled</span>
+      <h2>C-130J Super Hercules</h2>
+    </div>
+    <div class="detail-layout reveal">
+      <div>
+        <img class="ac-detail-img" src="fotky/C-130J Super Hercules_2.jpg" alt="C-130J v letu" loading="lazy" />
+        <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+        <p>C-130J Super Hercules je nejnovější generací legendárního čtyřmotorového transportního letounu vyráběného společností Lockheed Martin. První verze vzlétly již v 50. letech, avšak varianta „J“ představená na konci 90. let přinesla kompletní technologickou renesanci.</p>
+        <p>Letoun disponuje moderním skleněným kokpitem, digitální avionikou a vysoce efektivními šestilistými kompozitovými vrtulemi spojenými s novými turbovrtulovými motory, což výrazně snížilo provozní náklady a zvýšilo dolet i nosnost.</p>
+
+        <h3 style="margin-top: 2rem;">Bojové schopnosti</h3>
+        <div style="margin-top: 1rem;" class="accordion" role="presentation">
+          <div class="accordion__item">
+            <button class="accordion__trigger">Taktická flexibilita a STOL <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Super Hercules vyniká vlastnostmi STOL (krátký vzlet a přistání). Je schopen bezpečně operovat z provizorních hliněných, travnatých či písčitých drah přímo v blízkosti bojové linie, což standardní proudová transportní letadla nedokážou.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger">Obranné systémy proti PLŘS <span class="accordion__icon">▼</span></button>
+            <div class="accordion__body"><div class="accordion__body-inner">Pro provoz v nebezpečných zónách je vybaven pokročilým výstražným systémem detekce nepřátelských radarů a raket (RWR, MWS) napojeným na automatické klamné cíle (flares a chaffs), případně laserovými systémy směrového rušení (DIRCM).</div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="spec-card">
+          <div class="spec-card__title">Specifikace C-130J</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 (2 piloti, 1 loadmaster)</span></li>
+            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">29,79 m</span></li>
+            <li><span class="spec-list__key">Rozpětí</span><span class="spec-list__val">40,41 m</span></li>
+            <li><span class="spec-list__key">Max. vzletová hmotnost</span><span class="spec-list__val">74 389 kg</span></li>
+            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">670 km/h</span></li>
+            <li><span class="spec-list__key">Bojový dosah</span><span class="spec-list__val">3 334 km (při plném zatížení)</span></li>
+            <li><span class="spec-list__key">Dostup</span><span class="spec-list__val">8 615 m</span></li>
+            <li><span class="spec-list__key">Motor</span><span class="spec-list__val">4× Rolls-Royce AE 2100D3</span></li>
+            <li><span class="spec-list__key">Výkon motorů</span><span class="spec-list__val">4× 3 458 kW</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Země operátorů</div>
+          <ul class="spec-list">
+            <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">250+ ks</span></li>
+            <li><span class="spec-list__key">🇬🇧 Velká Británie</span><span class="spec-list__val">24 ks</span></li>
+            <li><span class="spec-list__key">🇦🇺 Austrálie</span><span class="spec-list__val">12 ks</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-card__title">Bojové výkony</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Stealth</span><span>15%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:15%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Manévrovatelnost</span><span>50%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:50%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Kapacita nákladu</span><span>85%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:85%; height:100%; border-radius:3px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;"><span>Elektronika</span><span>82%</span></div>
+            <div style="background:var(--clr-border); height:6px; border-radius:3px;"><div style="background:var(--clr-accent); width:82%; height:100%; border-radius:3px;"></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">⬡ Military<span>Force</span></div>
+          <p class="footer__desc">Encyklopedie vojenské techniky pro nadšence, studenty a odborníky. Nezávislý
+            vzdělávací projekt.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Navigace</div>
+          <ul class="footer__links">
+            <li><a href="index(z).html">Domů</a></li>
+            <li><a href="letectvo.html">Letectvo</a></li>
+            <li><a href="tanky.html">Tanky</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Kategorie</div>
+          <ul class="footer__links">
+            <li><a href="letectvo.html">Stíhačky</a></li>
+            <li><a href="BVP.html">BVP</a></li>
+            <li><a href="namornictvo.html">Námořnictvo</a></li>
+            <li><a href="pechota.html">Pěchota</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Informace</div>
+          <ul class="footer__links">
+            <li><a href="kontakt.html">O mně</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('mainNav');
+  hamburger.addEventListener('click', () => { const o = nav.classList.toggle('open'); hamburger.setAttribute('aria-expanded', o); });
+
+  document.querySelectorAll('.accordion__trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.accordion__item');
+      item.classList.toggle('open');
+    });
+  });
+
+  const tabs = document.querySelectorAll('.filter-tab');
+  const cardLinks = document.querySelectorAll('#aircraftGrid .ac-card-link');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      cardLinks.forEach(link => {
+        const card = link.querySelector('.card');
+        link.style.display = (filter === 'all' || card.dataset.cat === filter) ? '' : 'none';
+      });
+    });
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

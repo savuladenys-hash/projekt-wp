@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MilitaryForce – kontakt: napište nám, přispějte do projektu nebo nahlaste chybu." />
+  <title>Kontakt – MilitaryForce</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+   /* Horní řada: Dvě info karty vedle sebe */
+.contact-layout { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 2rem; 
+  align-items: start;
+  margin-bottom: 3rem; /* Vytvoří mezeru mezi kartami a formulářem */
+}
+
+/* Obal pro formulář, který zajistí vycentrování */
+.form-wrapper {
+  max-width: 550px;    /* Maximální šířka formuláře na středu */
+  margin: 0 auto;      /* Samotné vycentrování (automatické okraje) */
+  width: 100%;
+}
+    @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } }
+
+    .info-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .info-card__icon { font-size: 1.6rem; margin-bottom: .5rem; }
+    .info-card__title { font-family: var(--font-display); font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; color: var(--clr-accent); margin-bottom: .35rem; }
+    .info-card__text { font-size: .9rem; color: var(--clr-text-dim); margin: 0; }
+
+    .form-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+    .form-title { font-size: 1.3rem; margin-bottom: 1.5rem; padding-bottom: .75rem; border-bottom: 1px solid var(--clr-border); }
+
+    .success-msg {
+      display: none;
+      background: rgba(78,124,63,0.15);
+      border: 1px solid rgba(78,124,63,0.4);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      color: #6db85a;
+      font-family: var(--font-mono);
+      font-size: .85rem;
+      margin-top: 1rem;
+    }
+    .success-msg.show { display: block; }
+
+    .team-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .team-card:hover { border-color: var(--clr-accent); transform: translateY(-3px); }
+    .team-card__avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--clr-surface2);
+      border: 2px solid var(--clr-border);
+      margin: 0 auto 1rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+    }
+    .team-card__name { font-family: var(--font-display); font-size: 1rem; letter-spacing: .05em; text-transform: uppercase; margin-bottom: .25rem; }
+    .team-card__role { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--clr-accent); text-transform: uppercase; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="Hlavní navigace">
+  <div class="navbar__inner">
+    <a href="index(z).html" class="navbar__logo">⬡ Military<span>Force</span></a>
+  <ul class="navbar__nav" id="mainNav" role="list">
+                <li><a href="index(z).html">Domů</a></li>
+                <li><a href="pechota.html">Pěchota</a></li>
+                <li><a href="BVP.html">BVP</a></li>
+                <li><a href="tanky.html">Tanky</a></li>
+                <li><a href="letectvo.html">Letectvo</a></li>
+                <li><a href="namornictvo.html">Námořnictvo</a></li>
+                <li><a href="kontakt.html" class="active">O mně</a></li>
+            </ul>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Otevřít menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="page-header" style="background-image: linear-gradient(to bottom,rgba(10,12,14,.75) 0%,var(--clr-bg) 100%), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=70') center/cover no-repeat;">
+  <div class="container">
+    <span class="eyebrow">Kontakt &amp; O projektu</span>
+    <h1>Spojte se mnou</h1>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    
+    <div class="contact-layout">
+      <div class="info-card reveal">
+        <div class="info-card__icon"></div>
+        <div class="info-card__title">E-mail</div>
+        <p class="info-card__text">savulade25.zaci.spse.cz</p>
+      </div>
+    
+      <div class="info-card reveal" style="transition-delay:.1s">
+        <div class="info-card__icon"></div>
+        <div class="info-card__title">Hlásit chybu / nepřesnost</div>
+        <p class="info-card__text">Našli jste chybná data? Použijte formulář níže s předmětem „Chyba" a popište problém.</p>
+      </div>
+    </div>
+
+    <div class="form-wrapper reveal" style="transition-delay:.2s">
+      <div class="form-card">
+        <h2 class="form-title">Napsat zprávu</h2>
+        <form id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Jméno a příjmení *</label>
+            <input type="text" id="name" name="name" placeholder="Jan Novák" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mailová adresa *</label>
+            <input type="email" id="email" name="email" placeholder="jan.novak@email.cz" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefon (volitelné)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+420 123 456 789" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Předmět zprávy *</label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>Vyberte předmět…</option>
+              <option value="dotaz">Obecný dotaz</option>
+              <option value="prispevek">Chci přispět článkem</option>
+              <option value="chyba">Nahlásit chybu / nepřesnost</option>
+              <option value="spoluprace">Nabídka spolupráce</option>
+              <option value="jine">Jiné</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Zpráva *</label>
+            <textarea id="message" name="message" placeholder="Napište svou zprávu…" required></textarea>
+          </div>
+          <div class="form-group" style="display:flex; align-items:flex-start; gap:.75rem;">
+            <input type="checkbox" id="gdpr" name="gdpr" required style="width:auto; margin-top:.2rem; accent-color:var(--clr-accent);" />
+            <label for="gdpr" style="font-size:.82rem; text-transform:none; letter-spacing:0; color:var(--clr-text-dim);">
+              Souhlasím se zpracováním osobních údajů pro účely odpovědi na moji zprávu. *
+            </label>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width:100%;">Odeslat zprávu</button>
+          <div class="success-msg" id="successMsg"></div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="eyebrow">Časté dotazy</span>
+      <h2>FAQ</h2>
+    </div>
+    <div style="max-width:800px; margin:0 auto;">
+      <div class="accordion reveal">
+        <div class="accordion__item">
+          <button class="accordion__trigger">Jsou data na webu oficiální a přesná? <span class="accordion__icon">▼</span></button>
+          <div class="accordion__body"><div class="accordion__body-inner">Všechna data čerpáme z veřejně dostupných zdrojů (Jane's, IISS Military Balance, výrobci). Specifikace mohou být zjednodušeny pro přehlednost a nenahrazují oficiální technickou dokumentaci.</div></div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__trigger">Mohu použít obsah pro školní projekt? <span class="accordion__icon">▼</span></button>
+          <div class="accordion__body"><div class="accordion__body-inner">Ano, obsah webu je možné použít pro vzdělávací a nekomerční účely s uvedením zdroje „MilitaryForce.cz". Pro komerční použití nás prosím kontaktujte.</div></div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__trigger">Jak mohu přispět do projektu? <span class="accordion__icon">▼</span></button>
+          <div class="accordion__body"><div class="accordion__body-inner">Uvítáme autorské články, opravy dat, překlady nebo fotografie (vlastní nebo s licencí). Použijte kontaktní formulář s předmětem „Chci přispět".</div></div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__trigger">Proč jsou některé kategorie označeny „Brzy"? <span class="accordion__icon">▼</span></button>
+          <div class="accordion__body"><div class="accordion__body-inner">Web je aktivně vyvíjen. Sekce Pěchota, Obranná vozidla a Námořnictvo jsou připravovány a budou spuštěny v průběhu roku 2025.</div></div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__trigger">Je web monetizován nebo sponzorován? <span class="accordion__icon">▼</span></button>
+          <div class="accordion__body"><div class="accordion__body-inner">MilitaryForce je nezávislý vzdělávací projekt bez komerčního sponzoringu. Obsah není ovlivněn žádnou vládou, armádou ani zbrojním průmyslem.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">⬡ Military<span>Force</span></div>
+          <p class="footer__desc">Encyklopedie vojenské techniky pro nadšence, studenty a odborníky. Nezávislý
+            vzdělávací projekt.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Navigace</div>
+          <ul class="footer__links">
+            <li><a href="index(z).html">Domů</a></li>
+            <li><a href="letectvo.html">Letectvo</a></li>
+            <li><a href="tanky.html">Tanky</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Kategorie</div>
+          <ul class="footer__links">
+            <li><a href="letectvo.html">Stíhačky</a></li>
+            <li><a href="BVP.html">BVP</a></li>
+            <li><a href="namornictvo.html">Námořnictvo</a></li>
+            <li><a href="pechota.html">Pěchota</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Informace</div>
+          <ul class="footer__links">
+            <li><a href="kontakt.html">O mně</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('mainNav');
+  hamburger.addEventListener('click', () => { const o = nav.classList.toggle('open'); hamburger.setAttribute('aria-expanded', o); });
+
+  document.querySelectorAll('.accordion__trigger').forEach(btn => {
+    btn.addEventListener('click', () => btn.closest('.accordion__item').classList.toggle('open'));
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const required = this.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(field => {
+      if (!field.value || (field.type === 'checkbox' && !field.checked)) {
+        field.style.borderColor = 'var(--clr-danger)';
+        valid = false;
+      } else {
+        field.style.borderColor = '';
+      }
+    });
+    if (valid) {
+      this.querySelector('button[type="submit"]').disabled = true;
+      document.getElementById('successMsg').classList.add('show');
+      this.reset();
+    }
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

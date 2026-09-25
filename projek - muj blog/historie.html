@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vojenský blog</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Vojenský blog</h1>
+            
+            <nav>
+                <ul class="nav-menu">
+                     
+                      <li class="nav-item">
+                        <input type="checkbox" id="nav-domu" class="nav-toggle">
+                        <label for="nav-domu" class="nav-btn">Domů</label>
+                        <ul class="submenu">
+                            <li><a href="index.html">Úvodní stránka</a></li>
+                            <li><a href="nejcastejsi.html">Nejčtenější</a></li>
+                        </ul>
+                    </li>
+                    
+                   
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-clanky" class="nav-toggle">
+                        <label for="nav-clanky" class="nav-btn">Články</label>
+                        <ul class="submenu">
+                            <li><a href="index1.html">Všechny články</a></li>
+                            <li><a href="nejnovejsi.html">Nejnovější</a></li>
+                            <li><a href="doporucene.html">Doporučené</a></li>
+                        </ul>
+                    </li>
+                    
+                   
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-kontakt" class="nav-toggle">
+                        <label for="nav-kontakt" class="nav-btn">Kontakt</label>
+                        <ul class="submenu">
+        
+                            <li><a href="o.autorovi.html" style="background-color: #c0392b; color: white;">O autorovi</a></li>
+                           
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="articles">
+        
+            <article>
+               <img src="bitva.webp" alt="" style="width: 100%; height: 400px; object-fit: cover;">
+                <div class="article-content">
+                    <h2>70. výročí bitvy u Dien Bien Phu</h2>
+                    <div class="article-meta">
+                        <span>📅 20. února 2026</span>
+                        <span>👤 Autor: Tomáš Dvořák</span>
+                        <span>📁 Kategorie: Historie</span>
+                    </div>
+                    <p>Historický milník, který změnil podobu moderního vojenství. Připomínáme si klíčovou bitvu, která ukončila francouzskou přítomnost v Indočíně a stala se symbolem boje za nezávislost. Detailní analýza taktiky a významu této bitvy.</p>
+                    <a href="clanek3.html" class="read-more">Číst více</a>
+                </div>
+            </article>
+        
+          
+        
+        </main>
+        
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>O blogu</h3>
+                <p>Vojenský blog přináší pravidelné analýzy, novinky a historické souvislosti ze světa vojenství a obranných technologií.</p>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3>Kategorie</h3>
+                <div class="categories">
+                   <a href="technika.html" class="category-tag">Technika</a>
+                    <a href="historie.html" class="category-tag">Historie</a>
+                    <a href="vycvik.html" class="category-tag">Výcvik</a>
+                    <a href="letectvo.html" class="category-tag">Letectvo</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <p>© 2026 Vojenský blog | Všechna práva vyhrazena</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="MilitaryForce – encyklopedie vojenské techniky: letectvo, tanky, pěchota, obranná vozidla a námořnictvo." />
+  <title>MilitaryForce – Vojenská technika</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="Hlavní navigace">
+    <div class="navbar__inner">
+      <a href="index(z).html" class="navbar__logo">⬡ Military<span>Force</span></a>
+      <ul class="navbar__nav" id="mainNav" role="list">
+                <li><a href="index(z).html" class="active">Domů</a></li>
+                <li><a href="pechota.html">Pěchota</a></li>
+                <li><a href="BVP.html">BVP</a></li>
+                <li><a href="tanky.html">Tanky</a></li>
+                <li><a href="letectvo.html">Letectvo</a></li>
+                <li><a href="namornictvo.html">Námořnictvo</a></li>
+                <li><a href="kontakt.html">O mně</a></li>
+            </ul>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Otevřít menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__scanlines" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero__content">
+        <span class="hero__tag">Vojenská encyklopedie</span>
+        <h1>Síla, <span class="accent">strategie</span> a technologie</h1>
+        <p class="hero__lead">
+          Komplexní průvodce moderní vojenskou technikou — od stíhacích letounů přes tanky až po válečné lodě. Data,
+          specifikace a historie na jednom místě.
+        </p>
+        <div class="hero__cta">
+          <a href="letectvo.html" class="btn btn--primary">Prozkoumat letectvo</a>
+          <a href="tanky.html" class="btn btn--outline">Tanky &amp; vozidla</a>
+        </div>
+      </div>
+      <div class="hero__stats">
+        <div class="stat-block">
+          <div class="stat-block__num">5</div>
+          <div class="stat-block__label">Kategorií</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-block__num">50+</div>
+          <div class="stat-block__label">Zbraňových systémů</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-block__num">15+</div>
+          <div class="stat-block__label">Zemí světa</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Kategorie</span>
+        <h2>Oblasti vojenské techniky</h2>
+      </div>
+      <div class="grid-3">
+
+        <a href="letectvo.html" class="card reveal" style="transition-delay:.05s">
+          <img class="card__img" src="fotky/f-35.jpg" alt="Stíhací letoun" loading="lazy" />
+          <div class="card__body">
+            <div class="card__category">Vzdušné síly</div>
+            <h3 class="card__title">Letectvo</h3>
+            <p class="card__text">Stíhačky, bombardéry, průzkumné a transportní letouny. Přehled moderních vzdušných sil
+              světa.</p>
+            <div class="card__meta">
+              <span><span class="mono">10 letounů</span></span>
+              <span class="badge badge--gold">Prozkoumat →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="tanky.html" class="card reveal" style="transition-delay:.1s">
+          <img class="card__img" src="fotky/tanky.jpg" alt="Tank" loading="lazy" />
+          <div class="card__body">
+            <div class="card__category">Pozemní síly</div>
+            <h3 class="card__title">Tanky</h3>
+            <p class="card__text">Hlavní bojové tanky, lehké tanky a tank destroyery. Výzbroj, pancéřování a bojová
+              výkonnost.</p>
+            <div class="card__meta">
+              <span><span class="mono">10 modelů</span></span>
+              <span class="badge badge--gold">Prozkoumat →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="pechota.html">
+          <article class="card reveal" style="transition-delay:.15s">
+            <img class="card__img" src="fotky/taktika.jpg" alt="Vojáci pěchoty" loading="lazy" />
+            <div class="card__body">
+              <div class="card__category">Pěchota</div>
+              <h3 class="card__title">Pěchotní výzbroj</h3>
+              <p class="card__text">Útočné pušky, kulomety, snajperské systémy a přenosné raketomety moderní pěchoty.
+              </p>
+              <div class="card__meta">
+                <span><span class="mono">10 zbraní</span></span>
+                <span class="badge badge--green">Prozkoumat →</span>
+              </div>
+            </div>
+          </article>
+        </a>
+
+        <a href="BVP.html">
+          <article class="card reveal" style="transition-delay:.2s">
+            <img class="card__img" src="fotky/obranna_vozidla.jpg" alt="Obrněné vozidlo" loading="lazy" />
+            <div class="card__body">
+              <div class="card__category">Pozemní síly</div>
+              <h3 class="card__title">Obranná vozidla</h3>
+              <p class="card__text">Obrněné transportéry, bojová vozidla pěchoty a víceúčelová taktická vozidla.</p>
+              <div class="card__meta">
+                <span><span class="mono">10 vozidel</span></span>
+                <span class="badge badge--green">Prozkoumat →</span>
+              </div>
+            </div>
+          </article>
+        </a>
+
+        <a href="namornictvo.html">
+          <article class="card reveal" style="transition-delay:.25s">
+            <img class="card__img" src="fotky/namornictvi.jpg" alt="Válečná loď" loading="lazy" />
+            <div class="card__body">
+              <div class="card__category">Námořní síly</div>
+              <h3 class="card__title">Námořnictvo</h3>
+              <p class="card__text">Letadlové lodě, fregaty, torpédoborce a ponorky. Dominance na oceánech 21.
+                století.
+              </p>
+              <div class="card__meta">
+                <span><span class="mono">10 plavidel</span></span>
+                <span class="badge badge--blue">Prozkoumat →</span>
+              </div>
+            </div>
+          </article>
+        </a>
+
+     
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Zpravodajství</span>
+        <h2>Nejnovější zprávy</h2>
+      </div>
+      <div class="grid-2 reveal">
+
+        <article
+          style="padding:1.5rem; background:var(--clr-surface2); border:1px solid var(--clr-border); border-radius:var(--radius); border-left: 3px solid var(--clr-accent);">
+          <span class="mono" style="font-size:.7rem; letter-spacing:.1em; color:var(--clr-text-dim);">12. 6. 2025</span>
+          <h3 style="margin:.4rem 0 .6rem; font-size:1.1rem;">F-35 Lightning II – nový blok softwaru</h3>
+          <p style="font-size:.9rem; color:var(--clr-text-dim); margin:0 0 1rem;">Lockheed Martin oznamuje nasazení
+            bloku 4.2, který přináší vylepšené senzorové fúze a schopnosti elektronického boje.</p>
+          <a href="letectvo.html" class="btn btn--sm btn--outline">Číst více</a>
+        </article>
+
+        <article
+          style="padding:1.5rem; background:var(--clr-surface2); border:1px solid var(--clr-border); border-radius:var(--radius); border-left: 3px solid var(--clr-accent2);">
+          <span class="mono" style="font-size:.7rem; letter-spacing:.1em; color:var(--clr-text-dim);">8. 6. 2025</span>
+          <h3 style="margin:.4rem 0 .6rem; font-size:1.1rem;">Leopard 2A8 – první testy dokončeny</h3>
+          <p style="font-size:.9rem; color:var(--clr-text-dim); margin:0 0 1rem;">Rheinmetall a KMW úspěšně dokončily
+            střelecké zkoušky nové varianty s aktivním ochranným systémem Trophy.</p>
+          <a href="tanky.html" class="btn btn--sm btn--outline">Číst více</a>
+        </article>
+
+        <article
+          style="padding:1.5rem; background:var(--clr-surface2); border:1px solid var(--clr-border); border-radius:var(--radius); border-left: 3px solid var(--clr-danger);">
+          <span class="mono" style="font-size:.7rem; letter-spacing:.1em; color:var(--clr-text-dim);">3. 6. 2025</span>
+          <h3 style="margin:.4rem 0 .6rem; font-size:1.1rem;">USS Gerald R. Ford – první bojové nasazení</h3>
+          <p style="font-size:.9rem; color:var(--clr-text-dim); margin:0 0 1rem;">Nejmodernější americká letadlová loď
+            třídy Ford zahajuje první operační nasazení v Středomoří.</p>
+          <a href="namornictvo.html" class="btn btn--sm btn--outline">Zobrazit</a>
+        </article>
+
+        <article
+          style="padding:1.5rem; background:var(--clr-surface2); border:1px solid var(--clr-border); border-radius:var(--radius); border-left: 3px solid var(--clr-border);">
+          <span class="mono" style="font-size:.7rem; letter-spacing:.1em; color:var(--clr-text-dim);">28. 5. 2025</span>
+          <h3 style="margin:.4rem 0 .6rem; font-size:1.1rem;">NATO zvyšuje výdaje na obranu</h3>
+          <p style="font-size:.9rem; color:var(--clr-text-dim); margin:0 0 1rem;">Alianční summit v Haagu schválil nový
+            cíl: 3 % HDP na obranu pro všechny členské státy do roku 2030.</p>
+          <a href="kontakt.html" class="btn btn--sm btn--outline">Diskutovat</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Rychlé srovnání</span>
+        <h2>Top 5 – Bojové tanky světa</h2>
+      </div>
+      <div class="table-wrap reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Země</th>
+              <th>Hmotnost</th>
+              <th>Max. rychlost</th>
+              <th>Výzbroj</th>
+              <th>Generace</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>M1A2 SEPv3 Abrams</strong><span class="mono" >USA</span></td>
+              <td><span class="badge badge--blue">🇺🇸 USA</span></td>
+              <td>73,6 t</td>
+              <td>67 km/h</td>
+              <td>120mm M256</td>
+              <td><span class="badge badge--gold">3. gen.</span></td>
+            </tr>
+            <tr>
+              <td><strong>Leopard 2A7+</strong><span class="mono">Německo</span></td>
+              <td><span class="badge badge--green">🇩🇪 DE</span></td>
+              <td>67,5 t</td>
+              <td>72 km/h</td>
+              <td>120mm L55A1</td>
+              <td><span class="badge badge--gold">3. gen.</span></td>
+            </tr>
+            <tr>
+              <td><strong>T-14 Armata</strong><span class="mono">Rusko</span></td>
+              <td><span class="badge badge--red">🇷🇺 RU</span></td>
+              <td>55 t</td>
+              <td>80 km/h</td>
+              <td>125mm 2A82-1M</td>
+              <td><span class="badge badge--gold">4. gen.</span></td>
+            </tr>
+            <tr>
+              <td><strong>Challenger 3</strong><span class="mono">UK</span></td>
+              <td><span class="badge badge--blue">🇬🇧 UK</span></td>
+              <td>66 t</td>
+              <td>59 km/h</td>
+              <td>120mm L55A1</td>
+              <td><span class="badge badge--gold">3. gen.</span></td>
+            </tr>
+            <tr>
+              <td><strong>K2 Black Panther</strong><span class="mono">Jižní Korea</span></td>
+              <td><span class="badge badge--green">🇰🇷 KR</span></td>
+              <td>55 t</td>
+              <td>70 km/h</td>
+              <td>120mm CN08</td>
+              <td><span class="badge badge--gold">3. gen.</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="text-align:center; margin-top:1.5rem;">
+        <a href="tanky.html" class="btn btn--primary">Zobrazit všechny tanky</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">⬡ Military<span>Force</span></div>
+          <p class="footer__desc">Encyklopedie vojenské techniky pro nadšence, studenty a odborníky. Nezávislý
+            vzdělávací projekt.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Navigace</div>
+          <ul class="footer__links">
+            <li><a href="index(z).html">Domů</a></li>
+            <li><a href="letectvo.html">Letectvo</a></li>
+            <li><a href="tanky.html">Tanky</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Kategorie</div>
+          <ul class="footer__links">
+            <li><a href="letectvo.html">Stíhačky</a></li>
+            <li><a href="BVP.html">BVP</a></li>
+            <li><a href="namornictvo.html">Námořnictvo</a></li>
+            <li><a href="pechota.html">Pěchota</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Informace</div>
+          <ul class="footer__links">
+            <li><a href="kontakt.html">O mně</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    hamburger.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>

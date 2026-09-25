@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="MilitaryForce – Pěchotní výzbroj: přehled moderních osobních zbraní, taktických systémů a přenosných raketových komplexů." />
+  <title>Moderní výzbroj pěchoty – MilitaryForce</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .detail-layout {
+      display: grid !important;
+      grid-template-columns: 1fr 360px !important;
+      gap: 3rem !important;
+      align-items: start !important;
+    }
+
+    .detail-sidebar {
+      position: sticky;
+      top: 110px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-self: start;
+    }
+
+    .detail-section {
+      position: relative;
+      border-top: 1px solid var(--clr-border);
+      padding: 5rem 0;
+    }
+
+    .weapon-detail-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--clr-border);
+      margin-bottom: 1.5rem;
+      background: var(--clr-surface);
+    }
+
+    .tank-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      height: 380px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--clr-border);
+      margin-bottom: 3rem;
+    }
+
+    .tank-hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: var(--clr-surface);
+    }
+
+    .tank-hero-info {
+      background: var(--clr-surface);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .clickable-row {
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .clickable-row:hover {
+      background-color: var(--clr-surface2) !important;
+    }
+
+    #czbren2, #fnminimi, #barrett, #javelin, #glock19,
+    #fnscar, #m4a1, #rem870, #at4, #hkmp7 {
+      scroll-margin-top: 110px !important;
+    }
+
+    .progress-item {
+      margin-bottom: 1rem;
+    }
+
+    .progress-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+      color: var(--clr-text-dim);
+    }
+
+    .progress-bar-bg {
+      background: var(--clr-surface2);
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid var(--clr-border);
+    }
+
+    .progress-bar-fill {
+      background: var(--clr-accent);
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .detail-layout {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+
+      .detail-sidebar {
+        position: static;
+      }
+
+      .tank-hero-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      
+      .tank-hero-img {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="Hlavní navigace">
+    <div class="navbar__inner">
+      <a href="index(z).html" class="navbar__logo">⬡ Military<span>Force</span></a>
+      <ul class="navbar__nav" id="mainNav" role="list">
+        <li><a href="index(z).html">Domů</a></li>
+        <li><a href="pechota.html" class="active">Pěchota</a></li>
+        <li><a href="BVP.html">BVP</a></li>
+        <li><a href="tanky.html">Tanky</a></li>
+        <li><a href="letectvo.html">Letectvo</a></li>
+        <li><a href="namornictvo.html">Námořnictvo</a></li>
+        <li><a href="kontakt.html">O mně</a></li>
+      </ul>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Otevřít menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-header" style="background: var(--clr-bg); border-bottom: 1px solid var(--clr-border);">
+    <div class="container">
+      <span class="eyebrow">Moderní arzenál a taktická podpora</span>
+      <h1>Výzbroj moderní pěchoty</h1>
+      <p>Komplexní technický přehled 10 klíčových zbraňových systémů jednotlivce a družstva používaných současnými armádami.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="tank-hero-grid reveal">
+        <img src="fotky/cz_bren_2.jpg" class="tank-hero-img" alt="CZ BREN 2 Vzor" />
+        <div class="tank-hero-info">
+          <span class="eyebrow" style="color:var(--clr-accent);">Hlavní zbraňový systém</span>
+          <h2 style="margin-top:0.5rem; margin-bottom:1rem;">CZ BREN 2</h2>
+          <p style="color:var(--clr-text-dim); margin-bottom:2rem;">Modulární útočná puška nové generace, která kombinuje nízkou hmotnost, vynikající ergonomii a stoprocentní spolehlivost v nejnáročnějších klimatických podmínkách.</p>
+          <a href="#czbren2" class="btn btn--accent" id="heroTankBtn" style="align-self: flex-start; text-decoration: none;">Zobrazit technické specifikace</a>
+        </div>
+      </div>
+
+      <div class="section-title reveal" style="margin-top: 4rem;">
+        <span class="eyebrow">Taktická srovnávací matice</span>
+        <h2>Přehled 10 zbraňových systémů</h2>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Kategorie</th>
+              <th>Ráže / Typ střeliva</th>
+              <th>Efektivní dostřel</th>
+              <th>Hmotnost (prázdná)</th>
+              <th>Země původu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="clickable-row" data-href="#czbren2"><td><strong>CZ BREN 2</strong></td><td>Útočná puška</td><td>5.56×45mm NATO</td><td>400 m</td><td>3,05 kg</td><td>🇨🇿 Česko</td></tr>
+            <tr class="clickable-row" data-href="#fnminimi"><td><strong>FN Minimi</strong></td><td>Lehký kulomet</td><td>5.56×45mm NATO</td><td>800 m</td><td>7,50 kg</td><td>🇧🇪 Belgie</td></tr>
+            <tr class="clickable-row" data-href="#barrett"><td><strong>Barrett M82A1</strong></td><td>Odstřelovačská puška</td><td>12.7×99mm (.50 BMG)</td><td>1 800 m</td><td>14,00 kg</td><td>🇺🇸 USA</td></tr>
+            <tr class="clickable-row" data-href="#javelin"><td><strong>FGM-148 Javelin</strong></td><td>Přenosný raketomet</td><td>Řízená střela (HEAT)</td><td>až 4 750 m</td><td>22,30 kg</td><td>🇺🇸 USA</td></tr>
+            <tr class="clickable-row" data-href="#glock19"><td><strong>Glock 19</strong></td><td>Sekundární pistole</td><td>9×19mm Parabellum</td><td>50 m</td><td>0,67 kg</td><td>🇦🇹 Rakousko</td></tr>
+            <tr class="clickable-row" data-href="#fnscar"><td><strong>FN SCAR-H</strong></td><td>Bojová puška (Battle Rifle)</td><td>7.62×51mm NATO</td><td>600 m</td><td>3,58 kg</td><td>🇧🇪 Belgie</td></tr>
+            <tr class="clickable-row" data-href="#m4a1"><td><strong>M4A1 Carbine</strong></td><td>Karabina / Útočná puška</td><td>5.56×45mm NATO</td><td>500 m</td><td>2,88 kg</td><td>🇺🇸 USA</td></tr>
+            <tr class="clickable-row" data-href="#rem870"><td><strong>Remington 870</strong></td><td>Taktická brokovnice</td><td>12 Gauge (Broky/Jednotná)</td><td>40 m</td><td>3,20 kg</td><td>🇺🇸 USA</td></tr>
+            <tr class="clickable-row" data-href="#at4"><td><strong>AT4</strong></td><td>Jednorázový raketomet</td><td>84mm Bezzákluzová střela</td><td>300 m</td><td>6,70 kg</td><td>🇸🇪 Švédsko</td></tr>
+            <tr class="clickable-row" data-href="#hkmp7"><td><strong>HK MP7</strong></td><td>Samopal / PDW</td><td>4.6×30mm</td><td>200 m</td><td>1,90 kg</td><td>🇩🇪 Německo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="czbren2" class="section section--dark detail-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Třída: Útočné pušky</span>
+        <h2>CZ BREN 2</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="weapon-detail-img" src="fotky/CZ_BREN_2_2.jpg" alt="CZ BREN 2" />
+          <h3 style="margin-bottom: 1.5rem;">Charakteristika a konstrukce</h3>
+          <p>CZ BREN 2 je moderní, vysoce modulární útočná puška vyvinutá Českou zbrojovkou. Vychází z konceptu odběru plynů s krátkým zdvihem pístu a otočným závěrem. Je kompletně oboustranná a umožňuje rychlou výměnu hlavně pro změnu ráže.</p>
+        </div>
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Ráže</span><span class="spec-list__val">5.56×45mm NATO</span></li>
+              <li><span class="spec-list__key">Kadence</span><span class="spec-list__val">850 ran/min</span></li>
+              <li><span class="spec-list__key">Kapacita</span><span class="spec-list__val">30 ran</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇨🇿 Česko</span><span class="spec-list__val">40 000+ ks</span></li>
+              <li><span class="spec-list__key">🇫🇷 Francie</span><span class="spec-list__val">GIGN (speciální edice)</span></li>
+              <li><span class="spec-list__key">🇺🇦 Ukrajina</span><span class="spec-list__val">Obranné síly (licenční výr.)</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojová efektivita</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Spolehlivost</span><span>95%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Ergonomie</span><span>94%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:94%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Modularita</span><span>96%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:96%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fnminimi" class="section section--dark detail-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Třída: Kulomety</span>
+        <h2>FN Minimi (M249 SAW)</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="weapon-detail-img" src="fotky/FN Minimi (M249 SAW).jpg" alt="FN Minimi" />
+          <h3 style="margin-bottom: 1.5rem;">Palebná podpora družstva</h3>
+          <p>Belgický lehký kulomet, který definoval standardy palebné podpory na úrovni pěchotního družstva. Unikátní vlastností je kombinované podávání munice: z nábojového pásu i ze standardních STANAG zásobníků.</p>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Ráže</span><span class="spec-list__val">5.56×45mm NATO</span></li>
+              <li><span class="spec-list__key">Podávání</span><span class="spec-list__val">Pás / Zásobník</span></li>
+              <li><span class="spec-list__key">Dostřel</span><span class="spec-list__val">800 m</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">95 000+ ks (jako M249)</span></li>
+              <li><span class="spec-list__key">🇧🇪 Belgie</span><span class="spec-list__val">Standardní výzbroj družstva</span></li>
+              <li><span class="spec-list__key">🇨🇿 Česko</span><span class="spec-list__val">Užívaná v misích</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojová efektivita</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Hustota palby</span><span>96%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:96%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Mobilita</span><span>78%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:78%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Logistika (Duální podávání)</span><span>92%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:92%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="barrett" class="section section--dark detail-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Třída: Odstřelovačské systémy</span>
+        <h2>Barrett M82A1</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="weapon-detail-img" src="fotky/Barrett M82A1.webp" alt="Barrett M82A1" />
+          <h3 style="margin-bottom: 1.5rem;">Antimateriálová velkorážová puška</h3>
+          <p>Legendární zbraň pro ničení techniky, radarů a chráněných stanovišť na extrémní vzdálenosti. Systém s krátkým zpětným pohybem hlavně a mohutnou úsťovou brzdou, která pohlcuje většinu zpětného rázu náboje .50 BMG.</p>
+        </div>
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Ráže</span><span class="spec-list__val">12.7×99mm NATO</span></li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">14,0 kg</span></li>
+              <li><span class="spec-list__key">Zásobník</span><span class="spec-list__val">10 ran</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">Všechny složky ozbrojených sil</span></li>
+              <li><span class="spec-list__key">🇬🇧 Velká Británie</span><span class="spec-list__val">Speciální jednotky a SAS</span></li>
+              <li><span class="spec-list__key">🇨🇿 Česko</span><span class="spec-list__val">Odstřelovači 601. skss</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojová efektivita</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Destruktivní účinek</span><span>98%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:98%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Dostřel</span><span>97%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:97%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Hmotnostní hendikep</span><span>45%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:45%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="javelin" class="section section--dark detail-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Třída: Přenosné raketomety</span>
+        <h2>FGM-148 Javelin</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="weapon-detail-img" src="fotky/FGM-148 Javelin.jpg" alt="FGM-148 Javelin" />
+          <h3 style="margin-bottom: 1.5rem;">Systém typu „Vystřel a zapomeň“</h3>
+          <p>Naváděná protitanková střela s infračerveným senzorem. Je schopna útočit v režimu Top Attack (shora), kde zasahuje nejslabší část pancéřování moderních obrněných cílů.</p>
+        </div>
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Typ hlavice</span><span class="spec-list__val">Tandemová HEAT</span></li>
+              <li><span class="spec-list__key">Hmotnost kom.</span><span class="spec-list__val">22,3 kg</span></li>
+              <li><span class="spec-list__key">Max. dosah</span><span class="spec-list__val">4 750 m</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">Aktivní zásoby v tisících ks</span></li>
+              <li><span class="spec-list__key">🇺🇦 Ukrajina</span><span class="spec-list__val">Tisíce dodaných kompletů</span></li>
+              <li><span class="spec-list__key">🇹🇼 Tchaj-wan</span><span class="spec-list__val">1 000+ objednaných raket</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojová efektivita</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Průraznost pancíře</span><span>99%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:99%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Přesnost navádění</span><span>95%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Ochrana operátora</span><span>93%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:93%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="glock19" class="section section--dark detail-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Třída: Sekundární zbraně</span>
+        <h2>Glock 19</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="weapon-detail-img" src="fotky/Glock 19.jpg" alt="Glock 19" />
+          <h3 style="margin-bottom: 1.5rem;">Standardní boční zbraň</h3>
+          <p>Kompaktní samonabíjecí pistole s polymerovým rámem a přímoběžným úderníkem. Celosvětově uznávaná pro svou mechanickou odolnost, jednoduchost konstrukce a vysokou spolehlivost.</p>
+        </div>
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Ráže</span><span class="spec-list__val">9×19mm Parabellum</span></li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">0,67 kg (prázdná)</span></li>
+              <li><span class="spec-list__key">Kapacita</span><span class="spec-list__val">15 ran</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇦🇹 Rakousko</span><span class="spec-list__val">Vojenská policie a armáda</span></li>
+              <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">MARSOC, Navy SEALs (jako Mk19)</span></li>
+              <li><span class="spec-list__key">🇬🇧 Velká Británie</span><span class="spec-list__val">15 000+ ks (jako L131A1)</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojová efektivita</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Spolehlivost</span><span>98%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:98%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Snadnost údržby</span><span>96%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:96%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Skryté nošení</span><span>90%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fnscar" class="section section--dark detail-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Třída: Bojové pušky</span>
+        <h2>FN SCAR-H (Mk 17)</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="weapon-detail-img" src="fotky/FN SCAR-H (Mk 17).jpg" alt="FN SCAR-H" />
+          <h3 style="margin-bottom: 1.5rem;">Těžká bitevní puška</h3>
+          <p>Zbraň vyvinutá pro velitelství speciálních sil USA (US SOCOM). Využívá výkonný puškový náboj 7.62×51mm NATO, což zajišťuje vysokou průbojnost a přesnost na větší vzdálenosti než běžné útočné pušky.</p>
+        </div>
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Ráže</span><span class="spec-list__val">7.62×51mm NATO</span></li>
+              <li><span class="spec-list__key">Úsťová rychl.</span><span class="spec-list__val">714 m/s</span></li>
+              <li><span class="spec-list__key">Ef. dostřel</span><span class="spec-list__val">600 m</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">US SOCOM (Navy SEALs, Rangers)</span></li>
+              <li><span class="spec-list__key">🇧🇪 Belgie</span><span class="spec-list__val">Standardní zbraň u vybraných sil</span></li>
+              <li><span class="spec-list__key">🇱🇹 Litva</span><span class="spec-list__val">Pozemní síly</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojová efektivita</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Zastavovací efekt</span><span>92%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:92%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Přesnost</span><span>90%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Průbojnost bariér</span><span>94%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:94%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="m4a1" class="section section--dark detail-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Třída: Útočné pušky / Karabiny</span>
+        <h2>M4A1 Carbine</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="weapon-detail-img" src="fotky/M4A1 Carbine.jpg" alt="M4A1" />
+          <h3 style="margin-bottom: 1.5rem;">Základní zbraň jednotlivce</h3>
+          <p>Zkrácená a odlehčená verze útočné pušky M16A2. Je vybavena teleskopickou pažbou a lištami RIS pro montáž široké škály zaměřovačů, laserů a taktických doplňků.</p>
+        </div>
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Ráže</span><span class="spec-list__val">5.56×45mm NATO</span></li>
+              <li><span class="spec-list__key">Systém</span><span class="spec-list__val">Přímý odběr plynů</span></li>
+              <li><span class="spec-list__key">Kadence</span><span class="spec-list__val">700–950 ran/min</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">500 000+ ks (přední linie armády)</span></li>
+              <li><span class="spec-list__key">🇮🇱 Izrael</span><span class="spec-list__val">Pěchotní brigády IDF</span></li>
+              <li><span class="spec-list__key">🇯🇵 Japonsko</span><span class="spec-list__val">Speciální skupina sil sebeobrany</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojová efektivita</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Customizace</span><span>97%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:97%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Kompaktnost</span><span>88%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:88%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Dostupnost dílů</span><span>99%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:99%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rem870" class="section section--dark detail-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Třída: Taktické brokovnice</span>
+        <h2>Remington 870</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="weapon-detail-img" src="fotky/Remington 870.jpg" alt="Remington 870" />
+          <h3 style="margin-bottom: 1.5rem;">Opakovací brokovnice (Pump-Action)</h3>
+          <p>Vysoce spolehlivá brokovnice široce využívaná armádními složkami k vyrážení dveří (breaching), boji v uzavřených prostorách (CQB) a k odpalování nesmrtící munice.</p>
+        </div>
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Ráže</span><span class="spec-list__val">12 Gauge</span></li>
+              <li><span class="spec-list__key">Typ mechanismu</span><span class="spec-list__val">Posuvné předpažbí</span></li>
+              <li><span class="spec-list__key">Kapacita</span><span class="spec-list__val">4 až 7 nábojů</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">Užívaná u USMC a US Army</span></li>
+              <li><span class="spec-list__key">🇨🇦 Kanada</span><span class="spec-list__val">Speciální a pořádkové síly</span></li>
+              <li><span class="spec-list__key">🇦🇺 Austrálie</span><span class="spec-list__val">Obranné síly (taktické týmy)</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojová efektivita</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Účinek na blízko</span><span>95%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Taktická flexibilita</span><span>90%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Mechanická mechanika</span><span>96%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:96%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="at4" class="section section--dark detail-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Třída: Přenosné raketomety</span>
+        <h2>AT4 Lehký protitankový pancéřovník</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="weapon-detail-img" src="fotky/AT4 Lehký protitankový pancéřovník.jpg" alt="AT4" />
+          <h3 style="margin-bottom: 1.5rem;">Jednorázový bezzákluzový zbraňový systém</h3>
+          <p>Švédská jednorázová zbraň určená k likvidaci lehce obrněných vozidel, opevnění a pěchotních krytů. Vyniká velmi jednoduchou obsluhou bez nutnosti zpětného rázu při výstřelu.</p>
+        </div>
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Průměr hlavně</span><span class="spec-list__val">84 mm</span></li>
+              <li><span class="spec-list__key">Průbojnost</span><span class="spec-list__val">až 420 mm RHA</span></li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">6,7 kg</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇸🇪 Švédsko</span><span class="spec-list__val">Páteřní protitanková výzbroj</span></li>
+              <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">600 000+ ks dodaných (jako M136)</span></li>
+              <li><span class="spec-list__key">🇨🇿 Česko</span><span class="spec-list__val">Zavedeno v počtech tisíců ks</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojová efektivita</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Průraznost lehkého pancíře</span><span>88%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:88%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Snadnost nasazení</span><span>95%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Logistická nenáročnost</span><span>98%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:98%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hkmp7" class="section section--dark detail-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Třída: Samopaly / PDW</span>
+        <h2>HK MP7</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="weapon-detail-img" src="fotky/HK MP7.jpg" alt="HK MP7" />
+          <h3 style="margin-bottom: 1.5rem;">Zbraň osobní ochrany (Personal Defense Weapon)</h3>
+          <p>Kompaktní automatická zbraň střílející speciálním vysokorychlostním střelivem, které dokáže prorazit standardní kevlarové neprůstřelné vesty. Používána osádkami techniky a speciálními jednotkami.</p>
+        </div>
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Ráže</span><span class="spec-list__val">4.6×30mm</span></li>
+              <li><span class="spec-list__key">Kadence</span><span class="spec-list__val">950 ran/min</span></li>
+              <li><span class="spec-list__key">Kapacita</span><span class="spec-list__val">20 / 40 ran</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇩🇪 Německo</span><span class="spec-list__val">Bundeswehr (osádky, MP)</span></li>
+              <li><span class="spec-list__key">🇬🇧 Velká Británie</span><span class="spec-list__val">Ministry of Defence Police</span></li>
+              <li><span class="spec-list__key">🇨🇿 Česko</span><span class="spec-list__val">601. skss a Vojenská policie</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojová efektivita</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Průbojnost ochrany</span><span>91%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:91%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Kompaktnost v pouzdře</span><span>96%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:96%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Rychlost střelby</span><span>95%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:95%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">⬡ Military<span>Force</span></div>
+          <p class="footer__desc">Encyklopedie vojenské techniky pro nadšence, studenty a odborníky. Nezávislý
+            vzdělávací projekt.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Navigace</div>
+          <ul class="footer__links">
+            <li><a href="index(z).html">Domů</a></li>
+            <li><a href="letectvo.html">Letectvo</a></li>
+            <li><a href="tanky.html">Tanky</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Kategorie</div>
+          <ul class="footer__links">
+            <li><a href="letectvo.html">Stíhačky</a></li>
+            <li><a href="BVP.html">BVP</a></li>
+            <li><a href="namornictvo.html">Námořnictvo</a></li>
+            <li><a href="pechota.html">Pěchota</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Informace</div>
+          <ul class="footer__links">
+            <li><a href="kontakt.html">O mně</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    hamburger.addEventListener('click', () => { nav.classList.toggle('open'); });
+
+    document.querySelectorAll('.clickable-row').forEach(row => {
+      row.addEventListener('click', () => {
+        const target = row.getAttribute('data-href');
+        document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    const heroBtn = document.getElementById('heroTankBtn');
+    if (heroBtn) {
+      heroBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('#czbren2').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(r => obs.observe(r));
+  </script>
+</body>
+
+</html>

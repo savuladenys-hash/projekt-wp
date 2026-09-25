@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Výcvik speciálních jednotek | Vojenský blog</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+ 
+        .article-full {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #c0392b;
+        }
+        
+        .article-header {
+            position: relative;
+        }
+        
+        .article-full .article-image {
+            height: 400px;
+            background-color: #2c3e50;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ecf0f1"><path d="M50 10 L60 30 L50 50 L40 30 L50 10"/><circle cx="50" cy="60" r="10"/><rect x="45" y="70" width="10" height="20"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 150px;
+        }
+        
+        .article-full .article-content {
+            padding: 2rem;
+        }
+        
+        .article-full h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-full .article-meta {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin: 1rem 0 2rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .article-full .article-meta span {
+            margin-right: 2rem;
+        }
+        
+        .article-full p {
+            margin: 1.5rem 0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        
+        .article-full h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem 0;
+            border-left: 4px solid #c0392b;
+            padding-left: 1rem;
+        }
+        
+        .article-full h3 {
+            color: #34495e;
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+        }
+        
+        .article-full ul, .article-full ol {
+            margin: 1rem 0 1.5rem 2rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .article-full li {
+            margin: 0.5rem 0;
+        }
+        
+        .training-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #c0392b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .training-box h3 {
+            margin-top: 0;
+            color: #c0392b;
+        }
+        
+        .training-box ul {
+            margin-bottom: 0;
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            padding: 1.5rem;
+            background-color: #f0f3f4;
+            border-radius: 8px;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: #c0392b;
+            opacity: 0.3;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+        
+        .quote-author {
+            text-align: right;
+            font-weight: bold;
+            color: #c0392b;
+            margin-top: 0.5rem;
+        }
+        
+        .image-caption {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-item {
+            background-color: rgb(20, 52, 20);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            border-bottom: 3px solid #c0392b;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+   
+        .comments-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #c0392b;
+        }
+        
+        .comments-section h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 0.5rem;
+        }
+        
+        .comment {
+            border-bottom: 1px solid #ecf0f1;
+            padding: 1.5rem 0;
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        
+        .comment-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .comment-content {
+            color: #333;
+            line-height: 1.6;
+            margin-left: 1rem;
+        }
+        
+        .comment-form {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .comment-form h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+        
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .comment-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .comment-form button {
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .comment-form button:hover {
+            background-color: #a93226;
+        }
+        
+        @media (max-width: 768px) {
+            .article-full h1 {
+                font-size: 2rem;
+            }
+            
+            .article-full .article-image {
+                height: 250px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Vojenský blog</h1>
+            
+            <nav>
+                <ul class="nav-menu">
+                    
+                   <li class="nav-item">
+                        <input type="checkbox" id="nav-domu" class="nav-toggle">
+                        <label for="nav-domu" class="nav-btn">Domů</label>
+                        <ul class="submenu">
+                            <li><a href="index.html">Úvodní stránka</a></li>
+                            <li><a href="nejcastejsi.html">Nejčtenější</a></li>
+                        </ul>
+                    </li>
+                    
+                   
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-clanky" class="nav-toggle">
+                        <label for="nav-clanky" class="nav-btn">Články</label>
+                        <ul class="submenu">
+                            <li><a href="index1.html">Všechny články</a></li>
+                            <li><a href="nejnovejsi.html">Nejnovější</a></li>
+                            <li><a href="doporucene.html">Doporučené</a></li>
+                        </ul>
+                    </li>
+                    
+               
+                  
+                    
+                 
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-kontakt" class="nav-toggle">
+                        <label for="nav-kontakt" class="nav-btn">Kontakt</label>
+                        <ul class="submenu">
+        
+                            <li><a href="o.autorovi.html" style="background-color: #c0392b; color: white;">O autorovi</a></li>
+                           
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="articles">
+          
+            <article class="article-full">
+                <div class="article-header">
+                 ->
+              <img src="vycvik.jpg" alt=""style="width: 100%; height: 400px; object-fit: cover;">
+
+                    <div class="image-caption">Výcvik speciálních jednotek v horském terénu (zdroj: Armáda ČR)</div>
+                </div>
+                
+                <div class="article-content">
+                    <h1>Výcvik speciálních jednotek v náročných podmínkách</h1>
+                    
+                    <div class="article-meta">
+                        <span>📅 25. února 2026</span>
+                        <span>👤 Autor: Jana Nováková</span>
+                        <span>📁 Kategorie: Výcvik</span>
+                        <span>⏱ Délka čtení: 8 min</span>
+                    </div>
+                    
+                    <p>Exkluzivní reportáž přímo z výcvikového prostoru, kde se čeští vojáci speciálních sil připravují na ty nejnáročnější mise. Co obnáší stát se příslušníkem elitních jednotek? Jak vypadá výcvik, když teplota klesne hluboko pod bod mrazu a každé zaváhání může znamenat selhání celé mise? Přinášíme unikátní pohled do světa, který zůstává běžným smrtelníkům skrytý.</p>
+                    
+                    <p>Výcvik speciálních jednotek je považován za jeden z nejnáročnějších na světě. Není to jen o fyzické kondici – ta je samozřejmostí. Jde především o psychickou odolnost, schopnost rozhodovat se ve zlomku sekundy pod obrovským tlakem a naprostou důvěru ve své spolubojovníky. V následujících řádcích vás provedeme jednotlivými fázemi výcviku, který čeká každého, kdo touží nosit baret speciálních sil.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">70%</div>
+                            <div class="stat-label">Úspěšnost u přijímaček</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6 měsíců</div>
+                            <div class="stat-label">Základní výcvik</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15 kg</div>
+                            <div class="stat-label">Průměrná ztráta váhy</div>
+                        </div>
+                    </div>
+                    
+                    <h2>Přijímací řízení: Peklo na zemi</h2>
+                    
+                    <p>Vše začíná u přijímacího řízení, kterému se mezi vojáky přezdívá "Sítem projde jen blázen". Trvá celý týden a uchazeči spí v průměru 3 hodiny denně. Zbytek času vyplňují nepřetržité fyzické aktivity, psychologické testy a simulace stresových situací. "První den jsme běželi 15 kilometrů v plné polní. Pak hned plavání v ledové vodě a poté opravování vysílačky pod časovým tlakem," popisuje jeden z instruktorů, který si nepřál být jmenován. "Ti, co to vzdají, odcházejí hned první den. A je jich většina."</p>
+                    
+                    <p>Psychologické testy jsou navrženy tak, aby odhalily sebemenší náznak slabosti. Kandidáti jsou vystaveni simulovanému zajetí, výslechům a izolaci. "Nejde o to, jestli umíš střílet. To tě naučíme. Jde o to, jestli se nezblázníš, když jsi sám v lese týden bez jídla a nevíš, jestli tě nepřítel sleduje," dodává instruktor.</p>
+                    
+                    <h2>Přežití v divočině: Matka příroda je tvůj nepřítel</h2>
+                    
+                    <p>Další fází je kurz přežití. Ten se koná v různých klimatických podmínkách – od letních veder v hustých lesích až po zimní výcvik v horských oblastech s teplotami klesajícími k -20 °C. Vojáci se učí, jak si postavit přístřešek z dostupných materiálů, jak získat vodu, rozdělat oheň bez zápalek a jak se orientovat v terénu bez moderní techniky.</p>
+                    
+                    <div class="training-box">
+                        <h3>Co musí voják zvládnout během kurzu přežití:</h3>
+                        <ul>
+                            <li><strong>Stavba nouzového přístřešku</strong> - za každého počasí, do 2 hodin</li>
+                            <li><strong>Získání vody a potravy</strong> - lov, rybolov, pasti</li>
+                            <li><strong>Zdravotní ošetření</strong> - ošetření zranění v polních podmínkách</li>
+                            <li><strong>Orientace bez kompasu</strong> - podle hvězd, mechu, slunce</li>
+                            <li><strong>Maskování a utajení</strong> - splynutí s terénem</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Nejtěžší částí je takzvaný "Týden v pekle", kdy jsou vojáci vysazeni do neznámého terénu s minimem vybavení a musí se sami dostat na určené místo, přičemž se vyhýbají "nepřátelským" hlídkám. "Měli jsme jen nůž, lahev na vodu a igelitovou plachtu. Týden jsme šli, spali v blátě, jedli co jsme chytili. Třetí den už všichni brečeli, ale nikdo to nevzdal. To je ta síla," vzpomíná absolvent kurzu.</p>
+                    
+                    <div class="quote">
+                        <p>Nejhorší není fyzická bolest. Nejhorší je, když jsi sám, promrzlý na kost a víš, že tě nikdo nepřijde zachránit. Tehdy zjistíš, zda na to máš nebo ne.</p>
+                        <div class="quote-author">— Instruktor speciálních sil (anonym)</div>
+                    </div>
+                    
+                    <h2>Boj z blízka: Umění přežít na vzdálenost nože</h2>
+                    
+                    <p>Speciální jednotky se musí umět pohybovat a bojovat v bezprostřední blízkosti nepřítele. Výcvik boje z blízka (CQB – Close Quarters Battle) probíhá ve speciálně upravených trenažérech, které simulují místnosti, chodby a budovy. Vojáci trénují vstup do místnosti, neutralizaci hrozeb a záchranu rukojmích. Vše musí být bleskové, koordinované a tiché.</p>
+                    
+                    <p>"V CQB jde o milisekundy. Kdo vystřelí první, ten žije. Proto trénujeme do úmoru, aby každý pohyb byl automatický a nebylo třeba o něm přemýšlet," vysvětluje instruktor. Výcvik zahrnuje střelbu z různých pozic, za pohybu, s překážkami a v omezené viditelnosti. Používají se ostré náboje, takže chyba může mít fatální následky. "Bezpečnost je na prvním místě. Každý pohyb musíme mít nacvičený tak, aby ani v tom největším stresu nedošlo k selhání."</p>
+                    
+                    <h2>Speciální operace: Para, vodní a horský výcvik</h2>
+                    
+                    <p>Každý příslušník speciálních jednotek musí být schopen nasazení v jakémkoli prostředí. Proto absolvuje celou řadu specializovaných kurzů:</p>
+                    
+                    <h3>Para výcvik</h3>
+                    <p>Vojáci se učí seskoky padákem z různých výšek a typů letadel, včetně nočních seskoků a seskoků s těžkým vybavením. "Seskok z výšky 300 metrů v noci, s 50 kg výbavy na zádech a jen s orientačním světýlkem – to chce pořádné nervy," říká instruktor para výcviku.</p>
+                    
+                    <h3>Vodní výcvik</h3>
+                    <p>Operace na vodě i pod vodou jsou další specializací. Vojáci se učí potápění s přístrojem i bez něj, plavbu na nafukovacích člunech a speciálních plavidlech a také likvidaci vodních překážek. "Plavání v ledové vodě v plné polní je něco, na co se nedá připravit jinak než tím, že to prostě uděláš," popisuje jeden z vojáků.</p>
+                    
+                    <h3>Horský výcvik</h3>
+                    <p>Vysokohorský terén klade extrémní nároky na fyzickou kondici i technické dovednosti. Vojáci se učí horolezectví, pohybu po ledovcích, záchraně v horách a boji v nadmořských výškách nad 3000 metrů. "Kyslíku je málo, každý pohyb bolí a musíš ještě bojovat. To prověří každého."</p>
+                    
+                    <h2>Psychologická příprava: Nejtěžší zkouška</h2>
+                    
+                    <p>Asi nejdůležitější a nejnáročnější částí výcviku je psychologická příprava. Vojáci jsou vystavováni simulacím skutečných bojových situací, včetně ostřelování, výbuchů a ztrát. Psychologové s nimi pracují individuálně i ve skupinách, učí je zvládat stres, strach a trauma. "Musíš být schopen ve vteřině vypnout emoce a jednat. Pláč a vztek si můžeš dovolit až potom, co je mise splněna. Pokud vůbec," říká armádní psycholog.</p>
+                    
+                    <p>Součástí výcviku je i odolávání mučení a výslechům. Vojáci jsou v simulovaném zajetí vystaveni fyzickému i psychickému nátlaku, spánkové deprivaci a izolaci. "Cílem není naučit je, aby nepromluvili. Každý promluví, to je lidské. Jde o to, aby vydrželi dost dlouho, než jednotka splní úkol nebo než je někdo vysvobodí."</p>
+                    
+                    <h2>Závěr: Elita mezi elitou</h2>
+                    
+                    <p>Výcvik speciálních jednotek není pro každého. Z původních stovek uchazečů nakonec projde celým výcvikem jen hrstka. Ti, kteří uspějí, se stávají součástí úzké komunity profesionálů, na které se lze spolehnout v těch nejtěžších situacích. "Není to jen práce, je to způsob života. Tvoje jednotka je tvoje rodina. A víš, že když bude nejhůř, udělají pro tebe maximum. A ty pro ně," uzavírá instruktor.</p>
+                    
+                    <p><em>Autorka je válečná zpravodajka, která se dlouhodobě věnuje tématu speciálních sil. Za svou práci získala několik novinářských ocenění a jako jedna z mála civilistů měla možnost strávit týden přímo s výcvikovou jednotkou.</em></p>
+                </div>
+            </article>
+            
+          
+            <div class="comments-section">
+                <h2>Komentáře (4)</h2>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Martin Procházka</span>
+                        <span class="comment-date">25. února 2026 18:20</span>
+                    </div>
+                    <div class="comment-content">
+                        Skvělý článek, díky za něj! Mám dotaz - jak je to s výcvikem u nás v ČR? Máme nějaké speciální jednotky, které se mohou rovnat těm světovým? A kde probíhá ten zimní výcvik? Díky!
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Jana Nováková (autor)</span>
+                        <span class="comment-date">25. února 2026 19:45</span>
+                    </div>
+                    <div class="comment-content">
+                        @Martin Procházka: Ano, české speciální jednotky (např. 601. skupina speciálních sil z Prostějova) patří ke světové špičce. Pravidelně cvičí s jednotkami NATO a jejich výcvik je srovnatelný s britskými SAS nebo americkými Green Berets. Zimní výcvik probíhá převážně v Jeseníkách a Krkonoších, ale také v zahraničí - například v Norsku.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Tomáš Dvořák</span>
+                        <span class="comment-date">26. února 2026 09:33</span>
+                    </div>
+                    <div class="comment-content">
+                        Můj bratr slouží u 601. a říkal, že nejhorší byl kurz přežití. Prý když měli týden jen vodu a syrové ryby, tak to dalo zabrat. Respekt všem, co to dají!
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Petr Novotný</span>
+                        <span class="comment-date">26. února 2026 14:17</span>
+                    </div>
+                    <div class="comment-content">
+                        Chtěl bych se přihlásit k výběrovému řízení, ale nejsem si jistý, jestli mám dostatečnou fyzickou kondici. Jaké jsou minimální požadavky? Na webu armády jsou jen obecné informace.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Jana Nováková (autor)</span>
+                        <span class="comment-date">26. února 2026 16:02</span>
+                    </div>
+                    <div class="comment-content">
+                        @Petr Novotný: Minimální požadavky jsou: uběhnout 12 minut (co největší vzdálenost, ideálně nad 3000m), shyby (min. 12), kliky (min. 60 za 2 minuty), sedy-lehy (min. 60 za 2 minuty) a plavání 200 metrů (do 5 minut). Ale to je opravdu minimum - konkurence je obrovská, takže je potřeba být mnohem lepší. Držím palce!
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Eva Černá</span>
+                        <span class="comment-date">27. února 2026 11:08</span>
+                    </div>
+                    <div class="comment-content">
+                        Můžou se ke speciálním jednotkám hlásit i ženy? V článku je to psané jen v mužském rodě. Díky za odpověď.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Jana Nováková (autor)</span>
+                        <span class="comment-date">27. února 2026 12:30</span>
+                    </div>
+                    <div class="comment-content">
+                        @Eva Černá: Ano, mohou. Armáda ČR je otevřená ženám ve všech složkách včetně speciálních jednotek. Podmínky jsou stejné pro všechny - nikdo nedostává slevy. Zatím je žen v těchto jednotkách minimum, ale postupně přibývají. Pokud máš zájem, určitě do toho jdi!
+                    </div>
+                </div>
+             
+            </div>
+        </main>
+        
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>O autorce</h3>
+                <p><strong>Jana Nováková</strong> je válečná zpravodajka a novinářka specializující se na bezpečnostní témata. Jako jedna z mála civilistů měla možnost absolvovat část výcviku s armádou USA i ČR. Je držitelkou ceny Český novinář za rok 2025.</p>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3>Související články</h3>
+                <ul>
+                    <li><a href="clanek5.html">Taktika městského boje: Nové výzvy</a></li>
+                    <li><a href="clanek6.html">Drony na bojišti: Revoluce, která mění válčení</a></li>
+                    <li><a href="clanek7.html">Aktivní ochranné systémy - revoluce v přežití</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3>Kategorie</h3>
+                <div class="categories">
+                     <a href="technika.html" class="category-tag">Technika</a>
+                    <a href="historie.html" class="category-tag">Historie</a>
+                    <a href="vycvik.html" class="category-tag">Výcvik</a>
+                    <a href="letectvo.html" class="category-tag">Letectvo</a>
+                </div>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3>Fakta o výcviku</h3>
+                <ul>
+                    <li><strong>Délka:</strong> 6-12 měsíců</li>
+                    <li><strong>Úspěšnost:</strong> cca 15-20%</li>
+                    <li><strong>Min. věk:</strong> 18 let</li>
+                    <li><strong>Max. věk:</strong> 35 let</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <p>© 2026 Vojenský blog | Všechna práva vyhrazena</p>
+    </footer>
+</body>
+</html>

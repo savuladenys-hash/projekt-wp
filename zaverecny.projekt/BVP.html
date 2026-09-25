@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="MilitaryForce – BVP: přehled moderních bojových vozidel pěchoty a obrněnců světa." />
+  <title>Bojová vozidla pěchoty (BVP) – MilitaryForce</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .detail-layout {
+      display: grid !important;
+      grid-template-columns: 1fr 360px !important;
+      gap: 3rem !important;
+      align-items: start !important;
+    }
+
+    .detail-sidebar {
+      position: sticky;
+      top: 110px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-self: start;
+    }
+
+    .tank-detail-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--clr-border);
+      margin: 0 0 0 0;
+    }
+
+    .detail-section {
+      position: relative;
+      border-top: 1px solid var(--clr-border);
+      padding: 5rem 0;
+    }
+
+    .tank-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      height: 380px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--clr-border);
+      margin-bottom: 3rem;
+    }
+
+    .tank-hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .tank-hero-info {
+      background: var(--clr-surface);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .clickable-row {
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .clickable-row:hover {
+      background-color: var(--clr-surface2) !important;
+    }
+
+    #cv90,
+    #bradley,
+    #lynx,
+    #puma,
+    #redback,
+    #rosomak,
+    #boomerang,
+    #marder,
+    #type89,
+    #warrior {
+      scroll-margin-top: 110px !important;
+    }
+
+    
+    .progress-item {
+      margin-bottom: 1rem;
+    }
+
+    .progress-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+      color: var(--clr-text-dim);
+    }
+
+    .progress-bar-bg {
+      background: var(--clr-surface2);
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid var(--clr-border);
+    }
+
+    .progress-bar-fill {
+      background: var(--clr-accent);
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .detail-layout {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+
+      .detail-sidebar {
+        position: static;
+      }
+
+      .tank-hero-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .tank-hero-img {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="Hlavní navigace">
+    <div class="navbar__inner">
+      <a href="index(z).html" class="navbar__logo">⬡ Military<span>Force</span></a>
+       <ul class="navbar__nav" id="mainNav" role="list">
+                <li><a href="index(z).html">Domů</a></li>
+                <li><a href="pechota.html">Pěchota</a></li>
+                <li><a href="BVP.html" class="active">BVP</a></li>
+                <li><a href="tanky.html">Tanky</a></li>
+                <li><a href="letectvo.html">Letectvo</a></li>
+                <li><a href="namornictvo.html">Námořnictvo</a></li>
+                <li><a href="kontakt.html">O mně</a></li>
+            </ul>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Otevřít menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-header"
+    style="background-image: linear-gradient(to bottom, rgba(10,12,14,.75) 0%, var(--clr-bg) 100%), url('https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?w=1400&q=70') center/cover no-repeat;">
+    <div class="container">
+      <span class="eyebrow">Těžká technika pěchoty</span>
+      <h1>Bojová vozidla pěchoty (BVP)</h1>
+      <p>Páteř moderní mechanizované pěchoty. Kombinují transport plně vyzbrojeného výsadku s palebnou silou a ochranou
+        schopnou čelit tankům.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="tank-hero-grid reveal">
+        <img src="fotky/cv90_mkiv.jpg" class="tank-hero-img" alt="CV90 MkIV">
+        <div class="tank-hero-info">
+          <span class="eyebrow" style="color:var(--clr-accent);">Technika v centru pozornosti</span>
+          <h2 style="margin-top:0.5rem; margin-bottom:1rem;">CV90 MkIV</h2>
+          <p style="color:var(--clr-text-dim); margin-bottom:2rem;">Nejnovější standard švédské rodiny obrněnců. Díky
+            plně digitální architektuře, silnému motoru a možnosti nasadit až 40mm kanón představuje absolutní elitu pro
+            evropská bojiště a novou oporu Armády ČR.</p>
+          <a href="#cv90" class="btn btn--accent" id="heroTankBtn"
+            style="align-self: flex-start; text-decoration: none;">Zobrazit detail vozidla</a>
+        </div>
+      </div>
+
+      <div class="section-title reveal" style="margin-top: 4rem;">
+        <span class="eyebrow">Srovnávací matice</span>
+        <h2>Přehled a parametry 10 moderních BVP</h2>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Typ podvozku / Stát</th>
+              <th>Hmotnost</th>
+              <th>Hlavní zbraň</th>
+              <th>Max. rychlost</th>
+              <th>Kapacita (Posádka + Výsadek)</th>
+              <th>Systém ochrany</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="clickable-row" data-href="#cv90">
+              <td><strong>CV90 MkIV</strong></td>
+              <td>Pásový / 🇸🇪 Švédsko</td>
+              <td>38,0 t</td>
+              <td>30mm / 35mm / 40mm kanón</td>
+              <td>70 km/h</td>
+              <td>3 + 8 vojáků</td>
+              <td>Aktivní (Iron Fist / APS)</td>
+            </tr>
+            <tr class="clickable-row" data-href="#bradley">
+              <td><strong>M2A4 Bradley</strong></td>
+              <td>Pásový / 🇺🇸 USA</td>
+              <td>36,2 t</td>
+              <td>25mm M242 + odpalovač TOW</td>
+              <td>61 km/h</td>
+              <td>3 + 6 vojáků</td>
+              <td>BRAT reaktivní pancíř</td>
+            </tr>
+            <tr class="clickable-row" data-href="#lynx">
+              <td><strong>KF41 Lynx</strong></td>
+              <td>Pásový / 🇩🇪 Německo</td>
+              <td>44,0 t</td>
+              <td>30mm / 35mm Wotan kanón</td>
+              <td>70 km/h</td>
+              <td>3 + 8 vojáků</td>
+              <td>Modulární (AMAP / Strikeshield)</td>
+            </tr>
+            <tr class="clickable-row" data-href="#puma">
+              <td><strong>Puma</strong></td>
+              <td>Pásový / 🇩🇪 Německo</td>
+              <td>43,0 t</td>
+              <td>30mm kanón MK30-2/ABM</td>
+              <td>70 km/h</td>
+              <td>3 + 6 vojáků</td>
+              <td>MUSS (Aktivní rušení) + reaktivní</td>
+            </tr>
+            <tr class="clickable-row" data-href="#redback">
+              <td><strong>AS21 Redback</strong></td>
+              <td>Pásový / 🇰🇷 Jižní Korea</td>
+              <td>42,0 t</td>
+              <td>30mm Mk44 Bushmaster II</td>
+              <td>65 km/h</td>
+              <td>3 + 8 vojáků</td>
+              <td>Iron Fist APS + Kompozitní</td>
+            </tr>
+            <tr class="clickable-row" data-href="#rosomak">
+              <td><strong>KTO Rosomak</strong></td>
+              <td>Kolový 8x8 / 🇵🇱 Polsko</td>
+              <td>22,0 t</td>
+              <td>30mm kanón Mk44 Bushmaster</td>
+              <td>100 km/h</td>
+              <td>3 + 8 vojáků</td>
+              <td>Ocelový s přídavnými pláty</td>
+            </tr>
+            <tr class="clickable-row" data-href="#boomerang">
+              <td><strong>K-17 Boomerang</strong></td>
+              <td>Kolový 8x8 / 🇷🇺 Rusko</td>
+              <td>25,0 t</td>
+              <td>30mm 2A42 / Kornet ATGM</td>
+              <td>100 km/h</td>
+              <td>3 + 8 vojáků</td>
+              <td>Kompozitní + reaktivní / Afganit</td>
+            </tr>
+            <tr class="clickable-row" data-href="#marder">
+              <td><strong>Marder 1A5</strong></td>
+              <td>Pásový / 🇩🇪 Německo</td>
+              <td>37,4 t</td>
+              <td>20mm kanón MK 20 Rh 202</td>
+              <td>65 km/h</td>
+              <td>3 + 6 vojáků</td>
+              <td>Přídavné pancéřování + protiminová ochrana</td>
+            </tr>
+            <tr class="clickable-row" data-href="#type89">
+              <td><strong>Type 89 BVP</strong></td>
+              <td>Pásový / 🇯🇵 Japonsko</td>
+              <td>26,5 t</td>
+              <td>35mm kanón KDE + Typ 79 střely</td>
+              <td>70 km/h</td>
+              <td>3 + 7 vojáků</td>
+              <td>Svařovaná ocel + vrstvené pláty</td>
+            </tr>
+            <tr class="clickable-row" data-href="#warrior">
+              <td><strong>Warrior MCV-80</strong></td>
+              <td>Pásový / 🇬🇧 Velká Británie</td>
+              <td>25,4 t</td>
+              <td>30mm kanón L21A1 Rarden</td>
+              <td>75 km/h</td>
+              <td>3 + 7 vojáků</td>
+              <td>Hliníkový pancíř + přídavný TES systém</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section id="cv90" class="section section--dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Detailní pohled</span>
+        <h2>CV90 MkIV</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="ac-detail-img" src="fotky/cv90_mkiv_2.jpeg" alt="CV90 MkIV v terénu" loading="lazy" />
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+          <p>Platforma Combat Vehicle 90 byla původně vyvinuta ve Švédsku na přelomu 80. a 90. let společností Hägglunds
+            (nyní BAE Systems). Verze MkIV představuje pátou generaci tohoto celosvětově úspěšného stroje.</p>
+          <p>Verze <strong>MkIV</strong> přináší kompletní digitalizaci architektury vozidla, nový výkonnější motor
+            Scania s výkonem 1000 koní a vylepšenou převodovku X300. Vozidlo je vybráno jako budoucí hlavní BVP pro
+            Armádu České republiky a Slovenska.</p>
+
+          <h3 style="margin-top: 1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Ochranné systémy <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">CV90 MkIV integruje hard-kill aktivní systém ochrany Iron Fist, který
+                  detekuje a likviduje přilétající protitankové střely a granáty ještě před nárazem do trupu. Samotný
+                  pancíř poskytuje vysokou úroveň balistické ochrany.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Senzory a digitální bojiště <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Elektronická architektura odpovídá standardům NATO generic vehicle
+                  architecture (NGVA). Umožňuje fúzi dat ze senzorů, podporuje rozšířenou realitu pro velitele a řidiče
+                  a umožňuje bezproblémové propojení s drony.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Výzbroj a konfigurace <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Vozidlo je standardně osazeno rychlopalným kanónem Bushmaster ráže
+                  30, 35, 40 nebo až 50 mm. Věž je navíc vybavena výsuvným odpalovacím zařízením pro protitankové řízené
+                  střely (např. Spike-LR).</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace CV90 MkIV</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 + 8 vojáků</span></li>
+              <li><span class="spec-list__key">Délka</span><span class="spec-list__val">6,55 m</span></li>
+              <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">3,20 m</span></li>
+              <li><span class="spec-list__key">Max. hmotnost</span><span class="spec-list__val">37 000 kg</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">70 km/h</span></li>
+              <li><span class="spec-list__key">Operační dosah</span><span class="spec-list__val">900 km</span></li>
+              <li><span class="spec-list__key">Výkon motoru</span><span class="spec-list__val">1 000 koní</span></li>
+              <li><span class="spec-list__key">Typ motoru</span><span class="spec-list__val">Scania V8 Diesel</span>
+              </li>
+              <li><span class="spec-list__key">Převodovka</span><span class="spec-list__val">Perkins X300</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇸🇪 Švédsko</span><span class="spec-list__val">500+ ks (starší
+                  verze)</span></li>
+              <li><span class="spec-list__key">🇳🇱 Nizozemsko</span><span class="spec-list__val">144 ks (v
+                  modernizaci)</span></li>
+              <li><span class="spec-list__key">🇨zechia Česko</span><span class="spec-list__val">246 ks (objednáno)</span>
+              </li>
+              <li><span class="spec-list__key">🇸🇰 Slovensko</span><span class="spec-list__val">152 ks
+                  (objednáno)</span></li>
+              <li><span class="spec-list__key">🇺🇦 Ukrajina</span><span class="spec-list__val">Darované jednotky</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Ochrana</span><span>92%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:92%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Mobilita</span><span>88%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:88%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Palebná síla</span><span>90%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:90%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Elektronika</span><span>95%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bradley" class="section section--dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Detailní pohled</span>
+        <h2>M2A4 Bradley</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="ac-detail-img" src="fotky/bradley.jpg" alt="M2A4 Bradley" loading="lazy" />
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+          <p>M2 Bradley vstoupil do služby v US Army na počátku 80. let jako reakce na sovětská vozidla řady BMP. Verze
+            M2A4 představuje nejnovější digitální modernizační balíček, který napravuje nedostatky v hmotnosti a
+            napájení vzniklé předchozími upgrady.</p>
+          <p>Vozidlo je navrženo pro přepravu pěchoty pod těžkou ochranou, k poskytování přímé palebné podpory a ničení
+            nepřátelské obrněné techniky, k čemuž slouží integrované odpalovací zařízení těžkých protitankových střel.
+          </p>
+
+          <h3 style="margin-top: 2rem;">Bojové schopnosti</h3>
+          <div style="margin-top: 1rem;" class="accordion" role="presentation">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Zbraně a protitankové střely <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Hlavní výzbroj tvoří spolehlivý 25mm kanón M242 Bushmaster. Proti
+                  těžké technice disponuje vozidlo dvojitým odpalovacím zařízením střel TOW, které dokáží ničit
+                  nepřátelské tanky na vzdálenost přes 4 km.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Elektrické a digitální vylepšení <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Verze A4 obsahuje zcela nový systém distribuce energie a digitální
+                  diagnostiku. To umožňuje integraci moderních komunikačních a velitelských systémů, rušiček IED a
+                  pokročilého sledování cílů.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Balistická a protiminová ochrana <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Využívá kombinaci hliníkového pancíře s přídavnými ocelovými deskami
+                  a reaktivním pancéřováním (BRAT). Spodní část korby byla zpevněna pro lepší absorbování výbuchů min a
+                  IED.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace M2A4</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 + 6-7 vojáků</span></li>
+              <li><span class="spec-list__key">Délka</span><span class="spec-list__val">6,55 m</span></li>
+              <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">3,60 m</span></li>
+              <li><span class="spec-list__key">Max. hmotnost</span><span class="spec-list__val">36 200 kg</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">61 km/h</span></li>
+              <li><span class="spec-list__key">Operační dosah</span><span class="spec-list__val">400 km</span></li>
+              <li><span class="spec-list__key">Výkon motoru</span><span class="spec-list__val">675 koní</span></li>
+              <li><span class="spec-list__key">Motor</span><span class="spec-list__val">Cummins VTA-903T</span></li>
+              <li><span class="spec-list__key">Výzbroj</span><span class="spec-list__val">25mm kanón, 2x TOW, 7.62mm
+                  kulomet</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">USA (US Army)</span><span class="spec-list__val">tisíce ks (A4
+                  postupně)</span></li>
+              <li><span class="spec-list__key">Saúdská Arábie</span><span class="spec-list__val">cca 400 ks
+                  (starší)</span></li>
+              <li><span class="spec-list__key">Ukrajina</span><span class="spec-list__val">300+ ks M2A2 ODS</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div style="margin-bottom: 1rem;">
+              <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;">
+                <span>Ochrana</span><span>85%</span></div>
+              <div style="background:var(--clr-border); height:6px; border-radius:3px;">
+                <div style="background:var(--clr-accent); width:85%; height:100%; border-radius:3px;"></div>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;">
+                <span>Mobilita</span><span>80%</span></div>
+              <div style="background:var(--clr-border); height:6px; border-radius:3px;">
+                <div style="background:var(--clr-accent); width:80%; height:100%; border-radius:3px;"></div>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;">
+                <span>Palebná síla</span><span>86%</span></div>
+              <div style="background:var(--clr-border); height:6px; border-radius:3px;">
+                <div style="background:var(--clr-accent); width:86%; height:100%; border-radius:3px;"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;">
+                <span>Elektronika</span><span>89%</span></div>
+              <div style="background:var(--clr-border); height:6px; border-radius:3px;">
+                <div style="background:var(--clr-accent); width:89%; height:100%; border-radius:3px;"></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="lynx" class="section section--dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Detailní pohled</span>
+        <h2>KF41 Lynx</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="ac-detail-img" src="fotky/kf41_lynx.jpg" alt="KF41 Lynx na přehlídce" loading="lazy" />
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+          <p>KF41 Lynx (Kettenfahrzeug 41) byl představen společností Rheinmetall v roce 2018 jako soukromá iniciativa
+            na pokrytí globální poptávky po těžkých, vysoce chráněných bojových vozidlech pěchoty.</p>
+          <p>Prvním oficiálním zákazníkem se stalo Maďarsko, které uzavřelo kontrakt na domácí licenční výrobu. Lynx
+            vyniká možností transformovat vozidlo během několika hodin z verze BVP na sanitní, velitelské nebo
+            vyprošťovací vozidlo díky modulárnímu systému korby.</p>
+
+          <h3 style="margin-top: 2rem;">Bojové schopnosti</h3>
+          <div style="margin-top: 1rem;" class="accordion" role="presentation">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Věžový systém Lance 2.0 <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Moderní věž je vybavena 35mm rychlopalným kanónem Wotan, který střílí
+                  programovatelnou munici. Věž disponuje duálním zaměřovacím systémem pro velitele i střelce (schopnost
+                  Hunter-Killer).</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Pokročilá ochrana a maskování <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Kombinuje pasivní ocelovo-keramický pancíř s aktivním systémem
+                  Rheinmetall Strikeshield, který minimalizuje riziko zásahu střelami RPG a PTŘS. Vozidlo má navíc
+                  sníženou infračervenou a akustickou stopu.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace KF41 Lynx</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 + 8 vojáků</span></li>
+              <li><span class="spec-list__key">Délka</span><span class="spec-list__val">7,73 m</span></li>
+              <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">3,60 m</span></li>
+              <li><span class="spec-list__key">Max. hmotnost</span><span class="spec-list__val">44 000 - 50000 kg</span>
+              </li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">70 km/h</span></li>
+              <li><span class="spec-list__key">Operační dosah</span><span class="spec-list__val">500 km</span></li>
+              <li><span class="spec-list__key">Dostupný výkon</span><span class="spec-list__val">1 140 koní</span></li>
+              <li><span class="spec-list__key">Motor</span><span class="spec-list__val">Liebherr Turbo Diesel</span>
+              </li>
+              <li><span class="spec-list__key">Převodovka</span><span class="spec-list__val">Allison automatická</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Maďarsko</span><span class="spec-list__val">218 ks (ve výrobě)</span>
+              </li>
+              <li><span class="spec-list__key">Řecko</span><span class="spec-list__val">V jednání o nákupu</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div style="margin-bottom: 1rem;">
+              <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;">
+                <span>Ochrana</span><span>96%</span></div>
+              <div style="background:var(--clr-border); height:6px; border-radius:3px;">
+                <div style="background:var(--clr-accent); width:96%; height:100%; border-radius:3px;"></div>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;">
+                <span>Mobilita</span><span>85%</span></div>
+              <div style="background:var(--clr-border); height:6px; border-radius:3px;">
+                <div style="background:var(--clr-accent); width:85%; height:100%; border-radius:3px;"></div>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;">
+                <span>Palebná síla</span><span>92%</span></div>
+              <div style="background:var(--clr-border); height:6px; border-radius:3px;">
+                <div style="background:var(--clr-accent); width:92%; height:100%; border-radius:3px;"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.25rem;">
+                <span>Elektronika</span><span>94%</span></div>
+              <div style="background:var(--clr-border); height:6px; border-radius:3px;">
+                <div style="background:var(--clr-accent); width:94%; height:100%; border-radius:3px;"></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="puma" class="section section--dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Detailní pohled</span>
+        <h2>Puma</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="ac-detail-img" src="fotky/puma.jpg" alt="Puma v akci" loading="lazy" />
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+          <p>Puma byla vyvinuta německým konsorciem PSM (společný podnik firem Krauss-Maffei Wegmann a Rheinmetall) jako
+            náhrada za stárnoucí vozidla Marder. Cílem bylo vytvořit vozidlo přepravitelné letounem A400M s maximální
+            možnou ochranou proti minám a IED.</p>
+          <p>Unikátní vlastností Pumy je striktní rozdělení pancíře do dvou tříd: základní úroveň A (vzdušně
+            transportní) a těžká úroveň C (bojová), která se montuje dodatečně přímo v operačním nasazení.</p>
+
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Bezposádková věž <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Celá posádka (včetně střelce a velitele) sedí v chráněné korbě
+                  vozidla. Věžcookie je kompletně dálkově ovládaná, což dramaticky zvyšuje šanci na přežití posádky při zásahu
+                  věže.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Ochranný komplex MUSS <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Puma používá soft-kill aktivní ochranu MUSS, která detekuje
+                  nepřátelské laserové paprsky a zaměřovače a automaticky odpaluje maskovací dým, případně elektronicky
+                  ruší naváděcí systémy střel.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace BVP Puma</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 + 6 vojáků</span></li>
+              <li><span class="spec-list__key">Délka</span><span class="spec-list__val">7,40 m</span></li>
+              <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">3,71 m (úroveň C)</span></li>
+              <li><span class="spec-list__key">Max. hmotnost</span><span class="spec-list__val">43 000 kg (úroveň
+                  C)</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">70 km/h</span></li>
+              <li><span class="spec-list__key">Operační dosah</span><span class="spec-list__val">600 km</span></li>
+              <li><span class="spec-list__key">Výkon motoru</span><span class="spec-list__val">1 090 koní</span></li>
+              <li><span class="spec-list__key">Typ motoru</span><span class="spec-list__val">MTU V10 Diesel</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇩🇪 Německo</span><span class="spec-list__val">350 ks</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Ochrana</span><span>98%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:98%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Mobilita</span><span>87%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:87%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Palebná síla</span><span>89%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:89%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Elektronika</span><span>96%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:96%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="redback" class="section section--dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Detailní pohled</span>
+        <h2>AS21 Redback</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="ac-detail-img" src="fotky/as21_redback.jpg" alt="AS21 Redback v písku" loading="lazy" />
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+          <p>AS21 Redback byl vyvinut jihokorejskou společností Hanwha Aerospace specificky pro výběrové řízení
+            australské armády v programu LAND 400 Phase 3, ve kterém v roce 2023 zvítězil nad německým konkurentem Lynx.
+          </p>
+          <p>Vozidlo vychází z osvědčené korejské platformy K21, ale prošlo radikální přestavbou s ohledem na potřeby
+            západních armád — primárně v oblasti dramatického posílení pasivní i aktivní ochrany korby a implementace
+            pokročilých izraelských technologií.</p>
+
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Kompozitní gumové pásy <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Redback používá namísto tradičních ocelových článků jednolité gumové
+                  kompozitní pásy. To snižuje hmotnost, hlučnost vozidla o 70 %, vibrace o 65 % a výrazně to zlepšuje
+                  komfort posádky při dlouhých přesunech.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Přilbový displej IronVision <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Systém od firmy Elbit Systems přenáší obraz z vnějších kamer přímo na
+                  hledí přilby velitele. Ten tak získává schopnost vidět v reálném čase přes stěny obrněnce (360
+                  stupňový přehled o situaci kolem vozidla).</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace AS21</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 + 8 vojáků</span></li>
+              <li><span class="spec-list__key">Délka</span><span class="spec-list__val">7,90 m</span></li>
+              <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">3,64 m</span></li>
+              <li><span class="spec-list__key">Max. hmotnost</span><span class="spec-list__val">42 000 kg</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">65 km/h</span></li>
+              <li><span class="spec-list__key">Operační dosah</span><span class="spec-list__val">520 km</span></li>
+              <li><span class="spec-list__key">Výkon motoru</span><span class="spec-list__val">1 000 koní</span></li>
+              <li><span class="spec-list__key">Typ motoru</span><span class="spec-list__val">MTU 8-válec Diesel</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇦🇺 Austrálie</span><span class="spec-list__val">129 ks
+                  (objednáno)</span></li>
+              <li><span class="spec-list__key">🇰🇷 Jižní Korea</span><span class="spec-list__val">Zvažuje se
+                  zavedení</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Ochrana</span><span>94%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:94%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Mobilita</span><span>91%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:91%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Palebná síla</span><span>90%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:90%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Elektronika</span><span>95%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rosomak" class="section section--dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Detailní pohled</span>
+        <h2>KTO Rosomak</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="ac-detail-img" src="fotky/kto_rosomak.jpg" alt="KTO Rosomak na cvičení" loading="lazy" />
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+          <p>Kołowy Transporter Opancerzony Rosomak je základním kamenem polských mechanizovaných sil. Vozidlo vzniklo
+            licencováním finské platformy Patria AMV v roce 2002 and je vyráběno v polském závodě Siemianowice Śląskie.
+          </p>
+          <p>Vozidlo prokázalo své vysoké kvality a odolnost v reálném bojovém nasazení v rámci mise ISAF v
+            Afghánistánu, kde polské posádky přežily i těžké zásahy z protitankových granátometů díky dodatečnému
+            pancéřování.</p>
+
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Kolová mobilita 8x8 <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Díky výkonnému motoru Scania a nezávislému zavěšení všech osmi kol
+                  dokáže Rosomak bleskově operovat na zpevněných komunikacích rychlostí až 100 km/h, přičemž si
+                  zachovává výbornou průchodnost terénem. V základní verzi je navíc plně obojživelný.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Věžový systém a modifikace <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Standardní bojová verze nese italskou věž Oto Melara Hitfist-30P s
+                  americkým kanónem ATK Mk44 Bushmaster II a polským systémem řízení palby. Novější série přecházejí na
+                  domácí bezposádkovou věž ZSSW-30.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace Rosomak</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 + 8 vojáků</span></li>
+              <li><span class="spec-list__key">Délka</span><span class="spec-list__val">7,77 m</span></li>
+              <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">2,83 m</span></li>
+              <li><span class="spec-list__key">Max. hmotnost</span><span class="spec-list__val">22 000 - 26 000
+                  kg</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">100 km/h</span></li>
+              <li><span class="spec-list__key">Plavební rychlost</span><span class="spec-list__val">10 km/h</span></li>
+              <li><span class="spec-list__key">Operační dosah</span><span class="spec-list__val">800 km</span></li>
+              <li><span class="spec-list__key">Výkon motoru</span><span class="spec-list__val">480 - 540 koní</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇵🇱 Polsko</span><span class="spec-list__val">900+ ks (různé
+                  verze)</span></li>
+              <li><span class="spec-list__key">🇺🇦 Ukrajina</span><span class="spec-list__val">Dodané Polskem v
+                  2023</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Ochrana</span><span>78%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:78%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Mobilita</span><span>95%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:95%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Palebná síla</span><span>85%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:85%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Elektronika</span><span>86%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:86%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="boomerang" class="section section--dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Detailní pohled</span>
+        <h2>K-17 Boomerang</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="ac-detail-img" src="fotky/k-17_boomerang.jpg" alt="K-17 Boomerang v pohybu" loading="lazy" />
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+          <p>Vozidlo K-17 Boomerang (VPK-7829) představuje novou generaci ruských kolových bojových vozidel na
+            unifikované kolové platformě, která má zcela nahradit morálně zastaralou sovětskou řadu BTR-80 a BTR-90.</p>
+          <p>Oproti starším typům byla kompletně změněna koncepce — motor se přesunul dopředu a výsadek opouští vozidlo
+            bezpečně hydraulickou rampou v zadní části trupu, namísto nebezpečných bočních dveří.</p>
+
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Dálkově ovládaný modul Epoch <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">K-17 je osazen bezposádkovou věží Epoch, která integruje 30mm
+                  automatický kanón 2A42, spřažený kulomet a po stranách věže čtyři odpalovací kontejnery protitankových
+                  řízených střel Kornet-D.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Konstrukční ochrana trupu <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Trup má tvar písmene V pro účinnější odklonění rázové vlny při
+                  výbuších pod koly. Pancéřování je vrstvené s možností osazení přídavných keramických plátů chránících
+                  před těžkými kulomety.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace K-17</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 + 8 vojáků</span></li>
+              <li><span class="spec-list__key">Délka</span><span class="spec-list__val">8,80 m</span></li>
+              <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">3,18 m</span></li>
+              <li><span class="spec-list__key">Max. hmotnost</span><span class="spec-list__val">28 600 kg</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">100 km/h</span></li>
+              <li><span class="spec-list__key">Plavební rychlost</span><span class="spec-list__val">10 km/h</span></li>
+              <li><span class="spec-list__key">Operační dosah</span><span class="spec-list__val">800 km</span></li>
+              <li><span class="spec-list__key">Výkon motoru</span><span class="spec-list__val">750 koní</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇷🇺 Rusko</span><span class="spec-list__val">Prototypy /
+                  Testování</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Ochrana</span><span>80%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:80%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Mobilita</span><span>92%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:92%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Palebná síla</span><span>88%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:88%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Elektronika</span><span>80%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="marder" class="section section--dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Detailní pohled</span>
+        <h2>Marder 1A5</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="ac-detail-img" src="fotky/Marder 1A5.jpg" alt="Marder 1A5 v terénu" loading="lazy" />
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+          <p>Marder (Kuna) tvořil po celá desetiletí páteř německých mechanizovaných sil (Panzergrenadiere) od počátku 70. let. Přestože je postupně nahrazován modernějším BVP Puma, verze 1A5 reprezentuje rozsáhlou modernizaci zaměřenou na přežití v asymetrických konfliktech.</p>
+          <p>Hlavní úpravou varianty <strong>1A5</strong> je radikální rekonstrukce ochrany proti minám a nástražným výbušným systémům (IED). Interiér vozidla byl kompletně přepracován, aby sedadla výsadku nebyla pevně ukotvena k podlaze trupu, což eliminuje přenos rázové vlny na vojáky.</p>
+
+          <h3 style="margin-top: 1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Balistická a protiminová odolnost <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Vozidlo obdrželo dodatečné kompozitní pancéřové desky a speciální protiminové kryty podvozku. Hmotnost kvůli tomu vzrostla na 37,4 tuny, avšak úroveň bezpečí pro posádku se vyrovná podstatně mladším konstrukcím.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Výzbroj a spolehlivost kanónu <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Hlavní zbraň tvoří ověřený dvacetimilimetrový rychlopalný kanón Rheinmetall MK 20 Rh 202. Ten disponuje duálním podáváním pásu a umožňuje efektivní střelbu na lehce obrněné cíle a nízko letící vrtulníky. Doplněn je protitankovým systémem MELLS / Milan.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace Marder 1A5</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 + 6 vojáků</span></li>
+              <li><span class="spec-list__key">Délka</span><span class="spec-list__val">6,88 m</span></li>
+              <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">3,38 m</span></li>
+              <li><span class="spec-list__key">Max. hmotnost</span><span class="spec-list__val">37 400 kg</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">65 km/h</span></li>
+              <li><span class="spec-list__key">Operační dosah</span><span class="spec-list__val">520 km</span></li>
+              <li><span class="spec-list__key">Výkon motoru</span><span class="spec-list__val">600 koní</span></li>
+              <li><span class="spec-list__key">Typ motoru</span><span class="spec-list__val">MTU MB 833 Ea-500</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇩🇪 Německo</span><span class="spec-list__val">Stovky ks (postupný útlum)</span></li>
+              <li><span class="spec-list__key">🇬🇷 Řecko</span><span class="spec-list__val">40 ks (ex-německé)</span></li>
+              <li><span class="spec-list__key">🇺🇦 Ukrajina</span><span class="spec-list__val">Významné počty v operačním nasazení</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Ochrana</span><span>82%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:82%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Mobilita</span><span>78%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:78%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Palebná síla</span><span>75%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:75%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Elektronika</span><span>74%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:74%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="type89" class="section section--dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Detailní pohled</span>
+        <h2>Type 89 BVP</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="ac-detail-img" src="fotky/Type 89 BVP.jpg" alt="Type 89 v akci" loading="lazy" />
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+          <p>Type 89 je japonské pásové bojové vozidlo pěchoty vyvinuté společnostmi Mitsubishi Heavy Industries (podvozek) a Komatsu (korba a pancéřování) pro Japonské pozemní síly sebeobrany (JGSDF). Výroba probíhala ve striktně omezených sériích kvůli rozpočtovým limitům a tehdejší legislativě zakazující export.</p>
+          <p>Vozidlo vykazuje vysokou úroveň technologického zpracování a precizní mechaniky. Svou koncepcí se blíží západním standardům té doby, ale nese unikátní asijské prvky a specializovanou protitankovou výzbroj integrovanou přímo na bocích věže.</p>
+
+          <h3 style="margin-top: 1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Masivní švýcarská ráže 35 mm <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Zatímco většina BVP té doby nesla 25mm či 30mm zbraně, Japonsko zvolilo silný 35mm automatický kanón Oerlikon Kontrives KDE (licenčně vyráběný). Ten dává vozidlu palebnou převahu na velkou vzdálenost nad lehkými transportéry protivníka.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Protitankový raketový systém Typ 79 <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Na každé straně dvoumístné věže je osazeno jedno odpalovací zařízení pro protitankové a protilodní řízené střely Typ 79 Jyu-MAT. To umožňuje vozidlu plnohodnotně ničit těžké bitevní tanky nebo provádět obranu pobřeží proti vyloďovacím plavidlům.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace Type 89</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 + 7 vojáků</span></li>
+              <li><span class="spec-list__key">Délka</span><span class="spec-list__val">6,80 m</span></li>
+              <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">3,20 m</span></li>
+              <li><span class="spec-list__key">Max. hmotnost</span><span class="spec-list__val">26 500 kg</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">70 km/h</span></li>
+              <li><span class="spec-list__key">Operační dosah</span><span class="spec-list__val">400 km</span></li>
+              <li><span class="spec-list__key">Výkon motoru</span><span class="spec-list__val">600 koní</span></li>
+              <li><span class="spec-list__key">Typ motoru</span><span class="spec-list__val">Mitsubishi 6SY31WA Diesel</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇯🇵 Japonsko</span><span class="spec-list__val">68 ks (pouze JGSDF)</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Ochrana</span><span>80%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Mobilita</span><span>86%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:86%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Palebná síla</span><span>88%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:88%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Elektronika</span><span>82%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:82%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="warrior" class="section section--dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="eyebrow">Detailní pohled</span>
+        <h2>Warrior MCV-80</h2>
+      </div>
+      <div class="detail-layout reveal">
+        <div>
+          <img class="ac-detail-img" src="fotky/Warrior MCV-80.jpeg" alt="Warrior na pouštní misi" loading="lazy" />
+          <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+          <p>Warrior (Bojovník) vstoupil do služby v Britské armádě na konci 80. let pod kódovým označením MCV-80. Byl navržen tak, aby dokázal udržet tempo s rychlými tanky Challenger 1 a 2 v tehdejším předpokládaném evropském symetrickém bojišti.</p>
+          <p>Obrněnec prošel rozsáhlým bojovým nasazením v operaci Pouštní bouře, na Balkáně i v Iráku. Namísto kompletní bezpilotní modernizace sáhla britská armáda po balíčcích přídavného pasivního i dynamického pancéřování TES (Theatre Entry Standard), které z něj dělá extrémně odolnou "krabici" do městského prostředí.</p>
+
+          <h3 style="margin-top: 1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Unikátní 30mm kanón Rarden L21A1 <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Na rozdíl od většiny západních automatických kanónů není Rarden plně automatický s pásovým podáváním, ale nabíjí se ručně pomocí tříranných klipů. To sice omezuje maximální kadenci, ale zajišťuje to extrémní přesnost jednotlivých výstřelů a minimální spotřebu munice v polních podmínkách.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Hliníková konstrukce a přídavné klece <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Základní trup je svařen z hliníkových slitin s příměsí zinku a hořčíku, což šetří váhu. V operačním nasazení se však zvenčí montují masivní ocelové bloky "Wrap Two" a mřížové (klecové) pancéřování (Slat), které spolehlivě distančně přivádí k výbuchu hlavice střel RPG-7.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace Warrior</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 + 7 vojáků</span></li>
+              <li><span class="spec-list__key">Délka</span><span class="spec-list__val">6,34 m</span></li>
+              <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">3,03 m</span></li>
+              <li><span class="spec-list__key">Max. hmotnost</span><span class="spec-list__val">25 400 kg (základní)</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">75 km/h</span></li>
+              <li><span class="spec-list__key">Operační dosah</span><span class="spec-list__val">660 km</span></li>
+              <li><span class="spec-list__key">Výkon motoru</span><span class="spec-list__val">550 koní</span></li>
+              <li><span class="spec-list__key">Typ motoru</span><span class="spec-list__val">Perkins CV8 TCA V8 Diesel</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">🇬🇧 Velká Británie</span><span class="spec-list__val">Cca 350-400 ks (v aktivní službě)</span></li>
+              <li><span class="spec-list__key">🇰🇼 Kuvajt</span><span class="spec-list__val">250 ks verze Desert Warrior</span></li>
+            </ul>
+          </div>
+
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Ochrana</span><span>84%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:84%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Mobilita</span><span>89%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:89%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Palebná síla</span><span>78%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:78%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Elektronika</span><span>76%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:76%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">⬡ Military<span>Force</span></div>
+          <p class="footer__desc">Encyklopedie vojenské techniky pro nadšence, studenty a odborníky. Nezávislý
+            vzdělávací projekt.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Navigace</div>
+          <ul class="footer__links">
+            <li><a href="index(z).html">Domů</a></li>
+            <li><a href="letectvo.html">Letectvo</a></li>
+            <li><a href="tanky.html">Tanky</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Kategorie</div>
+          <ul class="footer__links">
+            <li><a href="letectvo.html">Stíhačky</a></li>
+            <li><a href="BVP.html">BVP</a></li>
+            <li><a href="namornictvo.html">Námořnictvo</a></li>
+            <li><a href="pechota.html">Pěchota</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Informace</div>
+          <ul class="footer__links">
+            <li><a href="kontakt.html">O mně</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    hamburger.addEventListener('click', () => { nav.classList.toggle('open'); });
+
+    document.querySelectorAll('.accordion__trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.accordion__item').classList.toggle('open');
+      });
+    });
+
+    document.querySelectorAll('.clickable-row').forEach(row => {
+      row.addEventListener('click', () => {
+        const target = row.getAttribute('data-href');
+        document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    const heroBtn = document.getElementById('heroTankBtn');
+    if (heroBtn) {
+      heroBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('#cv90').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => obs.observe(el));
+  </script>
+</body>
+
+</html>

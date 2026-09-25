@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="MilitaryForce – tanky: přehled hlavních bojových tanků, BVP a obrněných vozidel světa." />
+  <title>Tanky &amp; BVP – MilitaryForce</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .detail-layout {
+      display: grid !important;
+      grid-template-columns: 1fr 360px !important;
+      gap: 3rem !important;
+      align-items: start !important;
+    }    
+    .detail-sidebar {
+      position: sticky;
+      top: 110px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-self: start;
+    }
+
+    .tank-detail-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--clr-border);
+      margin: 1.5rem 0 1rem 0;
+    }
+
+    .detail-section {
+      position: relative;
+      border-top: 1px solid var(--clr-border);
+      padding: 5rem 0;
+    }
+
+    .tank-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      height: 380px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--clr-border);
+      margin-bottom: 3rem;
+    }
+
+    .tank-hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .tank-hero-info {
+      background: var(--clr-surface);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @media (max-width: 700px) {
+      .tank-hero-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .tank-hero-img {
+        height: 220px;
+      }
+    }
+
+    .clickable-row {
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .clickable-row:hover {
+      background-color: var(--clr-surface2) !important;
+    }
+
+    #abrams,
+    #leopard,
+    #armata,
+    #challenger,
+    #blackpanther,
+    #merkava,
+    #type10,
+    #leclerc,
+    #t90,
+    #pt91 {
+      scroll-margin-top: 110px !important;
+    }
+
+    .progress-item {
+      margin-bottom: 1rem;
+    }
+
+    .progress-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+      color: var(--clr-text-dim);
+    }
+
+    .progress-bar-bg {
+      background: var(--clr-surface2);
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid var(--clr-border);
+    }
+
+    .progress-bar-fill {
+      background: var(--clr-accent);
+      height: 100%;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="Hlavní navigace">
+    <div class="navbar__inner">
+      <a href="index(z).html" class="navbar__logo">⬡ Military<span>Force</span></a>
+      <ul class="navbar__nav" id="mainNav" role="list">
+                <li><a href="index(z).html">Domů</a></li>
+                <li><a href="pechota.html">Pěchota</a></li>
+                <li><a href="BVP.html">BVP</a></li>
+                <li><a href="tanky.html" class="active">Tanky</a></li>
+                <li><a href="letectvo.html">Letectvo</a></li>
+                <li><a href="namornictvo.html">Námořnictvo</a></li>
+                <li><a href="kontakt.html">O mně</a></li>
+            </ul>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Otevřít menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-header"
+    style="background-image: linear-gradient(to bottom,rgba(10,12,14,.75) 0%,var(--clr-bg) 100%), url('https://images.unsplash.com/photo-1562697623-9f7b3ae87b9f?w=1400&q=70') center/cover no-repeat;">
+    <div class="container">
+      <span class="eyebrow">Pozemní síly</span>
+      <h1>Tanky &amp; obrněná vozidla</h1>
+      <p>Hlavní bojové tanky (MBT) — technické specifikace, země operátorů a bojové hodnocení.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="tank-hero-grid reveal">
+        <img src="fotky/leopard.jpg" class="tank-hero-img" alt="Leopard 2A7">
+        <div class="tank-hero-info">
+          <span class="eyebrow" style="color:var(--clr-accent);">Nejlepší tank měsíce</span>
+          <h2 style="margin-top:0.5rem; margin-bottom:1rem;">Leopard 2A7+</h2>
+          <p style="color:var(--clr-text-dim); margin-bottom:2rem;">Německý Leopard 2A7+ představuje naprostou špičku
+            současných obrněných sil. Exceluje v palebné síle, pokročilé optice i ochraně posádky na moderním bojišti.
+          </p>
+          <a href="#leopard" class="btn btn--accent" id="heroTankBtn"
+            style="align-self: flex-start; text-decoration: none;">Zobrazit detail tanku</a>
+        </div>
+      </div>
+
+      <div class="section-title reveal" style="margin-top: 4rem;">
+        <span class="eyebrow">Interaktivní srovnání</span>
+        <h2>Hlavní bojové tanky světa</h2>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Stát</th>
+              <th>Hmotnost</th>
+              <th>Kanón</th>
+              <th>Rychlost</th>
+              <th>Posádka</th>
+              <th>V provozu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="clickable-row" data-href="#abrams">
+              <td><strong>M1A2 SEPv3 Abrams</strong></td>
+              <td>🇺🇸 USA</td>
+              <td>73,6 t</td>
+              <td>120mm M256</td>
+              <td>67 km/h</td>
+              <td>4</td>
+              <td>1980–</td>
+            </tr>
+            <tr class="clickable-row" data-href="#leopard">
+              <td><strong>Leopard 2A7+</strong></td>
+              <td>🇩🇪 Německo</td>
+              <td>67,5 t</td>
+              <td>120mm L55A1</td>
+              <td>72 km/h</td>
+              <td>4</td>
+              <td>1979–</td>
+            </tr>
+            <tr class="clickable-row" data-href="#armata">
+              <td><strong>T-14 Armata</strong></td>
+              <td>🇷🇺 Rusko</td>
+              <td>55 t</td>
+              <td>125mm 2A82</td>
+              <td>80 km/h</td>
+              <td>3</td>
+              <td>2015–</td>
+            </tr>
+            <tr class="clickable-row" data-href="#challenger">
+              <td><strong>Challenger 3</strong></td>
+              <td>🇬🇧 Velká Británie</td>
+              <td>66 t</td>
+              <td>120mm L55A1</td>
+              <td>59 km/h</td>
+              <td>4</td>
+              <td>2024–</td>
+            </tr>
+            <tr class="clickable-row" data-href="#blackpanther">
+              <td><strong>K2 Black Panther</strong></td>
+              <td>🇰🇷 Jižní Korea</td>
+              <td>55 t</td>
+              <td>120mm CN08</td>
+              <td>70 km/h</td>
+              <td>3</td>
+              <td>2014–</td>
+            </tr>
+            <tr class="clickable-row" data-href="#merkava">
+              <td><strong>Merkava Mk. IV</strong></td>
+              <td>🇮🇱 Izrael</td>
+              <td>65 t</td>
+              <td>120mm MG253</td>
+              <td>64 km/h</td>
+              <td>4</td>
+              <td>2004–</td>
+            </tr>
+            <tr class="clickable-row" data-href="#type10">
+              <td><strong>Type 10</strong></td>
+              <td>🇯🇵 Japonsko</td>
+              <td>48 t</td>
+              <td>120mm hladký vývrt</td>
+              <td>70 km/h</td>
+              <td>3</td>
+              <td>2012–</td>
+            </tr>
+            <tr class="clickable-row" data-href="#leclerc">
+              <td><strong>Leclerc XLR</strong></td>
+              <td>🇫🇷 Francie</td>
+              <td>57 t</td>
+              <td>120mm CN120-26</td>
+              <td>72 km/h</td>
+              <td>3</td>
+              <td>1993–</td>
+            </tr>
+            <tr class="clickable-row" data-href="#t90">
+              <td><strong>T-90M Proryv</strong></td>
+              <td>🇷🇺 Rusko</td>
+              <td>48 t</td>
+              <td>125mm 2A46M-5</td>
+              <td>60 km/h</td>
+              <td>3</td>
+              <td>1992–</td>
+            </tr>
+            <tr class="clickable-row" data-href="#pt91">
+              <td><strong>PT-91 Twardy</strong></td>
+              <td>🇵🇱 Polsko</td>
+              <td>45,9 t</td>
+              <td>125mm 2A46</td>
+              <td>60 km/h</td>
+              <td>3</td>
+              <td>1995–</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="abrams" class="section detail-section reveal">
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-main">
+          <span class="eyebrow">Detailní analýza</span>
+          <h2>M1A2 SEPv3 Abrams</h2>
+          <img src="fotky/abrams.jpg" class="tank-detail-img" alt="Abrams">
+          <p>Americký M1 Abrams je považován za jeden z nejlépe prověřených tanků historie. Verze SEPv3 přináší revoluci
+            v digitální konektivitě a ochraně proti IED. Využívá unikátní plynovou turbínu, která mu dává extrémní
+            akceleraci, ale vyžaduje náročnou logistiku paliva.</p>
+
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Pancéřování Chobham/DU <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Využívá tajné vrstvy kompozitů a ochuzeného uranu, které z něj dělají
+                  téměř neproniknutelnou pevnost zepředu.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Aktivní ochrana Trophy <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Integrace izraelského systému, který sestřeluje přilétající
+                  protitankové střely dříve, než tank zasáhnou.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Systém řízení palby a optika <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Disponuje nejnovější generací infračervených zaměřovačů FLIR, které
+                  umožňují posádce identifikovat cíle na extrémní vzdálenosti za jakýchkoliv meteorologických podmínek.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">4 muži</span></li>
+              <li><span class="spec-list__key">Hlavní výzbroj</span><span class="spec-list__val">120mm M256</span></li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">73,6 t</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">67 km/h</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">USA</span><span class="spec-list__val">2500+ ks</span></li>
+              <li><span class="spec-list__key">Polsko</span><span class="spec-list__val">250 ks</span></li>
+              <li><span class="spec-list__key">Ukrajina</span><span class="spec-list__val">31 ks</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Palebná síla</span><span>92%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:92%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Odolnost</span><span>95%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leopard" class="section section--dark detail-section reveal">
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-main">
+          <span class="eyebrow">Detailní analýza</span>
+          <h2>Leopard 2A7+</h2>
+          <img src="fotky/leopard_2.jpg" class="tank-detail-img" alt="Leopard">
+          <p>Německý Leopard 2 je standardem NATO. Verze 2A7+ je optimalizována for boj v zastavěných oblastech a
+            disponuje nejlepším systémem řízení palby na světě, který umožňuje zasáhnout cíl za jízdy na první výstřel s
+            vysokou přesností.</p>
+
+
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Kanón L55A1 <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Prodloužená hlaveň, která uděluje projektilům vyšší úsťovou rychlost
+                  a tím i vyšší průbojnost nepřátelského pancíře.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Modulární ochrana MEXAS <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Přídavné pasivní kompozitní prvky chránící boky i strop tanku před
+                  kumulativními náložemi a útoky shora.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Pokročilá klimatizace a stabilizace <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Nová generace stabilizačních systémů zaručuje stoprocentní přesnost i
+                  v nejnáročnějším terénu při plné rychlosti.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">4 muži</span></li>
+              <li><span class="spec-list__key">Hlavní výzbroj</span><span class="spec-list__val">120mm L55A1</span></li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">67,5 t</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">72 km/h</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Německo</span><span class="spec-list__val">300+ ks</span></li>
+              <li><span class="spec-list__key">Česko</span><span class="spec-list__val">14+ ks</span></li>
+              <li><span class="spec-list__key">Maďarsko</span><span class="spec-list__val">44 ks</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Mobilita</span><span>85%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:85%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Elektronika</span><span>90%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="armata" class="section detail-section reveal">
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-main">
+          <span class="eyebrow">Profil tanku</span>
+          <h2>T-14 Armata</h2>
+          <img src="fotky/armata.jpg" class="tank-detail-img" alt="Armata">
+          <p>Ruský tank nové koncepce s bezposádkovou věží. Celá posádka sedí v samostatné, těžce chráněné pancéřované
+            kapsli v korbě, což radikálně zvyšuje šanci na přežití v případě zásahu věže.</p>
+
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Bezposádková věž <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Plně automatický systém nabíjení dálkově ovládaného kanónu eliminuje
+                  riziko výbuchu munice v prostoru posádky.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Aktivní komplex Afghanit <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Systém využívá radary a optické senzory pro automatické zneškodnění
+                  přilétajících raket ještě před zásahem.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Dynamická ochrana Malachit <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Nová generace reaktivního pancéřování (ERA) navržená tak, aby
+                  dokázala odrážet i moderní tandemové kumulativní hlavice.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar" style="position: static;">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 muži</span></li>
+              <li><span class="spec-list__key">Main výzbroj</span><span class="spec-list__val">125mm 2A82</span></li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">55 t</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">80 km/h</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Rusko</span><span class="spec-list__val">cca 20 ks</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Inovace</span><span>95%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:95%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Rychlost</span><span>90%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="challenger" class="section section--dark detail-section reveal">
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-main">
+          <span class="eyebrow">Profil tanku</span>
+          <h2>Challenger 3</h2>
+          <img src="fotky/challenger.png" class="tank-detail-img" alt="Challenger 3">
+          <p>Nejnovější britský hlavní bojový tank, který přechází na moderní alianční hladký vývrt hlavně 120mm, čímž
+            nahrazuje předchozí drážkovanou technologii a plně přechází na digitální architekturu bojiště.</p>
+
+
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Nový hladký vývrt L55A1 <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Umožňuje stoprocentní kompatibilitu se standardní pokročilou municí
+                  NATO a dramaticky zvyšuje průrazný účinek.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Pancéřování Dorchester Mk.II <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Britská tajná kompozitní směs optimalizovaná pro odrážení nejtěžších
+                  tandemových střel i podkaliberní munice.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Digitální architektura věže <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Plně integrovaný systém lovce-zabijáka a okamžité síťové propojení s
+                  průzkumnými drony a letectvem.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar" style="position: static;">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">4 muži</span></li>
+              <li><span class="spec-list__key">Hlavní výzbroj</span><span class="spec-list__val">120mm hladký</span>
+              </li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">66 t</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">59 km/h</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Velká Británie</span><span class="spec-list__val">148 ks</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Odolnost</span><span>96%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:96%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Optika</span><span>88%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:88%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blackpanther" class="section detail-section reveal">
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-main">
+          <span class="eyebrow">Profil tanku</span>
+          <h2>K2 Black Panther</h2>
+          <img src="fotky/k-2.jpg" class="tank-detail-img" alt="K2 Black Panther">
+
+          <p>Jihokorejský high-tech tank vybavený inteligentním hydropneumatickým podvozkem a pokročilým systémem
+            automatického nabíjení kanónu, schopný operovat v horském terénu.</p>
+
+
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Nastavitelný podvozek ISU <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Umožňuje tanku „sednout si“, „kleknout“ nebo libovolně naklonit korbu
+                  pro extrémní úhly náměru v hornatém terénu.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Automatický nabíječ <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Odvozený od francouzského typu Leclerc. Zajišťuje stálou a bleskovou
+                  kadenci až 10 ran za minutu.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Radarové varování a rušení <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Radar v pásmu milimetrových vln včas varuje před přilétající hrozbou
+                  a automaticky odpaluje maskovací kouřové granáty.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar" style="position: static;">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 muži</span></li>
+              <li><span class="spec-list__key">Hlavní výzbroj</span><span class="spec-list__val">120mm L55</span></li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">55 t</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">70 km/h</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Jižní Korea</span><span class="spec-list__val">260+ ks</span></li>
+              <li><span class="spec-list__key">Polsko</span><span class="spec-list__val">180 ks</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Elektronika</span><span>94%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:94%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Terén</span><span>92%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:92%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="merkava" class="section section--dark detail-section reveal">
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-main">
+          <span class="eyebrow">Profil tanku</span>
+          <h2>Merkava Mk. IV</h2>
+          <img src="fotky/merkava.jpg" class="tank-detail-img" alt="Merkava Mk. IV">
+          <p>Izraelský tank navržený s unikátní architekturou s motorem umístěným vpředu. Tento koncept tvoří dodatečnou
+            bariéru a maximalizuje pasivní bezpečnost čtyřčlenné posádky.</p>
+
+
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Koncepce s motorem vpředu <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Blok motoru funguje jako obří čelní štít, zatímco zadní část vozu
+                  nabízí chráněný prostor pro nouzový transport osob.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Modulární ochrana korby <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Umožňuje poškozené pláty speciálního kompozitního pancíře bleskově
+                  vyměnit přímo v drsných polních podmínkách.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Systém Trophy HV <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Nejprověřenější systém aktivní ochrany na světě, který stoprocentně
+                  likviduje RPG a protitankové řízené střely.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar" style="position: static;">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">4 muži</span></li>
+              <li><span class="spec-list__key">Hlavní výzbroj</span><span class="spec-list__val">120mm MG253</span></li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">65 t</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">64 km/h</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Izrael</span><span class="spec-list__val">400+ ks</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Bezpečí posádky</span><span>96%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:96%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Ochrana APS</span><span>95%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="type10" class="section detail-section reveal">
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-main">
+          <span class="eyebrow">Profil tanku</span>
+          <h2>Type 10</h2>
+          <img src="fotky/type-10.jpg" class="tank-detail-img" alt="Type 10">
+          <p>Lehký, extrémně rychlý a technologicky pokročilý japonský tank vyvinutý speciálně společností Mitsubishi
+            pro snadný transport železnicí a obranu pobřežních oblastí.</p>
+
+
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Převodovka CVT s plnou rychlostí vzad <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Umožňuje tanku couvat z palebné pozice plnou rychlostí až 70 km/h,
+                  což představuje naprostý taktický unikát.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Sítě C4I integrace <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Digitální velící systém zajišťuje automatické sdílení informací o
+                  cílech mezi tanky v reálném čase.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Hydropneumatické odpružení <span
+                  class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Aktivní podvozek dokáže bleskově měnit světlou výšku celého vozidla
+                  pro střelbu zpoza horizontů.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar" style="position: static;">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 muži</span></li>
+              <li><span class="spec-list__key">Hlavní výzbroj</span><span class="spec-list__val">120mm hladký</span>
+              </li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">48 t</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">70 km/h</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Japonsko</span><span class="spec-list__val">100+ ks</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Agilita</span><span>95%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:95%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Hmotnostní limit</span><span>90%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leclerc" class="section section--dark detail-section reveal">
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-main">
+          <span class="eyebrow">Profil tanku</span>
+          <h2>Leclerc XLR</h2>
+          <img src="fotky/Leclerc XLR.jpg" class="tank-detail-img" alt="Leclerc XLR">
+          <p>Modernizovaný francouzský hlavní bojový tank integrovaný do digitální sítě Scorpion. Vyznačuje se pokročilou elektronikou, skvělou dynamikou a kompaktnějšími rozměry oproti aliančním kolegům.</p>
+
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Automatický nabíječ a kadence <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Díky spolehlivému automatu v zadní části věže nepotřebuje čtvrtého člena posádky a zvládá stabilní palbu rychlostí až 12 ran za minutu.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Informační systém FINDERS <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Tento systém správy bojiště barevně zobrazuje pozice přátelských i nepřátelských jednotek a automaticky mapuje trasu.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar" style="position: static;">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 muži</span></li>
+              <li><span class="spec-list__key">Hlavní výzbroj</span><span class="spec-list__val">120mm CN120-26</span></li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">57 t</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">72 km/h</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Francie</span><span class="spec-list__val">200+ ks</span></li>
+              <li><span class="spec-list__key">SAE</span><span class="spec-list__val">350 ks</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Mobilita</span><span>93%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:93%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Elektronika</span><span>91%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:91%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="t90" class="section detail-section reveal">
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-main">
+          <span class="eyebrow">Profil tanku</span>
+          <h2>T-90M Proryv</h2>
+          <img src="fotky/T-90M Proryv.jpg" class="tank-detail-img" alt="T-90M Proryv">
+          <p>Nejnovější standardní ruský bojový tank, který hluboce modernizuje starší platformy. Nabízí zcela přepracovanou věž, vylepšenou ochranu uložené munice a modernější systémy zaměřování.</p>
+
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Dynamická ochrana Relikt <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Pokročilé reaktivní pancéřování chránící proti moderním podkaliberním střelám a tandemovým kumulativním hlavicím.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Řízené střely Reflex-M <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Umožňuje z hlavního kanónu odpalovat laserem naváděné protitankové střely až na vzdálenost 5 km, a to i proti nízko letícím vrtulníkům.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar" style="position: static;">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 muži</span></li>
+              <li><span class="spec-list__key">Hlavní výzbroj</span><span class="spec-list__val">125mm 2A46M-5</span></li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">48 t</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">60 km/h</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Rusko</span><span class="spec-list__val">100+ ks</span></li>
+              <li><span class="spec-list__key">Indie</span><span class="spec-list__val">1200+ ks</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Palebná síla</span><span>88%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:88%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Odolnost</span><span>84%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:84%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pt91" class="section section--dark detail-section reveal">
+    <div class="container">
+      <div class="detail-layout">
+        <div class="detail-main">
+          <span class="eyebrow">Profil tanku</span>
+          <h2>PT-91 Twardy</h2>
+          <img src="fotky/PT-91 Twardy.webp" class="tank-detail-img" alt="PT-91 Twardy">
+          <p>Polský hlavní bojový tank vytvořený rozsáhlou modernizací licenčních T-72M1. Přináší kompletně západní a domácí optoelektroniku, vylepšenou převodovku a reaktivní ochranu vlastní konstrukce.</p>
+
+          <div class="accordion">
+            <div class="accordion__item">
+              <button class="accordion__trigger">Reaktivní pancíř ERAWA <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Polské reaktivní kostky poskládané s minimálními mezerami, potažené speciální vrstvou absorbující radarové záření.</div>
+              </div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Systém řízení palby DRAWA <span class="accordion__icon">▼</span></button>
+              <div class="accordion__body">
+                <div class="accordion__body-inner">Nahradil původní sovětské zaměřovače. Obsahuje laserový dálkoměr a pokročilý noční termovizní kanál pro střelce i velitele.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-sidebar" style="position: static;">
+          <div class="spec-card">
+            <div class="spec-card__title">Specifikace</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">3 muži</span></li>
+              <li><span class="spec-list__key">Hlavní výzbroj</span><span class="spec-list__val">125mm 2A46</span></li>
+              <li><span class="spec-list__key">Hmotnost</span><span class="spec-list__val">45,9 t</span></li>
+              <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">60 km/h</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Země operátorů</div>
+            <ul class="spec-list">
+              <li><span class="spec-list__key">Polsko</span><span class="spec-list__val">230+ ks</span></li>
+              <li><span class="spec-list__key">Malajsie</span><span class="spec-list__val">48 ks</span></li>
+              <li><span class="spec-list__key">Ukrajina</span><span class="spec-list__val">60+ ks</span></li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card__title">Bojové výkony</div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Spolehlivost</span><span>89%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:89%"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-header"><span>Optika</span><span>82%</span></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width:82%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">⬡ Military<span>Force</span></div>
+          <p class="footer__desc">Encyklopedie vojenské techniky pro nadšence, studenty a odborníky. Nezávislý
+            vzdělávací projekt.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Navigace</div>
+          <ul class="footer__links">
+            <li><a href="index(z).html">Domů</a></li>
+            <li><a href="letectvo.html">Letectvo</a></li>
+            <li><a href="tanky.html">Tanky</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Kategorie</div>
+          <ul class="footer__links">
+            <li><a href="letectvo.html">Stíhačky</a></li>
+            <li><a href="BVP.html">BVP</a></li>
+            <li><a href="namornictvo.html">Námořnictvo</a></li>
+            <li><a href="pechota.html">Pěchota</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Informace</div>
+          <ul class="footer__links">
+            <li><a href="kontakt.html">O mně</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    hamburger.addEventListener('click', () => { nav.classList.toggle('open'); });
+
+    document.querySelectorAll('.accordion__trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.accordion__item').classList.toggle('open');
+      });
+    });
+
+    document.querySelectorAll('.clickable-row').forEach(row => {
+      row.addEventListener('click', () => {
+        const target = row.getAttribute('data-href');
+        document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    const heroBtn = document.getElementById('heroTankBtn');
+    if (heroBtn) {
+      heroBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('#leopard').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => obs.observe(el));
+  </script>
+</body>
+
+</html>

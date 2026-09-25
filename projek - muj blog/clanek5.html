@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taktika městského boje | Vojenský blog</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+       
+        .article-full {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #c0392b;
+        }
+        
+        .article-header {
+            position: relative;
+        }
+        
+        .article-full .article-image {
+            height: 300px;
+            background-color: #4a4a4a;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ecf0f1"><rect x="10" y="30" width="20" height="60"/><rect x="40" y="20" width="20" height="70"/><rect x="70" y="40" width="20" height="50"/><rect x="20" y="15" width="8" height="8"/><rect x="50" y="10" width="8" height="8"/><rect x="80" y="30" width="8" height="8"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 200px;
+        }
+        
+        .article-full .article-content {
+            padding: 2rem;
+        }
+        
+        .article-full h1 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-full .article-meta {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin: 1rem 0 1.5rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .article-full .article-meta span {
+            margin-right: 2rem;
+        }
+        
+        .article-full p {
+            margin: 1.2rem 0;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        
+        .article-full h2 {
+            color: #2c3e50;
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem 0;
+            border-left: 4px solid #c0392b;
+            padding-left: 1rem;
+        }
+        
+        .image-caption {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        .tactics-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #c0392b;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+        
+        .tactics-box ul {
+            margin: 0.5rem 0 0 1.5rem;
+        }
+        
+        .tactics-box li {
+            margin: 0.3rem 0;
+        }
+        
+       
+        .comments-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #c0392b;
+        }
+        
+        .comments-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 0.5rem;
+        }
+        
+        .comment {
+            border-bottom: 1px solid #ecf0f1;
+            padding: 1.2rem 0;
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .comment-date {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+        
+        .comment-content {
+            color: #333;
+            line-height: 1.5;
+            margin-left: 0.5rem;
+        }
+        
+        .comment-form {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .comment-form h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .comment-form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .comment-form button {
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .comment-form button:hover {
+            background-color: #a93226;
+        }
+        
+        @media (max-width: 768px) {
+            .article-full h1 {
+                font-size: 1.8rem;
+            }
+            
+            .article-full .article-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Vojenský blog</h1>
+            
+            <nav>
+                <ul class="nav-menu">
+                   
+                   <li class="nav-item">
+                        <input type="checkbox" id="nav-domu" class="nav-toggle">
+                        <label for="nav-domu" class="nav-btn">Domů</label>
+                        <ul class="submenu">
+                            <li><a href="index.html">Úvodní stránka</a></li>
+                            <li><a href="nejcastejsi.html">Nejčtenější</a></li>
+                        </ul>
+                    </li>
+                    
+                   
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-clanky" class="nav-toggle">
+                        <label for="nav-clanky" class="nav-btn">Články</label>
+                        <ul class="submenu">
+                            <li><a href="index1.html">Všechny články</a></li>
+                            <li><a href="nejnovejsi.html">Nejnovější</a></li>
+                            <li><a href="doporucene.html">Doporučené</a></li>
+                        </ul>
+                    </li>
+                    
+                  
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-kontakt" class="nav-toggle">
+                        <label for="nav-kontakt" class="nav-btn">Kontakt</label>
+                        <ul class="submenu">
+        
+                            <li><a href="o.autorovi.html" style="background-color: #c0392b; color: white;">O autorovi</a></li>
+                           
+                        </ul>
+                    </li>
+                </ul>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="articles">
+           
+            <article class="article-full">
+                <div class="article-header">
+                    
+                    <img src="taktika.jpg" alt=""style="width: 100%; height: 400px; object-fit: cover;">
+                    <div class="image-caption">Městský boj - jedno z nejnáročnějších prostředí (ilustrační foto)</div>
+                </div>
+                
+                <div class="article-content">
+                    <h1>Taktika městského boje: Nové výzvy</h1>
+                    
+                    <div class="article-meta">
+                        <span>📅 10. února 2026</span>
+                        <span>👤 Autor: Pavel Novotný</span>
+                        <span>📁 Kategorie: Taktika</span>
+                    </div>
+                    
+                    <p>Městský boj (urban warfare) se stal dominantní formou konfliktů 21. století. Zatímco v minulosti se armády střetávaly na otevřených polích, dnes se bojiště přesouvá do měst. Fallúdža, Mosul, Aleppo, Mariupol, Bachmut – tato jména se zapsala do historie moderního vojenství jako synonyma pro nelítostné pouliční boje. Proč je boj v zastavěných oblastech tak náročný a jak se na něj armády připravují?</p>
+                    
+                    <p>Město představuje trojrozměrné bojiště. Nepřítel může být kdekoli – v suterénu, v okně, na střeše. Každá místnost může skrývat past. Omezená viditelnost, blízkost civilistů a nemožnost plně využít těžkou techniku dělají z městského boje peklo pro každého vojáka. Zkušenosti z Ukrajiny ukazují, že i dobře vycvičené jednotky utrpí v městském prostředí obrovské ztráty.</p>
+                    
+                    <div class="tactics-box">
+                        <strong>🏙️ Hlavní výzvy městského boje:</strong>
+                        <ul>
+                            <li><strong>3D bojiště:</strong> Hrozba z výšky i z podzemí, vertikální pohyb</li>
+                            <li><strong>Omezená komunikace:</strong> Signál neprochází betonovými zdmi</li>
+                            <li><strong>Civilisté:</strong> Až 90 % obětí v moderních válkách jsou civilisté</li>
+                            <li><strong>Drony:</strong> Levné FPV drony ničí těžkou techniku</li>
+                            <li><strong>Minová pole:</strong> Budovy napěchované výbušninami</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Základní taktickou jednotkou se stal tým o 4-6 mužích. Každý člapokrývá specifický směr, vzájemně se kryjí a postupují metodicky místnost po místnosti. "Clearování" budov je pomalé, vyčerpávající a nebezpečné. Moderní technologie ale přinášejí změnu. Speciální jednotky dnes používají průzkumné drony, které proletí oknem a zmapují interiér dříve, než vojáci vstoupí. Termovize a průhledové kamery odhalují nepřátele skryté za zdmi.</p>
+                    
+                    <p>Velkým trendem jsou robotičtí pomocníci. Malá pásová vozidla jako QinetiQ Talon nebo iRobot PackBot prozkoumávají nebezpečné prostory, detekují nástražné systémy a odvracejí pozornost obránců. Těžší robotické platformy nesou zbraňové systémy a dokážou poskytnout palebnou podporu. Výhodou je, že když je robot zničen, neztrácíte člověka.</p>
+                    
+                    <p>Změna nastává i v přístupu k těžké technice. Tanky jsou v ulicích zranitelné – útočníci na ně útočí shora (z oken) a z boku. Proto vznikají městské upgrady: přídavné pancéřování, ochrana proti RPG (mříže, reaktivní pancíř) a systémy aktivní ochrany (Trophy, Iron Fist), které ničí přilétající střely dřív, než zasáhnou stroj.</p>
+                    
+                    <p>Psychologický aspekt je klíčový. Městský boj je extrémně stresující. Vojáci jsou vystaveni neustálému napětí, hluku, kouři a zkáze. Americká armáda proto zavedla speciální výcviková střediska (včetně slavného "Kill House"), kde se simulují reálné podmínky. Česká armáda cvičí městský boj ve vojenských újezdech i v opuštěných vesnicích. Důraz se klade na spolupráci malých jednotek, rychlé rozhodování a koordinaci s drony.</p>
+                    
+                    <p>Budoucnost patří ještě těsnější integraci technologií. Chytré helmy s displeji promítají situaci z dronů přímo před oči vojáků. Exoskelety snižují únavu při nošení těžké výstroje. Umělá inteligence vyhodnocuje pohyb nepřítele a navrhuje optimální postup. Městský boj ale zůstane krvavým a pomalým podnikáním. Žádná technologie nenahradí lidský instinkt a odvahu.</p>
+                    
+                    <p><em>Autor je vojenský taktik a instruktor, který se specializuje na boj v zastavěných oblastech. Působil jako poradce při výcviku speciálních jednotek.</em></p>
+                </div>
+            </article>
+            
+            
+            <div class="comments-section">
+                <h2>Komentáře (4)</h2>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Roman Malý</span>
+                        <span class="comment-date">10.2.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        Výborný článek. Sám jsem sloužil v misi KFOR a i když to nebylo ostré, nácviky na urban warfare byly nejnáročnější. Člověk si připadá jako v bludišti.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Pavel Novotný (autor)</span>
+                        <span class="comment-date">10.2.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        @Roman Malý: Díky za komentář. Přesně tak – ta dezorientace je hrozná. Každý roh může být poslední. Proto je tak důležitý výcvik.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Jiří Horák</span>
+                        <span class="comment-date">11.2.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        Co říkáte na nasazení tanků ve městě? V Bachmutu Rusové používali tanky jako přímou podporu pěchoty, ale ztráty byly obrovské. Má to vůbec smysl?
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Pavel Novotný (autor)</span>
+                        <span class="comment-date">11.2.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        @Jiří Horák: Tanky ve městě jsou dvojsečná zbraň. Bez nich pěchota nemá palebnou sílu na zničení opevněných pozic. S nimi je ale extrémně zranitelná. Řešením jsou aktivní ochranné systémy a úzká koordinace s pěchotou. Tank bez podpory pěšáků ve městě nepřežije.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Tomáš Beneš</span>
+                        <span class="comment-date">12.2.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        A co drony? Četl jsem, že v Ukrajině drony úplně změnily městský boj. Stačí jedna malá kvadrokoptéra a víš, co se děje za rohem.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Pavel Novotný (autor)</span>
+                        <span class="comment-date">12.2.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        @Tomáš Beneš: Drony jsou revoluce. Každá četa by dnes měla mít svůj průzkumný dron. Jenže pozor – na drony se dá rušit a nepřítel je sestřeluje. Je to neustálý závod.
+                    </div>
+                </div>
+                
+             
+            </div>
+        </main>
+        
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>O autorovi</h3>
+                <p><strong>Pavel Novotný</strong> je vojenský taktik a instruktor. 12 let působil u výsadkových jednotek, specializace na boj v zastavěných oblastech a CQB. Vede soukromou akademii taktického výcviku.</p>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3>Související články</h3>
+                <ul>
+                    <li><a href="clanek2.html">Výcvik speciálních jednotek</a></li>
+                    <li><a href="clanek7.html">Aktivní ochranné systémy</a></li>
+                    <li><a href="clanek6.html">Drony na bojišti</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3>Klíčové vybavení</h3>
+                <ul>
+                    <li>Průzkumné drony (DJI, Autel)</li>
+                    <li>Robotické platformy (Talon, PackBot)</li>
+                    <li>Termovize a noční vidění</li>
+                    <li>Aktivní ochrana Trophy</li>
+                </ul>
+            </div>
+              <div class="sidebar-widget">
+                <h3>Kategorie</h3>
+                <div class="categories">
+                     <a href="technika.html" class="category-tag">Technika</a>
+                    <a href="historie.html" class="category-tag">Historie</a>
+                    <a href="vycvik.html" class="category-tag">Výcvik</a>
+                    <a href="letectvo.html" class="category-tag">Letectvo</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+   <footer>
+        <p>© 2026 Vojenský blog | Všechna práva vyhrazena</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>70. výročí bitvy u Dien Bien Phu | Vojenský blog</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+      
+        .article-full {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #c0392b;
+        }
+        
+        .article-header {
+            position: relative;
+        }
+        
+        .article-full .article-image {
+            height: 300px;
+            background-color: #8B4513;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ecf0f1"><path d="M20 70 L50 20 L80 70 Z"/><rect x="45" y="70" width="10" height="20"/><circle cx="50" cy="45" r="5"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 120px;
+        }
+        
+        .article-full .article-content {
+            padding: 2rem;
+        }
+        
+        .article-full h1 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-full .article-meta {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin: 1rem 0 1.5rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .article-full .article-meta span {
+            margin-right: 2rem;
+        }
+        
+        .article-full p {
+            margin: 1.2rem 0;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        
+        .article-full h2 {
+            color: #2c3e50;
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem 0;
+            border-left: 4px solid #c0392b;
+            padding-left: 1rem;
+        }
+        
+        .image-caption {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        .fact-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #c0392b;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+        
+       
+        .comments-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #c0392b;
+        }
+        
+        .comments-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 0.5rem;
+        }
+        
+        .comment {
+            border-bottom: 1px solid #ecf0f1;
+            padding: 1.2rem 0;
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .comment-date {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+        
+        .comment-content {
+            color: #333;
+            line-height: 1.5;
+            margin-left: 0.5rem;
+        }
+        
+        .comment-form {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .comment-form h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .comment-form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .comment-form button {
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .comment-form button:hover {
+            background-color: #a93226;
+        }
+        
+        @media (max-width: 768px) {
+            .article-full h1 {
+                font-size: 1.8rem;
+            }
+            
+            .article-full .article-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Vojenský blog</h1>
+            
+            <nav>
+                <ul class="nav-menu">
+                   
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-domu" class="nav-toggle">
+                        <label for="nav-domu" class="nav-btn">Domů</label>
+                        <ul class="submenu">
+                            <li><a href="index.html">Úvodní stránka</a></li>
+                            <li><a href="nejcastejsi.html">Nejčtenější</a></li>
+                        </ul>
+                    </li>
+                    
+                   
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-clanky" class="nav-toggle">
+                        <label for="nav-clanky" class="nav-btn">Články</label>
+                        <ul class="submenu">
+                            <li><a href="index1.html">Všechny články</a></li>
+                            <li><a href="nejnovejsi.html">Nejnovější</a></li>
+                            <li><a href="doporucene.html">Doporučené</a></li>
+                        </ul>
+                    </li>
+                    
+               
+                  
+                  
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-kontakt" class="nav-toggle">
+                        <label for="nav-kontakt" class="nav-btn">Kontakt</label>
+                        <ul class="submenu">
+        
+                            <li><a href="o.autorovi.html" style="background-color: #c0392b; color: white;">O autorovi</a></li>
+                           
+                        </ul>
+                    </li>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="articles">
+            
+            <article class="article-full">
+                <div class="article-header">
+                   
+                   <img src="bitva.webp" alt=""style="width: 100%; height: 400px; object-fit: cover;">
+                    <div class="image-caption">Bitva u Dien Bien Phu, 1954 (zdroj: VHA)</div>
+                </div>
+                
+                <div class="article-content">
+                    <h1>70. výročí bitvy u Dien Bien Phu</h1>
+                    
+                    <div class="article-meta">
+                        <span>📅 20. února 2026</span>
+                        <span>👤 Autor: Tomáš Dvořák</span>
+                        <span>📁 Kategorie: Historie</span>
+                    </div>
+                    
+                    <p>Před 72 lety, 7. května 1954, skončila bitva u Dien Bien Phu. Toto střetnutí navždy změnilo mapu jihovýchodní Asie a stalo se symbolem boje proti kolonialismu. Francouzská posádka čítající 16 200 mužů kapitulovala před vojsky Viet Minhu generála Giapa po 56 dnech nelítostného obléhání.</p>
+                    
+                    <p>Francouzi chtěli v odlehlém údolí vylákat nepřítele k otevřené bitvě, kde by využili svou palebnou převahu a letectvo. Podcenili však logistické schopnosti Viet Minhu. Ten dokázal do nepřístupných hor dopravit 200 děl a 36 protiletadlových kanónů – ručně, rozložené na kusy. Tisíce dobrovolníků (převážně žen) nosily zásoby na nosítkách a kolech.</p>
+                    
+                    <div class="fact-box">
+                        <strong>🔍 Klíčová fakta:</strong> 56 dní obléhání • 16 200 Francouzů • 50 000 vojáků Viet Minhu • 260 000 civilních dělníků • 200 děl dopravených ručně do hor
+                    </div>
+                    
+                    <p>Generál Giap nejprve plánoval bleskový útok, ale v lednu 1954 změnil taktiku na systematické obléhání. Nechal vybudovat rozsáhlý systém zákopů, které se postupně přibližovaly k francouzským pozicím. Francouzská protiletadlová obrana byla překvapivě účinná a znemožnila zásobování letecky. Posádka v údolí se ocitla v pasti.</p>
+                    
+                    <p>Bitva probíhala v několika fázích. Po pádu severních pevnůstek (Béatrice, Gabrielle) se boje soustředily na východní pahorky. Nejtvrdší boje probíhaly o kótu A1 (Eliane 2), kde Viet Minh 6. května odpálil obrovskou nálož. Následující den generál de Castries kapituloval.</p>
+                    
+                    <p>Důsledky byly dalekosáhlé. Francie se stáhla z Indočíny a na její místo nastoupily USA, vedené obavami z šíření komunismu (teorie domina). Vietnam byl dočasně rozdělen podél 17. rovnoběžky, což o dekádu později vedlo k vietnamské válce. Dien Bien Phu se stal vojenskou studií o podcenění nepřítele a důležitosti logistiky. Dodnes je symbolem vítězství odhodlání nad technickou převahou.</p>
+                    
+                    <p><em>Autor je historik specializující se na moderní dějiny jihovýchodní Asie.</em></p>
+                </div>
+            </article>
+            
+           
+            <div class="comments-section">
+                <h2>Komentáře (3)</h2>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Jaroslav Novotný</span>
+                        <span class="comment-date">20.2.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        Skvělý článek! Tohle by se mělo učit ve školách podrobněji. Hlavně ta logistika Viet Minhu je neuvěřitelná.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Petr Svoboda</span>
+                        <span class="comment-date">21.2.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        Četl jsem, že USA zvažovaly použít jaderné zbraně na podporu Francouzů. Operace Vulture. Naštěstí z toho sešlo.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Tomáš Dvořák (autor)</span>
+                        <span class="comment-date">21.2.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        @Petr Svoboda: Ano, operace Vulture byl reálný plán. Eisenhower to nakonec neschválil kvůli odporu Británie a Kongresu.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Marie Veselá</span>
+                        <span class="comment-date">22.2.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        Zajímavé je, že se tomu říká "francouzský Verdun". Děkuji za připomenutí tohoto výročí.
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>O autorovi</h3>
+                <p><strong>Tomáš Dvořák</strong> je historik a publicista specializující se na moderní dějiny jihovýchodní Asie. Přednáší na Univerzitě Karlově.</p>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3>Související články</h3>
+                <ul>
+                    <li><a href="clanek1.html">Nová generace bojových vozidel pěchoty</a></li>
+                    <li><a href="clanek8.html">Porovnání BVP: Západ vs Východ</a></li>
+                     <li><a href="clanek4.html">Modernizace letectva: Nové stíhačky na obzoru</a></li>
+                </ul>
+            </div>
+                <div class="sidebar-widget">
+                <h3>Kategorie</h3>
+                <div class="categories">
+                     <a href="technika.html" class="category-tag">Technika</a>
+                    <a href="historie.html" class="category-tag">Historie</a>
+                    <a href="vycvik.html" class="category-tag">Výcvik</a>
+                    <a href="letectvo.html" class="category-tag">Letectvo</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+  <footer>
+        <p>© 2026 Vojenský blog | Všechna práva vyhrazena</p>
+    </footer>
+</body>
+</html>

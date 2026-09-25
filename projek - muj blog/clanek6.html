@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drony na bojišti | Vojenský blog</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+       
+        .article-full {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #c0392b;
+        }
+        
+        .article-header {
+            position: relative;
+        }
+        
+        .article-full .article-image {
+            height: 300px;
+            background-color: #2c3e50;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ecf0f1"><path d="M50 15 L60 35 L50 55 L40 35 L50 15"/><circle cx="50" cy="55" r="8"/><rect x="45" y="63" width="10" height="20"/><ellipse cx="50" cy="45" rx="12" ry="5"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 120px;
+        }
+        
+        .article-full .article-content {
+            padding: 2rem;
+        }
+        
+        .article-full h1 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-full .article-meta {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin: 1rem 0 1.5rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .article-full .article-meta span {
+            margin-right: 2rem;
+        }
+        
+        .article-full p {
+            margin: 1.2rem 0;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        
+        .article-full h2 {
+            color: #2c3e50;
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem 0;
+            border-left: 4px solid #c0392b;
+            padding-left: 1rem;
+        }
+        
+        .image-caption {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        .drone-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #c0392b;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+        
+        .drone-box ul {
+            margin: 0.5rem 0 0 1.5rem;
+        }
+        
+        .drone-box li {
+            margin: 0.3rem 0;
+        }
+        
+        /* Komentáře */
+        .comments-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #c0392b;
+        }
+        
+        .comments-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 0.5rem;
+        }
+        
+        .comment {
+            border-bottom: 1px solid #ecf0f1;
+            padding: 1.2rem 0;
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .comment-date {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+        
+        .comment-content {
+            color: #333;
+            line-height: 1.5;
+            margin-left: 0.5rem;
+        }
+        
+        .comment-form {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .comment-form h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .comment-form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .comment-form button {
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .comment-form button:hover {
+            background-color: #a93226;
+        }
+        
+        @media (max-width: 768px) {
+            .article-full h1 {
+                font-size: 1.8rem;
+            }
+            
+            .article-full .article-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Vojenský blog</h1>
+            
+            <nav>
+                <ul class="nav-menu">
+                         
+                   <li class="nav-item">
+                        <input type="checkbox" id="nav-domu" class="nav-toggle">
+                        <label for="nav-domu" class="nav-btn">Domů</label>
+                        <ul class="submenu">
+                            <li><a href="index.html">Úvodní stránka</a></li>
+                            <li><a href="nejcastejsi.html">Nejčtenější</a></li>
+                        </ul>
+                    </li>
+                    
+                   
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-clanky" class="nav-toggle">
+                        <label for="nav-clanky" class="nav-btn">Články</label>
+                        <ul class="submenu">
+                            <li><a href="index1.html">Všechny články</a></li>
+                            <li><a href="nejnovejsi.html">Nejnovější</a></li>
+                            <li><a href="doporucene.html">Doporučené</a></li>
+                        </ul>
+                    </li>
+                    
+                  
+                    <li class="nav-item">
+                        <input type="checkbox" id="nav-kontakt" class="nav-toggle">
+                        <label for="nav-kontakt" class="nav-btn">Kontakt</label>
+                        <ul class="submenu">
+        
+                            <li><a href="o.autorovi.html" style="background-color: #c0392b; color: white;">O autorovi</a></li>
+                           
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="articles">
+          
+            <article class="article-full">
+                <div class="article-header">
+                    <img src="drony.jpg" alt=""style="width: 100%; height: 400px; object-fit: cover;">
+                    <div class="image-caption">Bojový dron FPV - revoluce na moderním bojišti (ilustrační foto)</div>
+                </div>
+                
+                <div class="article-content">
+                    <h1>Drony na bojišti: Revoluce, která mění válčení</h1>
+                    
+                    <div class="article-meta">
+                        <span>📅 22. března 2026</span>
+                        <span>👤 Autor: Pavel Novotný</span>
+                        <span>📁 Kategorie: Technika</span>
+                    </div>
+                    
+                    <p>Válka na Ukrajině navždy změnila pohled na roli bezpilotních prostředků. To, co před pár lety vypadalo jako okrajová technologie, se dnes stalo klíčovou zbraní schopnou ničit tanky, dělostřelectvo i živou sílu. Drony – od malých komerčních kvadrokoptér až po těžké bojové stroje – zásadně proměnily podobu moderního bojiště.</p>
+                    
+                    <p>Největší revoluci přinesly takzvané FPV (First Person View) drony. Tyto malé, levné stroje (cena od 500 do 2000 dolarů) dokážou zasáhnout cíl s přesností, o které se dříve mohlo jen zdát. Operátor sedí v bunkru daleko od fronty a letí s dronem přímo do nepřátelského tanku nebo zákopu. V okamžiku dopadu odpálí nálož, kterou dron nese. Náklady na zničení jednoho tanku klesly z milionů dolarů na pár tisíc.</p>
+                    
+                    <div class="drone-box">
+                        <strong>🚁 Typy dronů na bojišti:</strong>
+                        <ul>
+                            <li><strong>FPV drony:</strong> Levné, jednorázové, pilotované brýlemi – hlavní zabiják tanků</li>
+                            <li><strong>Průzkumné drony:</strong> DJI Mavic, Autel – mapují bojiště, korigují dělostřelectvo</li>
+                            <li><strong>Heavy-lift drony:</strong> Shazují miny, zásoby, evakuují raněné</li>
+                            <li><strong>Sebevražedné drony:</strong> Lancet, Switchblade – naváděné, nerozbitné</li>
+                            <li><strong>Strategické drony:</strong> Bayraktar, Orlan – operují ve velkých výškách</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Zásadní změnou je masivnost nasazení. Na Ukrajině operují obě strany s desítkami tisíc dronů měsíčně. Vznikly specializované jednotky, které se věnují výhradně dronovému boji. Výcvik operátorů trvá týdny, ne měsíce jako u pilotů letadel. To umožňuje rychle doplňovat ztráty a udržovat palebnou převahu.</p>
+                    
+                    <p>Protiopatření se vyvíjejí stejně rychle jako samotné drony. Rušící systémy (EW – elektronický boj) dokážou přerušit spojení mezi dronem a operátorem. Každá strana proto neustále mění frekvence, vyvíjí odolnější drony a nasazuje optická vlákna pro řízení, která rušení odolají. Závod ve zbrojení se přesunul z tanků a letadel do světa mikroelektroniky.</p>
+                    
+                    <p>Drony také radikalizují asymetrickou válku. Partyzánská skupina s pár tisíci dolary může ohrozit moderní armádu. Teroristické organizace už drony používají k útokům na civilní cíle. Ochrana před drony se stává stejně důležitá jako ochrana před raketami. Vojenské základny po celém světě instalují protidronové systémy, které detekují, sledují a sestřelují nebezpečné stroje.</p>
+                    
+                    <p>Budoucnost patří autonomii. Již dnes existují drony, které po ztrátě signálu samy doletí na předem určenou pozici. Dalším krokem budou plně autonomní roje dronů – desítky strojů, které spolupracují, vyhledávají cíle a útočí bez zásahu člověka. To otevírá otázky etiky a kontroly. Kdo nese odpovědnost, když autonomní dron omylem zabije civilisty?</p>
+                    
+                    <p>Válka na Ukrajině ukázala, že drony nejsou jen doplňkem, ale klíčovou složkou moderní armády. Země, která v této oblasti zaostává, nemůže počítat s vítězstvím. Česká armáda proto urychleně nakupuje dronové systémy a buduje specializované jednotky. Budoucnost vojenství patří do vzduchu – ale v mnohem menším měřítku, než jsme si představovali.</p>
+                    
+                    <p><em>Autor je vojenský analytik a specialista na bezpilotní systémy. Dlouhodobě sleduje vývoj dronových technologií a jejich dopad na moderní konflikty.</em></p>
+                </div>
+            </article>
+            
+          
+            <div class="comments-section">
+                <h2>Komentáře (4)</h2>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Martin Černý</span>
+                        <span class="comment-date">22.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        Skvělý článek! Sleduju ty videa z Ukrajiny, jak FPV drony loví tanky – je to děsivý, ale fascinující zároveň. Vojenská teorie se přepisuje před očima.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Pavel Novotný (autor)</span>
+                        <span class="comment-date">22.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        @Martin Černý: Díky. Přesně tak – sledujeme největší změnu ve vojenství od vynálezu tanku. A co je zásadní, tato technologie je dostupná téměř komukoli. To je zlom.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Tomáš Beneš</span>
+                        <span class="comment-date">23.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        Jaká je podle vás účinnost rušících systémů? Četl jsem, že Rusové mají silné rušení, ale stejně jich drony ničí spoustu. Je to o kvantitě?
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Pavel Novotný (autor)</span>
+                        <span class="comment-date">23.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        @Tomáš Beneš: Rušení je účinné, ale ne stoprocentní. Vždycky se najde frekvence, která zrovna není pokrytá. A když rušení funguje, přicházejí optické drony na kabelu. Je to neustálý boj.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Jana Procházková</span>
+                        <span class="comment-date">24.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        Co česká armáda? Máme vůbec nějaké dronové jednotky? To by mě zajímalo.
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="comment-author">Pavel Novotný (autor)</span>
+                        <span class="comment-date">24.3.2026</span>
+                    </div>
+                    <div class="comment-content">
+                        @Jana Procházková: Ano, AČR buduje specializované dronové jednotky. Nakupujeme systémy jako ScanEagle, průzkumné drony a připravujeme se na FPV drony. Je to prioritní program.
+                    </div>
+                </div>
+                
+            
+        </main>
+        
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>O autorovi</h3>
+                <p><strong>Pavel Novotný</strong> je vojenský analytik a specialista na bezpilotní systémy. 10 let se věnuje vývoji dronových technologií a jejich dopadu na moderní konflikty. Pravidelně přednáší na Univerzitě obrany.</p>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3>Související články</h3>
+                <ul>
+                    <li><a href="clanek1.html">Nová generace BVP</a></li>
+                    <li><a href="clanek5.html">Taktika městského boje</a></li>
+                      <li><a href="clanek3.html">70. výročí bitvy u Dien Bien Phu</a></li>
+                    
+                </ul>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3>Klíčová fakta</h3>
+                <ul>
+                    <li><strong>FPV dron:</strong> 500-2000 USD</li>
+                    <li><strong>Tank:</strong> 3-10 mil. USD</li>
+                    <li><strong>Účinnost:</strong> 60-80 % zásahů</li>
+                    <li><strong>Dosah:</strong> 5-15 km</li>
+                </ul>
+            </div>
+              <div class="sidebar-widget">
+                <h3>Kategorie</h3>
+                <div class="categories">
+                     <a href="technika.html" class="category-tag">Technika</a>
+                    <a href="historie.html" class="category-tag">Historie</a>
+                    <a href="vycvik.html" class="category-tag">Výcvik</a>
+                    <a href="letectvo.html" class="category-tag">Letectvo</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <footer>
+        <p>© 2026 Vojenský blog | Všechna práva vyhrazena</p>
+    </footer>
+</body>
+</html>

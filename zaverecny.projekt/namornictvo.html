@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="MilitaryForce – námořnictvo: stíhačky, bombardéry a transportní letouny s detailními specifikacemi." />
+    <title>Letectvo – MilitaryForce</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .ac-card .card__img {
+            height: 180px;
+        }
+
+        .ac-detail-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid var(--clr-border);
+        }
+
+        .role-icon {
+            font-size: 1.4rem;
+            margin-bottom: .25rem;
+        }
+
+        .ac-card-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            transition: transform 0.25s ease;
+        }
+
+        .ac-card-link:hover {
+            color: inherit;
+            transform: translateY(-5px);
+        }
+
+        [id] {
+            scroll-margin-top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="Hlavní navigace">
+        <div class="navbar__inner">
+            <a href="index(z).html" class="navbar__logo">⬡ Military<span>Force</span></a>
+            <ul class="navbar__nav" id="mainNav" role="list">
+                <li><a href="index(z).html">Domů</a></li>
+                <li><a href="pechota.html">Pěchota</a></li>
+                <li><a href="BVP.html">BVP</a></li>
+                <li><a href="tanky.html">Tanky</a></li>
+                <li><a href="letectvo.html">Letectvo</a></li>
+                <li><a href="namornictvo.html" class="active">Námořnictvo</a></li>
+                <li><a href="kontakt.html">O mně</a></li>
+            </ul>
+            <button class="navbar__hamburger" id="hamburger" aria-label="Otevřít menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="page-header"
+        style="background-image: linear-gradient(to bottom,rgba(10,12,14,.7) 0%,var(--clr-bg) 100%), url('https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=1400&q=70') center/cover no-repeat;">
+        <div class="container">
+            <span class="eyebrow">Námořní síly</span>
+            <h1>Námořnictvo</h1>
+            <p>Přehled moderních bojových plavidel — letadlové lodě, torpédoborce, křižníky a ponorky.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="filter-tabs" role="group" aria-label="Filtrovat podle kategorie">
+                <button class="filter-tab active" data-filter="all">Vše</button>
+                <button class="filter-tab" data-filter="letadlova">Letadlové lodě</button>
+                <button class="filter-tab" data-filter="torpedoborec">Torpédoborce</button>
+                <button class="filter-tab" data-filter="kriznik">Křižníky</button>
+                <button class="filter-tab" data-filter="ponorka">Ponorky</button>
+            </div>
+
+            <div class="grid-3" id="aircraftGrid">
+
+                <a href="#zumwalt" class="ac-card-link">
+                    <article class="card ac-card reveal" data-cat="torpedoborec">
+                        <img class="card__img" src="fotky/zumwalt.jpg" alt="USS Zumwalt" loading="lazy" />
+                        <div class="card__body">
+                            <div class="card__category">Torpédoborec</div>
+                            <h3 class="card__title">USS Zumwalt (DDG-1000)</h3>
+                            <p class="card__text">Pokročilý stealth torpédoborec námořnictva USA s netradičním trupem
+                                tvořícím minimální odraz. Navržen pro skryté ostřelování pobřeží.</p>
+                            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+                                <li>- Trup typu tumblehome snižující RCS</li>
+                                <li>- 56 km/h (30 uzlů)</li>
+                                <li>- 80x vertikální odpalovací buňky VLS</li>
+                            </ul>
+                            <div class="card__meta">
+                                <span class="badge badge--gold">USA</span>
+                                <span class="mono">od 2016</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#type055" class="ac-card-link">
+                    <article class="card ac-card reveal" data-cat="kriznik" style="transition-delay:.05s">
+                        <img class="card__img" src="fotky/type_055.jpeg" alt="Type 055" loading="lazy" />
+                        <div class="card__body">
+                            <div class="card__category">Křižník / Torpédoborec</div>
+                            <h3 class="card__title">Type 055 (třída Renhai)</h3>
+                            <p class="card__text">Masivní čínský raketový torpédoborec, západem klasifikovaný jako
+                                křižník. Představuje vrchol současné námořní expanze Číny.</p>
+                            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+                                <li>- Pokročilá stealth architektura</li>
+                                <li>- 56 km/h (30 uzlů)</li>
+                                <li>- 112x vertikální odpalovací buňky</li>
+                            </ul>
+                            <div class="card__meta">
+                                <span class="badge badge--red">Čína</span>
+                                <span class="mono">od 2020</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#burke" class="ac-card-link">
+                    <article class="card ac-card reveal" data-cat="torpedoborec" style="transition-delay:.1s">
+                        <img class="card__img" src="fotky/arleigh_burke_flight III.webp" alt="Arleigh Burke Flight III" loading="lazy" />
+                        <div class="card__body">
+                            <div class="card__category">Torpédoborec</div>
+                            <h3 class="card__title">Arleigh Burke Flight III</h3>
+                            <p class="card__text">Nejnovější standard páteřního torpédoborce USA. Vybaven revolučním
+                                radarem AN/SPY-6 a nejnovější verzí bojového systému Aegis.</p>
+                            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+                                <li>- Bojový systém Aegis Baseline 10</li>
+                                <li>- 57 km/h (31 uzlů)</li>
+                                <li>- 96x vertikální odpalovací buňky</li>
+                            </ul>
+                            <div class="card__meta">
+                                <span class="badge badge--gold">USA</span>
+                                <span class="mono">od 2023</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#seawolf" class="ac-card-link">
+                    <article class="card ac-card reveal" data-cat="ponorka" style="transition-delay:.05s">
+                        <img class="card__img" src="fotky/seawolf.jpg" alt="Třída Seawolf" loading="lazy" />
+                        <div class="card__body">
+                            <div class="card__category">Útočná ponorka</div>
+                            <h3 class="card__title">Třída Seawolf</h3>
+                            <p class="card__text">Extrémně drahá, rychlá a dokonale tichá jaderná ponorka Spojených
+                                států navržená pro vyhledávání a ničení sovětských plavidel hluboko v oceánech.</p>
+                            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+                                <li>- Jaderný pohon, extrémně tichý chod</li>
+                                <li>- 65 km/h (35 uzlů) pod vodou</li>
+                                <li>- 8x torpédomet ráže 660 mm</li>
+                            </ul>
+                            <div class="card__meta">
+                                <span class="badge badge--gold">USA</span>
+                                <span class="mono">od 1997</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#queen" class="ac-card-link">
+                    <article class="card ac-card reveal" data-cat="letadlova" style="transition-delay:.1s">
+                        <img class="card__img" src="fotky/hms_queen_elizabeth.png" alt="HMS Queen Elizabeth"
+                            loading="lazy" />
+                        <div class="card__body">
+                            <div class="card__category">Letadlová loď</div>
+                            <h3 class="card__title">HMS Queen Elizabeth</h3>
+                            <p class="card__text">Vlajková loď britského královského námořnictva. Unikátní dvouostrovní
+                                uspořádání a skokanský můstek pro letouny F-35B.</p>
+                            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+                                <li>- Kapacita až 40 palubních letounů</li>
+                                <li>- Skokanský můstek pro STOVL operace</li>
+                                <li>- 46 km/h (25 uzlů)</li>
+                            </ul>
+                            <div class="card__meta">
+                                <span class="badge badge--blue">Velká Británie</span>
+                                <span class="mono">od 2017</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#yasen" class="ac-card-link">
+                    <article class="card ac-card reveal" data-cat="ponorka" style="transition-delay:.15s">
+                        <img class="card__img" src="fotky/yasen_(Projekt 885M).jpg" alt="Třída Yasen" loading="lazy" />
+                        <div class="card__body">
+                            <div class="card__category">Útočná ponorka</div>
+                            <h3 class="card__title">Třída Yasen (Projekt 885M)</h3>
+                            <p class="card__text">Nejmodernější ruská víceúčelová jaderná ponorka. Je těžce vyzbrojená
+                                střelami s plochou dráhou letu Kalibr a nadzvukovými Onyx.</p>
+                            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+                                <li>- Nízkohlučný trup z nízkofrekvenční oceli</li>
+                                <li>- 65 km/h (35 uzlů) pod vodou</li>
+                                <li>- 32x vertikální odpalovací šachty</li>
+                            </ul>
+                            <div class="card__meta">
+                                <span class="badge badge--red">Rusko</span>
+                                <span class="mono">od 2014</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#mayo" class="ac-card-link">
+                    <article class="card ac-card reveal" data-cat="torpedoborec" style="transition-delay:.2s">
+                        <img class="card__img" src="fotky/maya_(27DDG).jpg" alt="Třída Maya" loading="lazy" />
+                        <div class="card__body">
+                            <div class="card__category">Torpédoborec</div>
+                            <h3 class="card__title">Třída Maya (27DDG)</h3>
+                            <p class="card__text">Japonský raketový torpédoborec vybavený systémem Aegis. Slouží k
+                                zachycování balistických raket a jako štít japonských ostrovů.</p>
+                            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+                                <li>- Kooperativní zapojení CEC s letadly E-2D</li>
+                                <li>- 56 km/h (30 uzlů)</li>
+                                <li>- 96x vertikální odpalovací buňky Mk 41</li>
+                            </ul>
+                            <div class="card__meta">
+                                <span class="badge badge--blue">Japonsko</span>
+                                <span class="mono">od 2020</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#daring" class="ac-card-link">
+                    <article class="card ac-card reveal" data-cat="torpedoborec" style="transition-delay:.25s">
+                        <img class="card__img" src="fotky/daring_(type 45).jpg" alt="Třída Daring Type 45" loading="lazy" />
+                        <div class="card__body">
+                            <div class="card__category">Torpédoborec</div>
+                            <h3 class="card__title">Třída Daring (Type 45)</h3>
+                            <p class="card__text">Britský protiletadlový torpédoborec. Jeho systém Sea Viper s radarem
+                                SAMPSON dokáže současně sledovat a ničit stovky vzdušných cílů.</p>
+                            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+                                <li>- Protivzdušný bojový systém Sea Viper</li>
+                                <li>- 56 km/h (30 uzlů)</li>
+                                <li>- 48x vertikální odpalovací buňky Sylver</li>
+                            </ul>
+                            <div class="card__meta">
+                                <span class="badge badge--blue">Velká Británie</span>
+                                <span class="mono">od 2009</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#charles" class="ac-card-link">
+                    <article class="card ac-card reveal" data-cat="letadlova" style="transition-delay:.3s">
+                        <img class="card__img" src="fotky/charles_de_gaulle_(r91).jpg" alt="Charles de Gaulle"
+                            loading="lazy" />
+                        <div class="card__body">
+                            <div class="card__category">Letadlová loď</div>
+                            <h3 class="card__title">Charles de Gaulle (R91)</h3>
+                            <p class="card__text">Jediná jaderná letadlová loď postavená mimo USA. Vybavena americkými
+                                parními katapulty a letouny Dassault Rafale M.</p>
+                            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+                                <li>- Nukleární pohon se dvěma reaktory</li>
+                                <li>- Parní katapulty typu CATOBAR</li>
+                                <li>- 50 km/h (27 uzlů)</li>
+                            </ul>
+                            <div class="card__meta">
+                                <span class="badge badge--blue">Francie</span>
+                                <span class="mono">od 2001</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#ford" class="ac-card-link">
+                    <article class="card ac-card reveal" data-cat="letadlova" style="transition-delay:.35s">
+                        <img class="card__img" src="fotky/uss_gerald_r._ford.jpg" alt="USS Gerald R. Ford" loading="lazy" />
+                        <div class="card__body">
+                            <div class="card__category">Letadlová loď</div>
+                            <h3 class="card__title">USS Gerald R. Ford</h3>
+                            <p class="card__text">Největší a technologicky nejvyspělejší válečná loď v historii lidstva.
+                                Využívá revoluční elektromagnetické katapulty EMALS.</p>
+                            <ul style="font-size:.82rem; color:var(--clr-text-dim); margin-bottom:1rem;">
+                                <li>- Elektromagnetický katapultovací systém EMALS</li>
+                                <li>- Kapacita přes 75+ letounů a vrtulníků</li>
+                                <li>- 56+ km/h (30+ uzlů)</li>
+                            </ul>
+                            <div class="card__meta">
+                                <span class="badge badge--gold">USA</span>
+                                <span class="mono">od 2017</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="zumwalt" class="section section--dark">
+        <div class="container">
+            <div class="section-title reveal">
+                <span class="eyebrow">Detailní pohled</span>
+                <h2>USS Zumwalt (DDG-1000)</h2>
+            </div>
+            <div class="detail-layout reveal">
+                <div>
+                    <img class="ac-detail-img" src="fotky/zumwalt_3.webp" alt="USS Zumwalt na moři"
+                        loading="lazy" />
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+                    <p>Program DDG-1000 byl původně navržen jako nová generace hladinových plavidel USA, která měla
+                        nahradit starší koncepce a poskytnout masivní palebnou sílu pro podporu pozemních operací. Z
+                        původně plánovaných 32 lodí byly z finančních důvodů postaveny pouze 3 kusy.</p>
+                    <p>Loď je unikátní svým trupem s reverzním sklonem (tumblehome), který láme radarové vlny tak
+                        efektivně, že na radarech protivníka se toto 185 metrů dlouhé plavidlo jeví jako malá rybářská
+                        loďka.</p>
+
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+                    <div class="accordion">
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Stealth konstrukce a integrace <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Veškeré antény, radary a zbraňové systémy jsou plně
+                                    zapuštěny do kompozitní nástavby. Dokonce i hlavně hlavních 155mm děl se v klidovém
+                                    režimu zatahují do speciálních krytů.</div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Pokročilá elektrická síť IPS <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Integrated Power System dokáže generovat až 78
+                                    megawattů elektrické energie. To plně dostačuje pro pohon lodi a zároveň poskytuje
+                                    dostatečnou rezervu pro budoucí integraci laserových zbraní či railgunu.</div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Vertikální odpalovací systém <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Na rozdíl od standardních lodí jsou odpalovací buňky
+                                    Mk 57 rozmístěny po obvodu trupu (systém PVLS), což chrání vnitřní jádro lodi před
+                                    řetězovou explozí v případě nepřátelského zásahu.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-sidebar">
+                    <div class="spec-card">
+                        <div class="spec-card__title">Specifikace DDG-1000</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">147 osob</span>
+                            </li>
+                            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">182,9 m</span>
+                            </li>
+                            <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">24,6 m</span></li>
+                            <li><span class="spec-list__key">Výtlak</span><span class="spec-list__val">15 995 tun</span>
+                            </li>
+                            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">56 km/h
+                                    (30 uzlů)</span></li>
+                            <li><span class="spec-list__key">Pohon</span><span class="spec-list__val">2x plynová turbína
+                                    Rolls-Royce</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Země operátorů</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">3 kusy v
+                                    aktivní službě</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Bojové výkony</div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Stealth</span><span>96%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:96%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Manévrovatelnost</span><span>70%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:70%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Výzbroj</span><span>85%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Elektronika</span><span>95%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="type055" class="section section--dark">
+        <div class="container">
+            <div class="section-title reveal">
+                <span class="eyebrow">Detailní pohled</span>
+                <h2>Type 055 (třída Renhai)</h2>
+            </div>
+            <div class="detail-layout reveal">
+                <div>
+                    <img class="ac-detail-img" src="fotky/type_055_2.jpg" alt="Type 055" loading="lazy" />
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+                    <p>Type 055 představuje obrovský skok v technologických možnostech čínského námořnictva (PLAN).
+                        Výstavba první lodi začala v roce 2014 a do služby byla zavedena v roce 2020. Svou velikostí
+                        překonává většinu západních torpédoborců.</p>
+                    <p>Tato plavidla plní roli eskorty pro čínské letadlové lodě a zároveň fungují jako velitelské lodě
+                        námořních operačních skupin s masivní protivzdušnou a protilodní obranou.</p>
+
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+                    <div class="accordion">
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Univerzální odpalovací systém <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Loď disponuje 112 odpalovacími buňkami rozdělenými na
+                                    přídi a zádi. Buňky jsou dostatečně velké na to, aby mohly odpalovat těžké
+                                    nadzvukové protilodní střely YJ-18 a protiletadlové rakety HHQ-9.</div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Dvoupásmový radarový systém <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Mast lodi integruje radary pracující v pásmech S a X
+                                    (dual-band radar). To umožňuje lodi efektivně vyhledávat cíle na velkou vzdálenost a
+                                    zároveň navádět střely na nízko letící cíle těsně nad hladinou.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-sidebar">
+                    <div class="spec-card">
+                        <div class="spec-card__title">Specifikace Type 055</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">cca 300
+                                    osob</span></li>
+                            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">180,0 m</span>
+                            </li>
+                            <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">20,0 m</span></li>
+                            <li><span class="spec-list__key">Výtlak</span><span class="spec-list__val">cca 13 000
+                                    tun</span></li>
+                            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">56 km/h
+                                    (30 uzlů)</span></li>
+                            <li><span class="spec-list__key">Motor</span><span class="spec-list__val">4x plynová turbína
+                                    QC-280</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Země operátorů</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">🇨🇳 Čína (PLAN)</span><span class="spec-list__val">8+ kusů
+                                    v aktivní službě</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Bojové výkony</div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Stealth</span><span>80%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Manévrovatelnost</span><span>75%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:75%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Výzbroj</span><span>96%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:96%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Elektronika</span><span>92%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="burke" class="section section--dark">
+        <div class="container">
+            <div class="section-title reveal">
+                <span class="eyebrow">Detailní pohled</span>
+                <h2>Arleigh Burke Flight III</h2>
+            </div>
+            <div class="detail-layout reveal">
+                <div>
+                    <img class="ac-detail-img" src="fotky/arleigh_burke_flight_III_2.jpg" alt="Arleigh Burke vlnami" loading="lazy" />
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+                    <p>Třída Arleigh Burke tvoří páteř hladinového loďstva USA již od počátku 90. let. Verze Flight III
+                        představuje zásadní technologický skok, který byl vyvinut po zrušení velkosériové výroby třídy
+                        Zumwalt.</p>
+                    <p>Tato verze integruje zcela nový, dramaticky citlivější radarový systém, který vyžadoval zásadní
+                        přestavbu vnitřních rozvodů elektrické energie a chladicích systémů plavidla.</p>
+
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+                    <div class="accordion">
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Radar AMDR AN/SPY-6 <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Tento nový AESA radar nahrazuje starší pasivní radary
+                                    SPY-1. Je až 30krát citlivější, což lodi umožňuje sledovat cíle s extrémně nízkým
+                                    odrazem, včetně nízkoletících dronů a balistických střel současně.</div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Aegis Baseline 10 a BMD <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Umožňuje lodi provádět integrovanou protivzdušnou a
+                                    protiraketovou obranu (IAMD). Loď dokáže sdílet data o cílech v reálném čase s
+                                    ostatními plavidly i letouny F-35 v síti.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-sidebar">
+                    <div class="spec-card">
+                        <div class="spec-card__title">Specifikace Flight III</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">cca 310
+                                    osob</span></li>
+                            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">155,0 m</span>
+                            </li>
+                            <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">20,0 m</span></li>
+                            <li><span class="spec-list__key">Výtlak</span><span class="spec-list__val">9 550 tun</span>
+                            </li>
+                            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">57 km/h
+                                    (31 uzlů)</span></li>
+                            <li><span class="spec-list__key">Výzbroj</span><span class="spec-list__val">96x buňky VLS Mk
+                                    41</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Země operátorů</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">70+ (celkem
+                                    třída, Flight III postupně)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Bojové výkony</div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Stealth</span><span>65%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:65%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Manévrovatelnost</span><span>82%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:82%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Výzbroj</span><span>94%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:94%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Elektronika</span><span>96%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:96%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="seawolf" class="section section--dark">
+        <div class="container">
+            <div class="section-title reveal">
+                <span class="eyebrow">Detailní pohled</span>
+                <h2>Třída Seawolf</h2>
+            </div>
+            <div class="detail-layout reveal">
+                <div>
+                    <img class="ac-detail-img" src="fotky/seawolf_2.jpg" alt="Ponorka Seawolf" loading="lazy" />
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+                    <p>Třída Seawolf byla navržena na konci studené války jako absolutní vrchol americké podmořské
+                        technologie. Jejím úkolem bylo infiltrovat chráněné sovětské bastiony v Arktidě a likvidovat
+                        raketové ponorky protivníka. Kvůli vysoké ceně (cca 3 miliardy dolarů za kus) byly postaveny
+                        pouze 3 ponorky.</p>
+                    <p>Jedná se o nejrychlejší a nejtišší útočné ponorky, které kdy Spojené státy vyrobily. Třetí loď
+                        třídy, USS Jimmy Carter, byla navíc prodloužena pro speciální operace a špionáž pod vodou.</p>
+
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+                    <div class="accordion">
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Acoustic Stealth a pohon pump-jet <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Seawolf nepoužívá klasický lodní šroub, ale chráněný
+                                    prstenec s lopatkami (pump-jet). To radikálně snižuje kavitaci, takže ponorka dokáže
+                                    plout rychlostí 20 uzlů a přitom zůstat tišší než starší ponorky stojící v přístavu.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Obrovský arzenál torpédometů <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Ponorka disponuje 8 torpédomety neobvykle velké ráže
+                                    660 mm. Dokáže pojmout až 50 těžkých torpéd Mk 48 nebo protilodních střel Harpoon,
+                                    které odpaluje pomocí hydraulického systému bez hluku.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-sidebar">
+                    <div class="spec-card">
+                        <div class="spec-card__title">Specifikace Seawolf</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">140 osob</span>
+                            </li>
+                            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">107,6 m</span>
+                            </li>
+                            <li><span class="spec-list__key">Výtlak (pod vodou)</span><span class="spec-list__val">9 137
+                                    tun</span></li>
+                            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">65 km/h
+                                    (35 uzlů)</span></li>
+                            <li><span class="spec-list__key">Operační hloubka</span><span class="spec-list__val">přes
+                                    490 m</span></li>
+                            <li><span class="spec-list__key">Reaktor</span><span class="spec-list__val">1x jaderný
+                                    reaktor S6G</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Země operátorů</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">🇺🇸 USA</span><span class="spec-list__val">3 ponorky v
+                                    aktivní službě</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Bojové výkony</div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Stealth (Tichost)</span><span>99%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:99%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Manévrovatelnost</span><span>88%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:88%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Výzbroj</span><span>92%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:92%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Elektronika</span><span>90%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="queen" class="section section--dark">
+        <div class="container">
+            <div class="section-title reveal">
+                <span class="eyebrow">Detailní pohled</span>
+                <h2>HMS Queen Elizabeth</h2>
+            </div>
+            <div class="detail-layout reveal">
+                <div>
+                    <img class="ac-detail-img" src="fotky/hms_queen_elizabeth_2.jpg" alt="HMS Queen Elizabeth" loading="lazy" />
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+                    <p>HMS Queen Elizabeth je největším plavidlem, jaké kdy bylo pro britské námořnictvo postaveno. Je
+                        navržena speciálně pro operace letounů páté generace F-35B Lightning II se zkráceným startem a
+                        svislým přistáním.</p>
+                    <p>Oproti americkým letadlovým lodím nepoužívá katapulty, ale zvednutou příď (skokanský můstek).
+                        Zvláštností jsou dva samostatné řídicí můstky na palubě — jeden slouží pro navigaci plavidla,
+                        druhý pro letový provoz.</p>
+
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+                    <div class="accordion">
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Dvouostrovní koncept <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Rozdělení nástaveb do dvou „ostrovů“ snižuje
+                                    turbulence vzduchu nad letovou palubou a zároveň zvyšuje odolnost lodi v boji — v
+                                    případě zničení jednoho můstku může druhý okamžitě převzít kontrolu nad plavidlem.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Automatizovaný systém manipulace s municí <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Loď využívá Highly Automated Weapon Handling System
+                                    (HMO), který pomocí robotických zakladačů v podpalubí dopravuje munici k letadlům
+                                    bez nutnosti lidské síly, což dramaticky zrychluje přípravu letounů k boji.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-sidebar">
+                    <div class="spec-card">
+                        <div class="spec-card__title">Specifikace R08</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">cca 700 + letka
+                                    (celkem až 1600)</span></li>
+                            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">280,0 m</span>
+                            </li>
+                            <li><span class="spec-list__key">Výtlak</span><span class="spec-list__val">65 000 tun</span>
+                            </li>
+                            <li><span class="spec-list__key">Kapacita letecké skupiny</span><span
+                                    class="spec-list__val">až 40 letounů (F-35B, Merlin)</span></li>
+                            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">46 km/h
+                                    (25 uzlů)</span></li>
+                            <li><span class="spec-list__key">Pohon</span><span class="spec-list__val">Integrovaný
+                                    elektrický (turbíny Rolls-Royce)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Země operátorů</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">🇬🇧 Velká Británie</span><span class="spec-list__val">2
+                                    kusy v aktivní službě</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Bojové výkony</div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Letecká síla</span><span>90%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:90%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Soběstačnost</span><span>94%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:94%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Vlastní ochrana</span><span>60%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:60%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Elektronika</span><span>92%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="yasen" class="section section--dark">
+        <div class="container">
+            <div class="section-title reveal">
+                <span class="eyebrow">Detailní pohled</span>
+                <h2>Třída Yasen (Projekt 885M)</h2>
+            </div>
+            <div class="detail-layout reveal">
+                <div>
+                    <img class="ac-detail-img" src="fotky/yasen_(Projekt 885M)_2.jpg" alt="Ponorka Yasen" loading="lazy" />
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+                    <p>Třída Yasen představuje absolutní technologický vrchol ruského ponorkového stavitelství. Vývoj
+                        začal na sklonku Sovětského svazu, ale první loď Severodvinsk byla po dlouhých průtazích
+                        zařazena do služby až v roce 2014. Modernizovaný projekt 885M (Yasen-M) je o něco kratší a
+                        využívá výhradně ruské komponenty.</p>
+                    <p>Západní námořní analytici považují tuto třídu za nesmírně nebezpečného protivníka, jelikož
+                        kombinuje tichý chod útočné ponorky s palebnou silou raketového křižníku.</p>
+
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+                    <div class="accordion">
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Vertikální sila pro řízené střely <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Ponorka nese 8 univerzálních vertikálních
+                                    odpalovacích šachet. Každá pojme až 4 střely Onyx nebo 5 střel rodiny Kalibr,
+                                    případně nejnovější hypersonické protilodní střely Zirkon, což ponorce umožňuje
+                                    útočit na cíle vzdálené tisíce kilometrů.</div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Sférický sonar Irtyš-Amfora <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Celá příď lodi je obsazena obří kulovou
+                                    hydroakustickou anténou, což vedlo k netradičnímu posunutí klasických torpédometů z
+                                    přídě do boků ponorky za velitelskou věž.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-sidebar">
+                    <div class="spec-card">
+                        <div class="spec-card__title">Specifikace Projektu 885M</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">cca 64
+                                    osob</span></li>
+                            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">130,0 m</span>
+                            </li>
+                            <li><span class="spec-list__key">Výtlak (pod vodou)</span><span class="spec-list__val">13
+                                    800 tun</span></li>
+                            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">65 km/h
+                                    (35 uzlů) под водой</span></li>
+                            <li><span class="spec-list__key">Materiál trupu</span><span
+                                    class="spec-list__val">Nízkofrekvenční magnetická ocel</span></li>
+                            <li><span class="spec-list__key">Pohon</span><span class="spec-list__val">1x jaderný reaktor
+                                    OK-650KPM</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Země operátorů</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">🇷🇺 Rusko (VMF)</span><span class="spec-list__val">5+ kusů
+                                    v aktivní službě</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Bojové výkony</div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Stealth (Tichost)</span><span>90%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:90%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Manévrovatelnost</span><span>85%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Výzbroj</span><span>98%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:98%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Elektronika</span><span>85%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mayo" class="section section--dark">
+        <div class="container">
+            <div class="section-title reveal">
+                <span class="eyebrow">Detailní pohled</span>
+                <h2>Třída Maya (27DDG)</h2>
+            </div>
+            <div class="detail-layout reveal">
+                <div>
+                    <img class="ac-detail-img" src="fotky/maya_(27DDG)_2.jpg" alt="Torpédoborec Maya" loading="lazy" />
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+                    <p>Maya je třída pokročilých raketových torpédoborců Japonských námořních sil sebeobrany (JMSDF).
+                        Vychází z konstrukce předchozí třídy Atago, ale přináší kompletně přepracovaný pohonný systém a
+                        vylepšené schopnosti BMD (obrana proti balistickým střelám).</p>
+                    <p>Lodě byly postaveny primárně jako reakce na rostoucí raketové hrozby v regionu a slouží jako
+                        první linie ochrany japonského souostroví před balistickými útoky.</p>
+
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+                    <div class="accordion">
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Kooperativní zapojení CEC <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Třída Maya disponuje systémem Cooperative Engagement
+                                    Capability. Ten lodi umožňuje přijímat data o cílech ze vzdálených senzorů (např. z
+                                    letounů včasné výstrahy E-2D Hawkeye) a odpalovat protiraketové střely SM-3 na cíle,
+                                    které samotný radar lodi ještě nevidí pod horizontem.</div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Hybridní pohon COGLAG <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Kombinovaný systém plynových turbín a elektrického
+                                    pohonu. Při nízkých rychlostech pluje loď extrémně úsporně a tiše na elektromotory,
+                                    při bojovém nasazení se spustí turbíny, které lodi udělí bleskové zrychlení a
+                                    rychlost přes 30 uzlů.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-sidebar">
+                    <div class="spec-card">
+                        <div class="spec-card__title">Specifikace 27DDG</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">cca 300
+                                    osob</span></li>
+                            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">170,0 m</span>
+                            </li>
+                            <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">22,2 m</span></li>
+                            <li><span class="spec-list__key">Výtlak</span><span class="spec-list__val">8 200 tun
+                                    (standardní) / 10 250 tun (plný)</span></li>
+                            <li><span class="spec-list__key">Bojový systém</span><span class="spec-list__val">Aegis
+                                    Baseline J7</span></li>
+                            <li><span class="spec-list__key">Kapacita VLS</span><span class="spec-list__val">96x šachet
+                                    Mk 41</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Země operátorů</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">🇯🇵 Japonsko (JMSDF)</span><span class="spec-list__val">2
+                                    kusy v aktivní službě</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Bojové výkony</div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Protiraketová obrana</span><span>98%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:98%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Manévrovatelnost</span><span>80%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:80%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Výzbroj</span><span>90%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:90%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Elektronika</span><span>95%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="daring" class="section section--dark">
+        <div class="container">
+            <div class="section-title reveal">
+                <span class="eyebrow">Detailní pohled</span>
+                <h2>Třída Daring (Type 45)</h2>
+            </div>
+            <div class="detail-layout reveal">
+                <div>
+                    <img class="ac-detail-img" src="fotky/daring_(type 45)_2.jpg" alt="Torpédoborec Type 45"
+                        loading="lazy" />
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+                    <p>Torpédoborce Type 45 byly navrženy speciálně pro zajištění neproniknutelné protivzdušné ochrany
+                        pro britské flotily a letadlové lodě. První plavidlo HMS Daring vstoupilo do služby v roce 2009.
+                        Celkem bylo postaveno 6 lodí.</p>
+                    <p>Lodě měly zpočátku problémy s poruchovostí inovativního mezichlazeného elektrického pohonu v
+                        teplých vodách, což bylo následně vyřešeno rozsáhlým modernizačním programem PIP instalací
+                        nových dieselgenerátorů.</p>
+
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+                    <div class="accordion">
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Radar SAMPSON a systém Sea Viper <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Hlavní oboustranný rotační radar SAMPSON je umístěn
+                                    na vrcholu vysokého stěžně. Dokáže sledovat objekty o velikosti kriketového míčku
+                                    letící trojnásobnou rychlostí zvuku na vzdálenost stovek kilometrů a navádět na ně
+                                    pokročilé střely Aster 15 a Aster 30.</div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Stealth geometrie trupu <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Trup a boční stěny nástavby mají čisté plochy s
+                                    přesným úhlem sklonu bez zbytečných výstupků. To dramaticky snižuje odraz lodi na
+                                    radarech nepřítele a ztěžuje její zaměření protilodními střelami.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-sidebar">
+                    <div class="spec-card">
+                        <div class="spec-card__title">Specifikace Type 45</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">191 osob</span>
+                            </li>
+                            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">152,4 m</span>
+                            </li>
+                            <li><span class="spec-list__key">Šířka</span><span class="spec-list__val">21,2 m</span></li>
+                            <li><span class="spec-list__key">Výtlak</span><span class="spec-list__val">8 500 tun
+                                    (plný)</span></li>
+                            <li><span class="spec-list__key">Protivzdušné střely</span><span
+                                    class="spec-list__val">Aster 10 / Aster 30</span></li>
+                            <li><span class="spec-list__key">Odpalovací systém</span><span class="spec-list__val">48x
+                                    buňky Sylver A50</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Země operátorů</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">🇬🇧 Velká Británie</span><span class="spec-list__val">6
+                                    kusů v aktivní službě</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Bojové výkony</div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Protivzdušná obrana</span><span>97%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:97%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Manévrovatelnost</span><span>85%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Výzbroj</span><span>78%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:78%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Elektronika</span><span>94%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:94%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="charles" class="section section--dark">
+        <div class="container">
+            <div class="section-title reveal">
+                <span class="eyebrow">Detailní pohled</span>
+                <h2>Charles de Gaulle (R91)</h2>
+            </div>
+            <div class="detail-layout reveal">
+                <div>
+                    <img class="ac-detail-img" src="fotky/charles_de_gaulle_(r91)_2.jpg" alt="Charles de Gaulle" loading="lazy" />
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+                    <p>Charles de Gaulle je vlajkovou lodí francouzského námořnictva a jedinou jadernou letadlovou lodí
+                        postavenou mimo námořnictvo USA. Do služby vstoupila v roce 2001 po dlouhém vývoji plném
+                        technologických výzev.</p>
+                    <p>Na rozdíl od britských lodí využívá klasický americký parní katapultovací systém C-13-3, což
+                        Francii umožňuje provozovat těžké stíhací letouny Rafale M a americké letouny včasné výstrahy
+                        E-2C Hawkeye.</p>
+
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+                    <div class="accordion">
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Jaderné reaktory K15 <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Dva tlakovodní reaktory poskytují lodi neomezený
+                                    operační dosah. Loď musí měnit jaderné palivo pouze jednou za 7 až 10 let, což z ní
+                                    dělá klíčový nástroj francouzské projekce síly kdekoli na planetě.</div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Uspořádání CATOBAR a stabilizace <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Koncept Catapult Assisted Take-Off Barrier Arrested
+                                    Recovery umožňuje start plně naložených bojových letadel. Loď je navíc vybavena
+                                    aktivním počítačově řízeným stabilizačním systémem SATRAP, který minimalizuje
+                                    naklánění lodi na vlnách.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-sidebar">
+                    <div class="spec-card">
+                        <div class="spec-card__title">Specifikace R91</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">1 350 osob + 600
+                                    (letecká složka)</span></li>
+                            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">261,5 m</span>
+                            </li>
+                            <li><span class="spec-list__key">Výtlak</span><span class="spec-list__val">42 500 tun
+                                    (plný)</span></li>
+                            <li><span class="spec-list__key">Letecká skupina</span><span class="spec-list__val">30-40
+                                    letadel (Rafale M, E-2C, vrtulníky)</span></li>
+                            <li><span class="spec-list__key">Max. rychlost</span><span class="spec-list__val">50 km/h
+                                    (27 uzlů)</span></li>
+                            <li><span class="spec-list__key">Katapulty</span><span class="spec-list__val">2x parní
+                                    katapulty C13-3</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Země operátorů</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">🇫🇷 Francie</span><span class="spec-list__val">1 kus v
+                                    aktivní službě</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Bojové výkony</div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Letecká síla</span><span>88%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:88%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Soběstačnost</span><span>95%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:95%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Výzbroj</span><span>50%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:50%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Elektronika</span><span>90%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ford" class="section section--dark">
+        <div class="container">
+            <div class="section-title reveal">
+                <span class="eyebrow">Detailní pohled</span>
+                <h2>USS Gerald R. Ford</h2>
+            </div>
+            <div class="detail-layout reveal">
+                <div>
+                    <img class="ac-detail-img" src="fotky/uss_gerald_r._ford_2.jpg" alt="USS Gerald R. Ford" loading="lazy" />
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Historie a vývoj</h3>
+                    <p>USS Gerald R. Ford (CVN-78) je první lodí nové stejnojmenné třídy amerických superletadlových
+                        lodí s jaderným pohonem, navržené jako nástupce legendární třídy Nimitz. Do služby vstoupila v
+                        roce 2017 a stala se nejdražší válečnou lodí světa (cca 13 miliard dolarů).</p>
+                    <p>Plavidlo má identické rozměry trupu jako Nimitz, ale přináší kompletně novou vnitřní strukturu,
+                        menší a posunutý velitelský ostrov a především přechod od parních systémů k plně
+                        elektromagnetickým technologiím.</p>
+
+                    <h3 style="margin-top:1.5rem; margin-bottom:1rem;">Bojové schopnosti</h3>
+                    <div class="accordion">
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Elektromagnetický katapult EMALS <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Na rozdíl od starších parních katapultů využívá EMALS
+                                    lineární indukční elektromagnety. Systém umožňuje plynulejší zrychlení letadel, což
+                                    méně namáhá konstrukci draků stíhaček, vyžaduje méně údržby a umožňuje vypouštět jak
+                                    těžké letouny, tak velmi lehké bezpilotní drony.</div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <button class="accordion__trigger">Zvýšená intenzita letových operací SGR <span
+                                    class="accordion__icon">▼</span></button>
+                            <div class="accordion__body">
+                                <div class="accordion__body-inner">Díky novému uspořádání paluby, pokročilým
+                                    elektromagnetickým muničním výtahům a rychlému doplňování paliva dokáže třída Ford
+                                    generovat až o 25 % více letových startů (Sortie Generation Rate) za den než třída
+                                    Nimitz, což dramaticky zvyšuje údernou sílu flotily.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-sidebar">
+                    <div class="spec-card">
+                        <div class="spec-card__title">Specifikace CVN-78</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">Posádka</span><span class="spec-list__val">cca 4 500 osob
+                                    (včetně letecké složky)</span></li>
+                            <li><span class="spec-list__key">Délka</span><span class="spec-list__val">337,0 m</span>
+                            </li>
+                            <li><span class="spec-list__key">Výška</span><span class="spec-list__val">76,0 m</span></li>
+                            <li><span class="spec-list__key">Výtlak</span><span class="spec-list__val">cca 100 000 tun
+                                    (plný)</span></li>
+                            <li><span class="spec-list__key">Kapacita letadel</span><span class="spec-list__val">75+
+                                    (F-35C, F/A-18E/F, EA-18G, drony)</span></li>
+                            <li><span class="spec-list__key">Reaktory</span><span class="spec-list__val">2x jaderný
+                                    reaktor Bechtel A1B</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Země operátorů</div>
+                        <ul class="spec-list">
+                            <li><span class="spec-list__key">🇺🇸 USA (US Navy)</span><span class="spec-list__val">1 kus
+                                    v aktivní službě (další ve výrobě)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-card__title">Bojové výkony</div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Letecká úderná síla</span><span>100%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:100%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Soběstačnost</span><span>99%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:99%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Modernost technologií</span><span>98%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:98%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header"><span>Elektronika a radary</span><span>99%</span></div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width:99%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title reveal">
+                <span class="eyebrow">Historie</span>
+                <h2>Vývoj bojových plavidel</h2>
+            </div>
+            <div style="max-width:700px; margin:0 auto;">
+                <div class="timeline reveal">
+                    <div class="timeline__item">
+                        <div class="timeline__year">1906–1918</div>
+                        <h3 class="timeline__title">Éra Dreadnoughtů a bitevních lodí</h3>
+                        <p class="timeline__text">HMS Dreadnought mění pravidla hry. Nastává věk monstrózních
+                            celoocelových bitevních lodí s těžkými děly, které dominovaly bitvě u Jutska.</p>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__year">1939–1945</div>
+                        <h3 class="timeline__title">Nástup letadlových lodí</h3>
+                        <p class="timeline__text">Bitva u Midway prokázala, že dělostřelecké lodě jsou zranitelné
+                            letadly. Letadlová loď se stává novým králem oceánů.</p>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__year">1954–1980</div>
+                        <h3 class="timeline__title">Jaderný pohon a řízené střely</h3>
+                        <p class="timeline__text">USS Nautilus zavádí nukleární pohon u ponorek. Děla na hladinových
+                            lodích jsou vytlačována radary a protilodními řízenými střelami.</p>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__year">1980–2010</div>
+                        <h3 class="timeline__title">Bojové systémy a fúze dat</h3>
+                        <p class="timeline__text">Zavedení integrovaného systému Aegis. Flotily se propojují datovými
+                            linkami a Torpédoborce se soustředí na plošnou protiraketovou obranu.</p>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__year">2010–dnes</div>
+                        <h3 class="timeline__title">Stealth plavidla a elektromagnetické zbraně</h3>
+                        <p class="timeline__text">USS Zumwalt a Gerald R. Ford. Minimalizace radarového odrazu lodí,
+                            integrace elektromagnetických katapultů, bezpilotních dronů a příprava na laserové zbraňové
+                            systémy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">⬡ Military<span>Force</span></div>
+          <p class="footer__desc">Encyklopedie vojenské techniky pro nadšence, studenty a odborníky. Nezávislý
+            vzdělávací projekt.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Navigace</div>
+          <ul class="footer__links">
+            <li><a href="index(z).html">Domů</a></li>
+            <li><a href="letectvo.html">Letectvo</a></li>
+            <li><a href="tanky.html">Tanky</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Kategorie</div>
+          <ul class="footer__links">
+            <li><a href="letectvo.html">Stíhačky</a></li>
+            <li><a href="BVP.html">BVP</a></li>
+            <li><a href="namornictvo.html">Námořnictvo</a></li>
+            <li><a href="pechota.html">Pěchota</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Informace</div>
+          <ul class="footer__links">
+            <li><a href="kontakt.html">O mně</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('mainNav');
+        hamburger.addEventListener('click', () => { const o = nav.classList.toggle('open'); hamburger.setAttribute('aria-expanded', o); });
+
+        document.querySelectorAll('.accordion__trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.accordion__item');
+                item.classList.toggle('open');
+            });
+        });
+
+        const tabs = document.querySelectorAll('.filter-tab');
+        const cardLinks = document.querySelectorAll('#aircraftGrid .ac-card-link');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const filter = tab.dataset.filter;
+                cardLinks.forEach(link => {
+                    const card = link.querySelector('.card');
+                    link.style.display = (filter === 'all' || card.dataset.cat === filter) ? '' : 'none';
+                });
+            });
+        });
+
+        const reveals = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        reveals.forEach(r => obs.observe(r));
+    </script>
+</body>
+
+</html>
